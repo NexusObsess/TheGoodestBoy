@@ -9,8 +9,8 @@ public class QuestManager : MonoBehaviour
     //public List<Quest> completedQuests = new List<Quest>();
     [SerializeField] List<Quest> possibleQuests = new List<Quest>();
 
-    List<Quest> QuestLineMain = new List<Quest>();
-    //List<List<Quest>> QuestLines;
+    public List<Quest> questLineMain = new List<Quest>();
+    List<List<Quest>> QuestLines;
 
     int currentDay = 0;
 
@@ -18,30 +18,24 @@ public class QuestManager : MonoBehaviour
     void Start()
     {
         // add all questline lists to QuestLines list
-
-        //QuestLines.Add(QuestLineMain);
-        //SortQuestLinesSender();
-
-        SortQuestLine();
-
-        SetSideQuests();
+        //QuestLines.Add(questLineMain);
+        SortQuestLinesSender();
     }
 
-    void SortQuestLine()
+    void SortQuestLinesSender()
     {
-        // check int of each quest in questline
-        // place them in order by this int
+        foreach (Quest q in possibleQuests)
+        {
+            for (int i = 0; i < possibleQuests.Count; i++)
+            {
+                if (possibleQuests[i].QuestLine != Quest.questLine.None)
+                {
+                    //questLineMain.Add(possibleQuests[i].QuestOrder);
+                    questLineMain[possibleQuests[i].QuestOrder] = possibleQuests[i];
+                }
+            }
+        }
     }
-
-    // void SortQuestLinesSender()
-    // {
-    //     SortQuestLinesReciever(QuestLineMain);
-    // }
-
-    // void SortQuestLinesReciever(List<Quest> QuestLineMain)
-    // {
-        
-    // }
 
     void NewDay()
     {
@@ -60,7 +54,7 @@ public class QuestManager : MonoBehaviour
             int randomIndex = Random.Range(0, possibleQuests.Count); // maxExclusive
             Quest randomSideQuest = possibleQuests[randomIndex];
 
-            if (randomSideQuest.questdifficulty == currentDay && randomSideQuest.QuestOrder == randomSideQuest.CurrentQuestFromLine) // check difficulty and questline
+            if (randomSideQuest.questDifficulty == currentDay) //&& randomSideQuest.QuestOrder == randomSideQuest.CurrentQuestFromLine) // check difficulty and questline
             {
                 activeQuests.Add(randomSideQuest);
                 possibleQuests.Remove(randomSideQuest);

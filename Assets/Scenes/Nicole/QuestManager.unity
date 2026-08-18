@@ -387,35 +387,25 @@ MonoBehaviour:
   activeQuests: []
   possibleQuests:
   - questName: 
-    questdifficulty: 0
+    questDescription: 
+    questDifficulty: 0
     questCompleted: 0
+    questFailed: 
+    questWon: 
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 0
     QuestType: 0
-    QuestLine: 1
-    questID: 
-    requiredAmount: 0
-    currentAmount: 0
-    QuestOrder: 2
-    CurrentQuestFromLine: 0
-  - questName: 
-    questdifficulty: 0
-    questCompleted: 0
-    QuestType: 0
-    QuestLine: 1
-    questID: 
-    requiredAmount: 0
-    currentAmount: 0
+    QuestLine: 0
+    requiredItem: {fileID: 0}
+    requiredItemAmount: 0
+    requiredEnemyAmount: 0
+    currentEnemyAmount: 0
+    questNPCID: 
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
     QuestOrder: 0
-    CurrentQuestFromLine: 0
-  - questName: 
-    questdifficulty: 0
-    questCompleted: 0
-    QuestType: 0
-    QuestLine: 1
-    questID: 
-    requiredAmount: 0
-    currentAmount: 0
-    QuestOrder: 1
-    CurrentQuestFromLine: 0
+  questLineMain: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
