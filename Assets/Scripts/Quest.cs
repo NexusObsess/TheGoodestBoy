@@ -27,15 +27,16 @@ public class Quest
 
     public enum questLine { None, Main, Baker }
     public questLine QuestLine;
-    questLine Selected;
 
     // see if can hide all variables under headings when not relevant based on questtype, originally tried to hide in inspector
 
     // for fetch
     [QuestType(questType.Fetch)] public GameObject requiredItem;
     [QuestType(questType.Fetch)] public int requiredItemAmount = 1;
+    [QuestType(questType.Fetch)] public int currentItemAmount;
 
     // for hunt
+    [QuestType(questType.Hunt)] public GameObject requiredEnemy;
     [QuestType(questType.Hunt)] public int requiredEnemyAmount;
     [QuestType(questType.Hunt)] public int currentEnemyAmount;
 
@@ -59,5 +60,5 @@ public class Quest
 
 
     // for quests in questlines
-    [QuestLineType(Quest.questLine.Main, Quest.questLine.Baker)] public int QuestOrder; // the order the quests in a quest line appear
+    [QuestLineType(Quest.questLine.Main, Quest.questLine.Baker)] public int QuestOrder = 0; // the order the quests in a quest line appear
 }

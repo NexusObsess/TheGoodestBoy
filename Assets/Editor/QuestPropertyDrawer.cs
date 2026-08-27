@@ -24,7 +24,6 @@ public class QuestPropertyDrawer : PropertyDrawer
 
         DrawProperty(ref y, position, property.FindPropertyRelative("questCompleted"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("questFailed"), spacing);
-        DrawProperty(ref y, position, property.FindPropertyRelative("questFailed"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("questWon"), spacing);
 
         DrawProperty(ref y, position, property.FindPropertyRelative("itemReward"), spacing);
@@ -231,7 +230,7 @@ public class QuestPropertyDrawer : PropertyDrawer
                 if (field == null) continue;
 
                 QuestLineTypeAttribute attribute = field.GetCustomAttribute<QuestLineTypeAttribute>();
-                if (attribute == null)continue;
+                if (attribute == null) continue;
                 if (!attribute.Matches(selectedQuestLine)) continue;
 
                 if (!hasQuestLineFields)
