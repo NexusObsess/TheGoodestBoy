@@ -6,14 +6,13 @@ using TMPro;
 public class QuestManager : MonoBehaviour
 {
     public List<Quest> activeQuests = new List<Quest>();
-    //List<Quest> toRemoveQuests = new List<Quest>();
     [SerializeField] List<Quest> possibleQuests = new List<Quest>();
-
     List<QuestLine> questLines = new List<QuestLine>();
 
     GameManager gameManager;
 
     public TextMeshProUGUI QuestResultText;
+    public List<Interactable> questLetters = new List<Interactable>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -108,26 +107,29 @@ public class QuestManager : MonoBehaviour
 
     void SetSideQuests()
     {
-        //Debug.Log("Set Side Quests");
-
         if (activeQuests.Count < 3)
         {
-            //Debug.Log("After Quest Count");
             int randomIndex = Random.Range(0, possibleQuests.Count); // maxExclusive
-            // Debug.Log(randomIndex);
             Quest randomSideQuest = possibleQuests[randomIndex];
 
-            if (randomSideQuest.questDifficulty <= gameManager.currentDay && randomSideQuest.QuestLine != Quest.questLine.Main & randomSideQuest.QuestOrder != 0) // check difficulty and questline
+            if (randomSideQuest.questDifficulty <= gameManager.currentDay && randomSideQuest.QuestLine != Quest.questLine.Main && randomSideQuest.QuestOrder == 0) // check difficulty and questline
             {
                 activeQuests.Add(randomSideQuest);
                 possibleQuests.Remove(randomSideQuest);
             }
-
             SetSideQuests();
         }
         else
         {
-            // progress
+            
+            //foreach (Quest quest in possibleQuests)
+            for (int i = 0; i < activeQuests.Count; i++)
+            {
+                Debug.Log("if loop check");
+                //questLetters.Add(activeQuests[i].questLetter);
+                questLetters[0].SetPopUp(activeQuests[i].questLetter);
+                questLetters.RemoveAt(0);
+            }
         }
     }
 

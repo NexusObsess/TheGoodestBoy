@@ -21,6 +21,7 @@ public class QuestPropertyDrawer : PropertyDrawer
         DrawProperty(ref y, position, property.FindPropertyRelative("questName"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("questDescription"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("questDifficulty"), spacing);
+        DrawProperty(ref y, position, property.FindPropertyRelative("questLetter"), spacing);
 
         DrawProperty(ref y, position, property.FindPropertyRelative("questCompleted"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("questFailed"), spacing);

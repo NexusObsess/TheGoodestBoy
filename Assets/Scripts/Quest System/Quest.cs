@@ -8,6 +8,7 @@ public class Quest
     public string questName;
     public string questDescription;
     public int questDifficulty;
+    public Sprite questLetter;
 
     [Header("Quest Outcomes")]
     public bool questCompleted = false;
