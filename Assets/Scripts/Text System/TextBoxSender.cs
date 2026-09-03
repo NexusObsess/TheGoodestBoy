@@ -8,20 +8,15 @@ public class TextBoxSender : MonoBehaviour
     public List<TextLine> DialogueTree;
     int currentOnscreenLine = 0;
     int previousOnscreenLine = 0;
-    TextBox textbox;
-    GameObject textboxobject;
+    [SerializeField] TextBox textbox;
+    [SerializeField] GameObject textboxobject;
 
     BoxCollider2D[] colliders;
-
-    void Start()
-    {
-        textbox = FindFirstObjectByType<TextBox>();
-        textboxobject = GameObject.Find("TextBox");
-    }
 
     public void DialogueSequenceStarts()
     {
         //Debug.Log("Function called");
+        textboxobject.SetActive(true);
         if (currentOnscreenLine == DialogueTree.Count) return;
         //Debug.Log("return check");
 
@@ -37,8 +32,18 @@ public class TextBoxSender : MonoBehaviour
             if (currentOnscreenLine == DialogueTree.Count)
             {
                 int tempIndex = currentOnscreenLine - 1;
-                textbox.TextClear();
-                textboxobject.SetActive(false);
+                if (textbox.typingCoroutine == null)
+                {
+                    textbox.TextClear();
+                    textboxobject.SetActive(false);
+                }
+                else
+                {
+                    StopCoroutine(textbox.typingCoroutine);
+                    textbox.mainText.text = DialogueTree[tempIndex].Line;
+
+                    //textbox.typingCoroutine = null;
+                }
 
                 colliders = FindObjectsOfType<BoxCollider2D>(true);
                 foreach (BoxCollider2D col in colliders)

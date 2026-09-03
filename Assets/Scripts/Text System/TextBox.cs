@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class TextBox : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI mainText; // the text game object itself
+    public TextMeshProUGUI mainText; // the text game object itself
     [SerializeField] TextMeshProUGUI characterText;
-    private Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
+    [SerializeField] GameObject characterTextBG;
+    public Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
     string LastestLine;
 
     public void ShowText(TextLine NextLine, TextBoxSender textsequence) // function triggered through the other scripts passing through the string in brackets
@@ -25,14 +26,23 @@ public class TextBox : MonoBehaviour
 
         LastestLine = NextLine.Line;
 
-        mainText.font = NextLine.Speaker.TextFont;
-        mainText.color = NextLine.Speaker.TextColour;
-        mainText.fontSize = NextLine.Speaker.TextSize;
+        if (NextLine.Speaker != null)
+        {
+            characterTextBG.SetActive(true);
 
-        characterText.text = NextLine.Speaker.Name;
-        characterText.font = NextLine.Speaker.TextFont;
-        characterText.color = NextLine.Speaker.TextColour;
-        characterText.fontSize = NextLine.Speaker.TextSize;
+            mainText.font = NextLine.Speaker.TextFont;
+            mainText.color = NextLine.Speaker.TextColour;
+            mainText.fontSize = NextLine.Speaker.TextSize;
+
+            characterText.text = NextLine.Speaker.Name;
+            characterText.font = NextLine.Speaker.TextFont;
+            characterText.color = NextLine.Speaker.TextColour;
+            characterText.fontSize = NextLine.Speaker.TextSize;
+        }
+        else
+        {
+            characterTextBG.SetActive(false);
+        }
 
         TextClear();
         typingCoroutine = StartCoroutine(WriteText(NextLine)); // carries the string into the coroutine
@@ -45,7 +55,12 @@ public class TextBox : MonoBehaviour
             mainText.text += NextLine.Line[i]; // adds whatever current letter of the string to what is already in the text box
             //PlayAudio(); // function for audio
 
-            float textSpeed = NextLine.TextSpeed * NextLine.Speaker.TextSpeed;
+            float textSpeed = NextLine.TextSpeed;
+            if (NextLine.Speaker != null)
+            {
+                textSpeed = textSpeed * NextLine.Speaker.TextSpeed;
+            }
+
             textSpeed = textSpeed * 0.03f;
             yield return new WaitForSeconds(textSpeed); // wait a couple frames; why a corountine not normal function
         }

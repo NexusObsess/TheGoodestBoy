@@ -9,5 +9,12 @@ public class TextLine
     public string Line;
     public enum textEffect { Normal, Addon, Shaking, InstantHide, Instant, Choice }
     public textEffect TextEffect;
+
+    public TextLine(NPC speaker, int textSpeed, string line)
+    {
+        Speaker = speaker;
+        TextSpeed = textSpeed;
+        Line = line;
+    }
     // public bool read = false;
 }

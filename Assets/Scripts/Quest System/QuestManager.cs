@@ -14,6 +14,8 @@ public class QuestManager : MonoBehaviour
     public TextMeshProUGUI QuestResultText;
     public List<Interactable> questLetters = new List<Interactable>();
 
+    [SerializeField] TextBoxSender QuestResults;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -141,14 +143,17 @@ public class QuestManager : MonoBehaviour
             {
                 Debug.Log(quest.questName + " complete!");
                 // add quest win string to Quest Result text
-                QuestResultText.text += "\n" + quest.questWon;
+                //QuestResultText.text += "\n" + quest.questWon;
+                QuestResults.DialogueTree.Add(new TextLine(null, 1, quest.questWon));
+
                 gameManager.TownMorale += quest.townMoraleIncrease;
             }
             else
             {
                 Debug.Log(quest.questName + " incomplete :(");
                 // add quest lose string to Quest Result text
-                QuestResultText.text += "\n" + quest.questFailed;
+                //QuestResultText.text += "\n" + quest.questFailed;
+                QuestResults.DialogueTree.Add(new TextLine(null, 1, quest.questFailed));
             }
 
             // randomSideQuest.QuestLine != Quest.questLine.Main
