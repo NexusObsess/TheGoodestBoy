@@ -11,10 +11,12 @@ public class QuestManager : MonoBehaviour
 
     GameManager gameManager;
 
-    public TextMeshProUGUI QuestResultText;
     public List<Interactable> questLetters = new List<Interactable>();
 
     [SerializeField] TextBoxSender QuestResults;
+
+    [SerializeField] List<TextMeshProUGUI> QuestName = new List<TextMeshProUGUI>();
+    [SerializeField] List<TextMeshProUGUI> QuestDescription = new List<TextMeshProUGUI>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -83,9 +85,25 @@ public class QuestManager : MonoBehaviour
 
     public void GiveQuestLines()
     {
+        // Quest nextMainQuest = GetNextQuest(Quest.questLine.Main);
+        // if (nextMainQuest != null)
+        // {
+        //     activeQuests.Add(nextMainQuest);
+        //     possibleQuests.Remove(nextMainQuest);
+        // }
+
+        if (Quest.questLine.Main == null)
+        {
+            Debug.LogError("Quest.questLine.Main is null");
+            return;
+        }
+
         Quest nextMainQuest = GetNextQuest(Quest.questLine.Main);
+
         if (nextMainQuest != null)
         {
+            Debug.Log(nextMainQuest.questName);
+            Debug.Log(activeQuests);
             activeQuests.Add(nextMainQuest);
             possibleQuests.Remove(nextMainQuest);
         }
@@ -123,14 +141,16 @@ public class QuestManager : MonoBehaviour
         }
         else
         {
-            
             //foreach (Quest quest in possibleQuests)
             for (int i = 0; i < activeQuests.Count; i++)
             {
                 Debug.Log("if loop check");
                 //questLetters.Add(activeQuests[i].questLetter);
-                questLetters[0].SetPopUp(activeQuests[i].questLetter);
-                questLetters.RemoveAt(0);
+                questLetters[i].SetPopUp(activeQuests[i].questLetter);
+                //questLetters.RemoveAt(0);
+
+                QuestName[i].text = activeQuests[i].questName;
+                QuestDescription[i].text = activeQuests[i].questDescription;
             }
         }
     }
@@ -163,7 +183,13 @@ public class QuestManager : MonoBehaviour
             }
         }
 
-        activeQuests = null;
+        for (int i = 0; i < QuestName.Count; i++)
+        {
+            QuestName[i].text = "";
+            QuestDescription[i].text = "";
+        }
+
+        activeQuests.Clear();
     }
 
     public void CompleteQuestLines(Quest.questLine line, Quest checkQuest)

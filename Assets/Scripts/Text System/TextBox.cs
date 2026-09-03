@@ -42,6 +42,7 @@ public class TextBox : MonoBehaviour
         else
         {
             characterTextBG.SetActive(false);
+            // returning to default
         }
 
         TextClear();
