@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour // still cooking
 {
     [SerializeField] GameObject readQuestLetter;
     SpriteRenderer spriteRenderer;

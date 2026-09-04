@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class QuestLineTypeAttribute : PropertyAttribute
+public class QuestLineTypeAttribute : PropertyAttribute // for weird editor stuff
 {
     public Quest.questLine[] QuestLines { get; }
 

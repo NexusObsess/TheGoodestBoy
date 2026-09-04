@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-[System.Serializable]
+[System.Serializable] // add more quests through list on the questmanager
 public class Quest
 {
     [Header("Quest Basics")]
@@ -12,6 +12,7 @@ public class Quest
 
     [Header("Quest Outcomes")]
     public bool questCompleted = false;
+    public bool conditionsMet = false;
     public string questFailed;
     public string questWon;
 

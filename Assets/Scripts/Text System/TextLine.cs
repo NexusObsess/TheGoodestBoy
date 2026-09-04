@@ -4,17 +4,17 @@ using UnityEngine;
 public class TextLine
 {
     [Header("Dialogue Customization")]
-    public NPC Speaker;
-    public int TextSpeed = 1;
-    public string Line;
-    public enum textEffect { Normal, Addon, Shaking, InstantHide, Instant, Choice }
+    public NPC Speaker; // who is talking
+    public int TextSpeed = 1; // how fast the text appears, times by the npcs text speed in the textbox (more flexiable)
+    public string Line; // actual text
+    public enum textEffect { Normal, Addon, Shaking, InstantHide, Instant, Choice } // not currently implemented, may be added as needed
     public textEffect TextEffect;
 
-    public TextLine(NPC speaker, int textSpeed, string line)
+    public TextLine(NPC speaker, int textSpeed, string line) // so you can add individual strings to textboxsender
     {
         Speaker = speaker;
         TextSpeed = textSpeed;
         Line = line;
     }
-    // public bool read = false;
+    // i.e., QuestResults.DialogueTree.Add(new TextLine(speaker, speed, string));
 }

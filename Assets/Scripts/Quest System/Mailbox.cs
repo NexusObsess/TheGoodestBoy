@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mailbox : MonoBehaviour
+public class Mailbox : MonoBehaviour // and nobody came
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
