@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour
     public int currentDay = 0; // what ingame day is it - used for determining the difficulty of the quests the player can get and for ui
     public float TownMorale = 100; // determines game ending and some flavour text
     public float TownMoraleDailyDecrease; // how much the morale of the town decreases every ingame day
+    public float KnightHealth;
 
     [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
 
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header ("Text trees")]
     [SerializeField] TextTreeChooser EndTownMorale; // picks which text tree checking in on the town based on the town morale int at the end of every ingame day
+    public bool TextActive = false;
 
     void Start()
     {
@@ -49,7 +52,14 @@ public class GameManager : MonoBehaviour
         // visuals
         // maybe move textbox trigger here from texttreechooser?
 
+        StartCoroutine(TextBoxCheck());
         // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
+    }
+
+    IEnumerator TextBoxCheck()
+    {
+        yield return new WaitUntil(() => !TextActive);
+        Debug.Log("TEXTBOX IS OVER PARTY");
     }
 
     void UpdatePauseStats()

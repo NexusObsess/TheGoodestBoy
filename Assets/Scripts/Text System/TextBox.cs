@@ -9,7 +9,7 @@ public class TextBox : MonoBehaviour
     public TextMeshProUGUI mainText; // the text game object itself
     [SerializeField] TextMeshProUGUI characterText; // text of speaking character
     [SerializeField] GameObject characterTextBG; // only so if no speaker is set, so i can be removed
-    public Coroutine typingCoroutine; // Coroutine that types the string over the course of a few seconds
+    public Coroutine typingCoroutine = null; // Coroutine that types the string over the course of a few seconds
     string LastestLine; // for when player is clicking through text fast
 
     public void ShowText(TextLine NextLine, TextBoxSender textsequence) // function triggered through the other scripts passing through the string in brackets
@@ -17,9 +17,9 @@ public class TextBox : MonoBehaviour
         if (typingCoroutine != null) // if the typing coroutine is currently going, for when the player is clicking through text very fast
         {
             StopCoroutine(typingCoroutine); // stops it
+            typingCoroutine = null;
             mainText.text = LastestLine; // straight up shows lastest line
 
-            typingCoroutine = null;
             textsequence.GoBackLine(); // goes back line so the textbox sender doesn't skip the next line
             return; // doesn't continue
         }
@@ -87,6 +87,7 @@ public class TextBox : MonoBehaviour
         if (typingCoroutine != null) // Stop ongoing coroutines
         {
             StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
         }
         mainText.text = ""; // removes what currently in text box
     }

@@ -13,11 +13,17 @@ public class TextBoxSender : MonoBehaviour
 
     BoxCollider2D[] colliders; // prevents player from clicking anything etc while the textbox is happening
 
+    GameManager gamemanager;
+
     public void DialogueSequenceStarts() // called from other scripts
     {
         //Debug.Log("Function called");
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
         //Debug.Log("return check");
+
+        gamemanager = FindFirstObjectByType<GameManager>();
+        gamemanager.TextActive = true;
+
         textboxobject.SetActive(true); // textbox appears on screen
         textbox.ShowText(DialogueTree[currentOnscreenLine], this); // sends first line to text box
         currentOnscreenLine++; // 1
@@ -25,7 +31,13 @@ public class TextBoxSender : MonoBehaviour
 
     public void NextLine(InputAction.CallbackContext context) // called when player pushed next line button on the player input
     {
-        if (context.performed && DialogueTree.Count != 0) // if dialogue tree is not empty
+        gamemanager = FindFirstObjectByType<GameManager>();
+        if (DialogueTree == null)
+        {
+            Debug.Log("NULL");
+            return;
+        }
+        if (context.performed && DialogueTree.Count != 0 && gamemanager.TextActive) // if dialogue tree is not empty
         {
             // Debug.Log("Pressed");
             if (currentOnscreenLine == DialogueTree.Count) // if the dialogue tree is finished
@@ -35,6 +47,9 @@ public class TextBoxSender : MonoBehaviour
                 {
                     textbox.TextClear(); // clears text
                     textboxobject.SetActive(false); // deactivates the textbox
+                    gamemanager.TextActive = false;
+                    currentOnscreenLine = 0;
+                    previousOnscreenLine = 0;
                 }
                 else // meaning if the player is just clicking through the text quickly, was being weird on last line otherwise
                 {
