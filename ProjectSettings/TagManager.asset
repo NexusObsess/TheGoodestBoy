@@ -7,6 +7,8 @@ TagManager:
   - Quest Letter
   - Mailbox
   - VCAM
+  - PlayerAttack
+  - Enemy
   layers:
   - Default
   - TransparentFX
