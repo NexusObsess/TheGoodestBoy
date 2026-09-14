@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Quest Letter
   - Mailbox
+  - VCAM
   layers:
   - Default
   - TransparentFX
@@ -13,6 +14,8 @@ TagManager:
   - 
   - Water
   - UI
+  - Player
+  - Camera
   - 
   - 
   - 
@@ -20,9 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Background
   - 
   - 
   - 
