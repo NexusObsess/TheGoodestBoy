@@ -40,14 +40,10 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("PlayerAttack"))
         {
             Debug.Log("Enemy hit");
-
+            EnemyTakeDamage(player.GetComponent<PlayerStats>().swordDamage);
         }
 
-        //if (collision.CompareTag("Player"))
-        //{
-
-           
-        //}
+   
     }
 
     public void EnemyTakeDamage(float damage)

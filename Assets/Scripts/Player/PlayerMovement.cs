@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform spawnPoint;
 
     [SerializeField] private float moveSpeed = 3f;
-    [SerializeField] private float sprintSpeed = 1.5f;
+    //[SerializeField] private float sprintSpeed = 1.5f;
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
