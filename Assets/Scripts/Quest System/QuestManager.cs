@@ -131,6 +131,10 @@ public class QuestManager : MonoBehaviour
                 activeQuests.Add(randomSideQuest);
                 possibleQuests.Remove(randomSideQuest);
             }
+            else
+            {
+                Debug.Log(randomSideQuest.questDifficulty + randomSideQuest.QuestLine + randomSideQuest.QuestOrder);
+            }
             SetSideQuests(); // starts function again
         }
         else // after getting three quests
@@ -255,6 +259,30 @@ public class QuestManager : MonoBehaviour
                 if (checkQuest.QuestLine == Quest.questLine.Main) return; // player cannot fail the main quest line, they just get the same quest again next ingame day
                 RemoveQuestLine(questLine); // player fails questline and will no longer get subsequent quests in the quest line
             }
+        }
+    }
+
+    public void ToggleComplete1()
+    {
+        if (activeQuests.Count != 0)
+        {
+            activeQuests[0].questCompleted = !activeQuests[0].questCompleted;
+        }
+    }
+
+    public void ToggleComplete2()
+    {
+        if (activeQuests.Count != 0)
+        {
+            activeQuests[1].questCompleted = !activeQuests[1].questCompleted;
+        }
+    }
+
+    public void ToggleComplete3()
+    {
+        if (activeQuests.Count != 0)
+        {
+            activeQuests[2].questCompleted = !activeQuests[2].questCompleted;
         }
     }
 
