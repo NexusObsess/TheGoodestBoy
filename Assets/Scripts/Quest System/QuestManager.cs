@@ -11,7 +11,7 @@ public class QuestManager : MonoBehaviour
 
     GameManager gameManager;
 
-    public List<Interactable> questLetters = new List<Interactable>(); // game objects that trigger the letter for the active quests
+    MailBox mailbox;
 
     [SerializeField] TextBoxSender QuestResults; // sends the quest win or lose text to textbox
 
@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
         }
 
         gameManager = FindFirstObjectByType<GameManager>();
+        mailbox = FindFirstObjectByType<MailBox>();
 
         SortQuestLines();
     }
@@ -137,7 +138,9 @@ public class QuestManager : MonoBehaviour
             for (int i = 0; i < activeQuests.Count; i++) // repeats for every active quests
             {
                 //Debug.Log("if loop check");
-                questLetters[i].SetPopUp(activeQuests[i].questLetter); // assigns one of the quest letter game objects to the sprite attached to the active quest
+                //mailbox.QuestLetterSprite.Add(activeQuests[i].questLetter);
+                //questLetters[i].SetPopUp(activeQuests[i].questLetter); // assigns one of the quest letter game objects to the sprite attached to the active quest
+                mailbox.QuestLetterSprite.Add(new QuestLetter(activeQuests[i].questLetter, false));
 
                 // so the player can see quests on pause menu
                 QuestName[i].text = activeQuests[i].questName;
@@ -146,21 +149,76 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public void HuntCheck (Enemy enemy)
+    { 
+       foreach (Quest q in activeQuests)
+       {  
+            if (q.QuestType == Quest.questType.Hunt)
+            { 
+                if (enemy == q.requiredEnemy)
+                { 
+                    q.currentEnemyAmount ++;
+
+                    if (q.requiredEnemyAmount == q.currentEnemyAmount)
+                    {
+                        q.questCompleted = true;
+                    }
+                }
+            } 
+        }
+    }
+
+    public void FetchCheck (Item item)
+    {
+       foreach (Quest q in activeQuests)
+       {  
+            if (q.QuestType == Quest.questType.Fetch)
+            { 
+                if (item == q.requiredItem)
+                { 
+                    q.currentItemAmount ++;
+
+                    if (q.requiredItemAmount == q.currentItemAmount)
+                    {
+                        q.questCompleted = true;
+                    }
+                }
+            } 
+        } 
+    }
+
+    public void TalkCheck (NPC npc)
+    {
+       foreach (Quest q in activeQuests)
+       {  
+            if (q.QuestType == Quest.questType.Talk)
+            { 
+                if (npc.Name == q.questNPCID)
+                { 
+                    q.questCompleted = true;
+                }
+            } 
+        } 
+    }
+
+    // Location check
+
     public void EndQuestCheck() // called after every ingame day
     {
         foreach (Quest quest in activeQuests) // repeat for every active quest
         {
             if (quest.questCompleted == true) // quest complete check
             {
-                Debug.Log(quest.questName + " complete!");
+                //Debug.Log(quest.questName + " complete!");
                 QuestResults.DialogueTree.Add(new TextLine(null, 1, quest.questWon)); // add quest win string to Quest Result text tree
 
                 // give player any quest rewards
                 gameManager.TownMorale += quest.townMoraleIncrease;
+                gameManager.KnightHealth += quest.knightHealthIncrease;
             }
             else
             {
-                Debug.Log(quest.questName + " incomplete :(");
+                //Debug.Log(quest.questName + " incomplete :(");
                 QuestResults.DialogueTree.Add(new TextLine(null, 1, quest.questFailed)); // add quest lose string to Quest Result text tree
             }
 
@@ -186,7 +244,7 @@ public class QuestManager : MonoBehaviour
         foreach (Quest quest in questLine.quests) // repeat for each quest in questLine list
         {
             if (checkQuest != quest) return; // if quest in the questline is not the quest sent, try again
-            Debug.Log("Found match"); // found quest in the questline that matches the quest sent
+            // Debug.Log("Found match"); // found quest in the questline that matches the quest sent
 
             if (checkQuest.questCompleted == true) // if the quest sent was complete, mark the corrosponding quest in the questline as complete too for the check next ingame day
             {

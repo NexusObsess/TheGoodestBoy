@@ -9,6 +9,7 @@ public class PlayerMovementTemp : MonoBehaviour // trying to figure stuff out
     private Vector2 input;
 
     GameObject MailBox;
+    MailBox mailboxscript;
 
     bool canInteract = false;
 
@@ -18,6 +19,7 @@ public class PlayerMovementTemp : MonoBehaviour // trying to figure stuff out
         rb.freezeRotation = true;
 
         MailBox = GameObject.Find("Mailbox");
+        mailboxscript = FindFirstObjectByType<MailBox>();
         MailBox.GetComponent<BoxCollider2D>();
     }
 
@@ -45,6 +47,7 @@ public class PlayerMovementTemp : MonoBehaviour // trying to figure stuff out
         if (canInteract)
         {
             Debug.Log("Interact");
+            mailboxscript.Activate();
         }
     }
 

@@ -19,6 +19,7 @@ public class Quest
     [Header("Quest Reward")]
     public GameObject itemReward;
     public int townMoraleIncrease;
+    public int knightHealthIncrease;
     // stat buff?
     // money?
 
@@ -33,17 +34,20 @@ public class Quest
     // see if can hide all variables under headings when not relevant based on questtype, originally tried to hide in inspector
 
     // for fetch
-    [QuestType(questType.Fetch)] public GameObject requiredItem;
+    [QuestType(questType.Fetch)] public Item requiredItem;
+    [QuestType(questType.Fetch)] public GameObject requiredItemPF;
     [QuestType(questType.Fetch)] public int requiredItemAmount = 1;
     [QuestType(questType.Fetch)] public int currentItemAmount;
 
     // for hunt
-    [QuestType(questType.Hunt)] public GameObject requiredEnemy;
+    [QuestType(questType.Hunt)] public Enemy requiredEnemy;
+    [QuestType(questType.Hunt)] public GameObject requiredEnemyPF;
     [QuestType(questType.Hunt)] public int requiredEnemyAmount;
     [QuestType(questType.Hunt)] public int currentEnemyAmount;
 
     // for talk
     [QuestType(questType.Talk)] public string questNPCID;
+    [QuestType(questType.Talk)] public GameObject questNPCIDPF;
     // maybe multiple in a list?
     // reference in NPC script
 

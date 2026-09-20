@@ -16,12 +16,9 @@ public class TextBox : MonoBehaviour
     {
         if (typingCoroutine != null) // if the typing coroutine is currently going, for when the player is clicking through text very fast
         {
-            StopCoroutine(typingCoroutine); // stops it
-            typingCoroutine = null;
-            mainText.text = LastestLine; // straight up shows lastest line
-
             textsequence.GoBackLine(); // goes back line so the textbox sender doesn't skip the next line
-            return; // doesn't continue
+            TextStop();
+            return;
         }
 
         LastestLine = NextLine.Line; // for above check
@@ -68,6 +65,21 @@ public class TextBox : MonoBehaviour
         }
         
         typingCoroutine = null; // when the line is fully typed, coroutine is null for checks in other functions
+    }
+
+    public void StopCoroutine()
+    {
+        StopCoroutine(typingCoroutine); // stops corountine, may replace?
+        typingCoroutine = null;
+    }
+
+    public void TextStop()
+    {
+        StopCoroutine(typingCoroutine); // stops it
+        typingCoroutine = null;
+        mainText.text = LastestLine; // straight up shows lastest line
+
+        return; // doesn't continue
     }
 
     // public void PlayAudio()
