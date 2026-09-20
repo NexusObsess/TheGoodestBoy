@@ -150,7 +150,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DungeonGenerator
   size: {x: 5, y: 5}
   startPosition: 0
-  room: {fileID: 1258659080535803346, guid: 2483ca3f3a7dbfe44aa99caaccadbcba, type: 3}
+  rooms:
+  - room: {fileID: 1258659080535803346, guid: 2483ca3f3a7dbfe44aa99caaccadbcba, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 5, y: 5}
+    obligatory: 0
+  - room: {fileID: 1258659080535803346, guid: 2483ca3f3a7dbfe44aa99caaccadbcba, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 1, y: 1}
+    obligatory: 1
+  - room: {fileID: 3703150627398991278, guid: d8e03233d29a0e349afe635684774d5a, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 5, y: 5}
+    obligatory: 0
   offset: {x: 21, y: 21}
 --- !u!4 &206425977
 Transform:
@@ -1115,6 +1127,10 @@ PrefabInstance:
     - target: {fileID: 5711624593023592737, guid: 7309dad4844ac49479f32616b932b0b4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714270231003665163, guid: 7309dad4844ac49479f32616b932b0b4, type: 3}
+      propertyPath: TownMorale
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
