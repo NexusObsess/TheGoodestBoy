@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3319901155863625686}
   - component: {fileID: 6373939291313493915}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyFootprint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,13 +103,13 @@ GameObject:
   - component: {fileID: 139605101872726483}
   - component: {fileID: 458844070286809772}
   - component: {fileID: 3657591510175452889}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4805260856734614404
 Transform:
   m_ObjectHideFlags: 0

@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //playerSpawn = spawnPoint.position;
-        //transform.position = playerSpawn;
+        playerSpawn = spawnPoint.position;
+        transform.position = playerSpawn;
 
         rb = GetComponent<Rigidbody2D>();
     }

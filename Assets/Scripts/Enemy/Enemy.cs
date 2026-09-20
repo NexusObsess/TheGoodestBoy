@@ -43,11 +43,11 @@ public class Enemy : MonoBehaviour
 
         }
 
-        //if (collision.CompareTag("Player"))
-        //{
+        if (collision.CompareTag("Player"))
+        {
 
-           
-        //}
+            Debug.Log("Player Hit");
+        }
     }
 
     public void EnemyTakeDamage(float damage)
