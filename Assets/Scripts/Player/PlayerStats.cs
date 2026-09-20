@@ -7,7 +7,11 @@ public class PlayerStats : MonoBehaviour
 
     public float swordDamage = 1f;
 
-
+    // Animation and Sword Reference
+    [Header("Sword Reference")]
+    private Animator anim;
+    [SerializeField] GameObject swordObj;
+    private SpriteRenderer sRenderer;
 
     public void Start()
     {
