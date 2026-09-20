@@ -16,6 +16,9 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject room;
     public Vector2 offset; //distance between each room
 
+    QuestManager questManager;
+    private string assignSpawnGround = "SpawnFloor";
+    public List<Cell> AccessableRooms = new List<Cell>();
 
     List<Cell> board;
 
@@ -29,6 +32,14 @@ public class DungeonGenerator : MonoBehaviour
         
     }
 
+    public void Spawner()
+    {
+        
+        foreach (Quest q in questManager.activeQuests)
+        {
+            
+        }
+    }
 
 
     void GenerateDungeon()
@@ -38,12 +49,14 @@ public class DungeonGenerator : MonoBehaviour
         {
             for (int j = 0; j < size.y; j++)
             {
-                var newRoom = Instantiate(room,new Vector2(i * offset.x,-j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
-                newRoom.UpdateRoom(board[Mathf.FloorToInt(i+j*size.x)].status);
-                newRoom.name += " " + i + "-" + j;
+                Cell currentCell = board[Mathf.FloorToInt(i + j * size.x)];
+                if (currentCell.Visited)
+                {
+                    var newRoom = Instantiate(room,new Vector2(i * offset.x,-j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
+                    newRoom.UpdateRoom(currentCell.status);
+                    newRoom.name += " " + i + "-" + j;
+                }
             }
-
-
         }
     }
 
@@ -72,6 +85,8 @@ public class DungeonGenerator : MonoBehaviour
 
             board[currentCell].Visited = true;
 
+           
+
             if (currentCell == board.Count - 1)
             {
                 break;
@@ -89,12 +104,13 @@ public class DungeonGenerator : MonoBehaviour
                 else
                 {
                     currentCell = path.Pop();
+                    
                 }
             }
             else
             {
                 path.Push(currentCell);
-
+              
                 int newCell = neighbors[Random.Range(0, neighbors.Count)];
 
                 if (newCell > currentCell)
@@ -134,6 +150,7 @@ public class DungeonGenerator : MonoBehaviour
 
         }
         GenerateDungeon();
+       
     }
 
     List<int> CheckNeighbours(int cell)
