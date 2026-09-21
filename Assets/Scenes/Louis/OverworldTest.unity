@@ -24661,7 +24661,7 @@ GameObject:
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &293101282
 Transform:
   m_ObjectHideFlags: 0
@@ -25282,6 +25282,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5101432231231015141, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7149434199405454261, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: m_Name
       value: PlayerTest
@@ -25356,14 +25360,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 139605101872726483, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
-      propertyPath: iFramesDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 139605101872726483, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
-      propertyPath: numberOfFlashes
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4805260856734614404, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8
@@ -25464,14 +25460,6 @@ PrefabInstance:
     - target: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-      propertyPath: iFramesDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-      propertyPath: numberOfFlashes
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

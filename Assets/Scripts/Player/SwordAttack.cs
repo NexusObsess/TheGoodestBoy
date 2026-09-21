@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
@@ -21,14 +22,20 @@ public class SwordAttack : MonoBehaviour
 
     void Attack()
     {
-
+        Debug.Log("Attacked");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        List<GameObject> enemies = new List<GameObject>();
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit " + enemy.name);
-            enemy.TryGetComponent<Enemy>(out Enemy enemyStats);
-            enemyStats.EnemyTakeDamage(pStats.swordDamage);
+            if (!enemies.Contains(enemy.gameObject))
+            {
+                Debug.Log("We hit " + enemy.name);
+                enemy.TryGetComponent<Enemy>(out Enemy enemyStats);
+                enemyStats.EnemyTakeDamage(pStats.swordDamage);
+                enemies.Add(enemy.gameObject);
+            }
         }
 
     }
