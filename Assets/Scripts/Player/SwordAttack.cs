@@ -9,20 +9,14 @@ public class SwordAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (rb == null)
         {
-            Attack();
+            rb = GetComponent<Rigidbody2D>();
         }
-
+        Attack();
     }
 
     void Attack()
