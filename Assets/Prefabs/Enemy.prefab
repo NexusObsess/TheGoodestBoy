@@ -53,8 +53,8 @@ MonoBehaviour:
   cooldown: 0
   damage: 1
   eSprite: {fileID: 5411617574882076903}
-  iFramesDuration: 0
-  numberOfFlashes: 0
+  iFramesDuration: 0.5
+  numberOfFlashes: 1
   player: {fileID: 0}
 --- !u!50 &1999409083565003740
 Rigidbody2D:
@@ -82,7 +82,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1035074328122142652
 BoxCollider2D:
   m_ObjectHideFlags: 0

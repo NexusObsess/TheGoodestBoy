@@ -24727,11 +24727,6 @@ Transform:
   - {fileID: 246065650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &612980810 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5101432231231015141, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-  m_PrefabInstance: {fileID: 5182886043943934408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1169770676
 GameObject:
   m_ObjectHideFlags: 0
@@ -25243,38 +25238,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 940521528599072507, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: pSprite
-      value: 
-      objectReference: {fileID: 612980810}
-    - target: {fileID: 940521528599072507, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: iFramesDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 940521528599072507, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: numberOfFlashes
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3412568961308922378, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 293101282}
-    - target: {fileID: 3678709691982958837, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: m_Size.x
-      value: 0.6351057
-      objectReference: {fileID: 0}
-    - target: {fileID: 3678709691982958837, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: m_Size.y
-      value: 0.43359685
-      objectReference: {fileID: 0}
-    - target: {fileID: 3678709691982958837, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.03812331
-      objectReference: {fileID: 0}
-    - target: {fileID: 3678709691982958837, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.043569475
-      objectReference: {fileID: 0}
     - target: {fileID: 4984534418631498513, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -25389,6 +25356,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 139605101872726483, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
+      propertyPath: iFramesDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 139605101872726483, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
+      propertyPath: numberOfFlashes
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4805260856734614404, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8
@@ -25489,6 +25464,14 @@ PrefabInstance:
     - target: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+      propertyPath: iFramesDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+      propertyPath: numberOfFlashes
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
