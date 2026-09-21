@@ -56,6 +56,7 @@ public class PlayerStats : MonoBehaviour
         if (currentHealth <= 0f)
         {
             Debug.Log("You died");
+            EndGame();
         }
     }
 
@@ -73,4 +74,18 @@ public class PlayerStats : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }
 
+
+
+
+
+    public void EndGame()
+    {
+        // For standalone built versions of the game
+        Application.Quit();
+
+        // For testing inside the Unity Editor
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }
