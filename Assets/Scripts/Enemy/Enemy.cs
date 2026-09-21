@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float cooldown;
     public float damage = 1f;
 
+    public GameObject eSprite;
     private SpriteRenderer sRenderer;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
 
+        sRenderer = eSprite.GetComponent<SpriteRenderer>();
         currentTime = cooldown;
     }
 

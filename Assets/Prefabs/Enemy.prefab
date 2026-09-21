@@ -52,6 +52,7 @@ MonoBehaviour:
   speed: 1
   cooldown: 0
   damage: 1
+  eSprite: {fileID: 5411617574882076903}
   iFramesDuration: 0
   numberOfFlashes: 0
   player: {fileID: 0}
