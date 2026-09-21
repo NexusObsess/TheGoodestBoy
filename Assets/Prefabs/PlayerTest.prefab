@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2740735658106928555}
   m_Layer: 6
   m_Name: SwordHitbox
-  m_TagString: Untagged
+  m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,10 +466,10 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   swordDamage: 1
-  pSprite: {fileID: 0}
+  pSprite: {fileID: 5101432231231015141}
   swordObj: {fileID: 3813833656579838726}
-  iFramesDuration: 0
-  numberOfFlashes: 0
+  iFramesDuration: 1
+  numberOfFlashes: 2
 --- !u!114 &3414287728024288445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.02586934, y: 0.027230889}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -640,7 +640,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.8774609, y: 0.57519764}
   m_EdgeRadius: 0
 --- !u!61 &7558174479974722015
 BoxCollider2D:
@@ -676,7 +676,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.047654122, y: -0.035400167}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -686,7 +686,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.65416735, y: 0.44448927}
   m_EdgeRadius: 0
 --- !u!1 &7897461667115684565
 GameObject:
