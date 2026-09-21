@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
+using static UnityEditor.PlayerSettings;
 
 public class SpawnerScript : MonoBehaviour
 {
@@ -8,22 +10,26 @@ public class SpawnerScript : MonoBehaviour
 
     [SerializeField] private GameObject swarmerPrefab;
     [SerializeField] private GameObject bigSwarmerPrefab;
-    GameManager gameManager;
+    private GameManager gameManager;
     private float MaxEnemies = 6;
-    private int EnemiesSpawned;
+    private int EnemiesSpawned = 0;
     private int EnemiesSpawning;
-
+    private float roomTopLeft;
+    private float roomBottomRight;
+  
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Start()
+    void Start()
     {
+
+        
         Debug.Log("spawner working");
         gameManager = FindFirstObjectByType<GameManager>();   
-        MaxEnemies -= (gameManager.TownMorale /= 20);
+        MaxEnemies -= gameManager.TownMorale / 25;
 
-        Debug.Log("Max Enemies = " + MaxEnemies);
-        float randomFloat = Random.Range(0, MaxEnemies);
+        Debug.Log("Max Enemies = " + MaxEnemies + gameObject.name);
+        float randomFloat = Random.Range(0, MaxEnemies + 1);
         int roundValue = Mathf.RoundToInt(randomFloat);
         EnemiesSpawning = (int)randomFloat;
         Debug.Log("Enemies Spawning = " + EnemiesSpawning);
@@ -33,10 +39,16 @@ public class SpawnerScript : MonoBehaviour
 
    public void SpawnEnemies()
     {
-        while (EnemiesSpawning < EnemiesSpawned)
+        while (EnemiesSpawning > EnemiesSpawned)
         {
-            Instantiate(swarmerPrefab);
+            Vector3 pos = this.transform.position;//Checks position of the room to spawn enemies within
+            float posX = pos.x;
+            float posY = pos.y;
+            GameObject newEnemy = Instantiate(swarmerPrefab, new Vector3(Random.Range(posX +=6, posX -=6), Random.Range(posY += 6, posY -= 6), 0), Quaternion.identity);
+            newEnemy.SetActive(true);
+         
             EnemiesSpawned++;
+            SpawnEnemies();
         }
     }
 }
