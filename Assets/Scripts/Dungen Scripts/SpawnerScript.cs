@@ -29,7 +29,7 @@ public class SpawnerScript : MonoBehaviour
         MaxEnemies -= gameManager.TownMorale / 25;
 
         Debug.Log("Max Enemies = " + MaxEnemies + gameObject.name);
-        float randomFloat = Random.Range(0, MaxEnemies + 1);
+        float randomFloat = Random.Range(1, MaxEnemies + 1);
         int roundValue = Mathf.RoundToInt(randomFloat);
         EnemiesSpawning = (int)randomFloat;
         Debug.Log("Enemies Spawning = " + EnemiesSpawning);

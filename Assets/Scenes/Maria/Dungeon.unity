@@ -822,7 +822,10 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   swordDamage: 1
+  pSprite: {fileID: 0}
   swordObj: {fileID: 0}
+  iFramesDuration: 0
+  numberOfFlashes: 0
 --- !u!114 &1519113991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1130,10 @@ PrefabInstance:
     - target: {fileID: 4984534418631498513, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769715512192239268, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7149434199405454261, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: m_Name
