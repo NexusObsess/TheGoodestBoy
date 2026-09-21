@@ -37,12 +37,7 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("PlayerAttack"))
-        {
-            Debug.Log("Enemy hit");
-
-        }
-
+        
         if (collision.CompareTag("Player"))
         {
 

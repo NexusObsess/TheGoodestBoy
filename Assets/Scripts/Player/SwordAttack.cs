@@ -33,7 +33,8 @@ public class SwordAttack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("We hit " + enemy.name);
-
+            enemy.TryGetComponent<Enemy>(out Enemy enemyStats);
+            enemyStats.EnemyTakeDamage(pStats.swordDamage);
         }
 
     }

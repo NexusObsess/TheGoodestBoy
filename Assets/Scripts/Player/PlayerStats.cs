@@ -11,12 +11,35 @@ public class PlayerStats : MonoBehaviour
     [Header("Sword Reference")]
     private Animator anim;
     [SerializeField] GameObject swordObj;
-    private SpriteRenderer sRenderer;
+
 
     public void Start()
     {
         currentHealth = maxHealth;
+        swordObj.SetActive(false);
     }
+
+
+    public void Update()
+    {
+        // Attack Input
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Attack();
+        }
+
+
+    }
+
+
+
+    // Activate Sword Attack
+    void Attack()
+    {
+        swordObj.SetActive(true);
+    }
+
+
 
 
     public void PlayerTakeDamage(float damage)
