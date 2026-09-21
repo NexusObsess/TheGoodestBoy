@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7172465081079406419}
   m_Layer: 6
   m_Name: SwordPlaceholder
-  m_TagString: PlayerAttack
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwordAttack
   pStats: {fileID: 940521528599072507}
   attackPoint: {fileID: 8038819764739624537}
-  attackRange: 0.5
+  attackRange: 2
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   maxHealth: 10
   currentHealth: 0
-  swordDamage: 1
+  swordDamage: 5
   pSprite: {fileID: 5101432231231015141}
   swordObj: {fileID: 3813833656579838726}
   iFramesDuration: 1
