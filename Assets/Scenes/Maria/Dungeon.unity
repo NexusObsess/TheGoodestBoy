@@ -1332,7 +1332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8714270231003665163, guid: 7309dad4844ac49479f32616b932b0b4, type: 3}
       propertyPath: TownMorale
-      value: 100
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
