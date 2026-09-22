@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class DungeonGenerator : MonoBehaviour
     public int startPosition = 0;
     public rule[] rooms;
     public Vector2 offset; //distance between each room
+    public List<GameObject> activeRooms;
 
     QuestManager questManager;
     List<Cell> board;
@@ -55,17 +57,9 @@ public class DungeonGenerator : MonoBehaviour
     void Start()
     {
         Debug.Log("Start");
+        activeRooms = new List<GameObject>();
         MazeGenerator();
         
-    }
-
-    public void Spawner()
-    {
-        
-        foreach (Quest q in questManager.activeQuests)
-        {
-            
-        }
     }
 
 
@@ -112,9 +106,16 @@ public class DungeonGenerator : MonoBehaviour
                     var newRoom = Instantiate(rooms[randomRoom].room,new Vector2(i * offset.x,-j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
                     newRoom.UpdateRoom(currentCell.status);
                     newRoom.name += " " + i + "-" + j;
+                    
+
                 }
+                
             }
         }
+
+        
+            
+        
     }
 
     void MazeGenerator()
