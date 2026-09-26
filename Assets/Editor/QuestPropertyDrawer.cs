@@ -30,6 +30,7 @@ public class QuestPropertyDrawer : PropertyDrawer
 
         DrawProperty(ref y, position, property.FindPropertyRelative("itemReward"), spacing);
         DrawProperty(ref y, position, property.FindPropertyRelative("townMoraleIncrease"), spacing);
+        DrawProperty(ref y, position, property.FindPropertyRelative("knightHealthIncrease"), spacing);
 
         DrawProperty(ref y, position, questType, spacing);
 

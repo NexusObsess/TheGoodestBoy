@@ -29,43 +29,54 @@ public class TextBoxSender : MonoBehaviour
         currentOnscreenLine++; // 1
     }
 
-    public void NextLine(InputAction.CallbackContext context) // called when player pushed next line button on the player input
+    public void NextLine(InputAction.CallbackContext context) // called when player pushed next line button on the play
     {
         gamemanager = FindFirstObjectByType<GameManager>();
-        if (DialogueTree == null)
+        if (DialogueTree.Count == 0)
         {
+            if (!textboxobject.activeSelf) return;
             Debug.Log("NULL");
+            gamemanager.TextActive = false;
+            textbox.TextClear(); // clears text
+
+            currentOnscreenLine = 0;
+            previousOnscreenLine = 0;
             return;
         }
+
         if (context.performed && DialogueTree.Count != 0 && gamemanager.TextActive) // if dialogue tree is not empty
         {
-            // Debug.Log("Pressed");
             if (currentOnscreenLine == DialogueTree.Count) // if the dialogue tree is finished
             {
-                int tempIndex = currentOnscreenLine - 1; // for when clicking through fast to make all text appear immediately
+                //int tempIndex = currentOnscreenLine - 1; // for when clicking through fast to make all text appear immediately
                 if (textbox.typingCoroutine == null) // if the textbox is still typing
                 {
+                    Debug.Log("null check");
                     textbox.TextClear(); // clears text
-                    textboxobject.SetActive(false); // deactivates the textbox
+                    // textboxobject.SetActive(false); // deactivates the textbox
                     gamemanager.TextActive = false;
                     currentOnscreenLine = 0;
                     previousOnscreenLine = 0;
+
+                    colliders = FindObjectsOfType<BoxCollider2D>(true); // gets all colliders
+                    foreach (BoxCollider2D col in colliders)
+                    {
+                        col.enabled = true; // reenable
+                    }
+
+                    DialogueTree.Clear(); // empties the list for next text sequence
                 }
                 else // meaning if the player is just clicking through the text quickly, was being weird on last line otherwise
                 {
-                    StopCoroutine(textbox.typingCoroutine); // stops corountine, may replace?
-                    textbox.mainText.text = DialogueTree[tempIndex].Line; // show last line fully
+                    // StopCoroutine(textbox.typingCoroutine); // stops corountine, may replace?
+                    //GoBackLine(); // goes back line so the textbox sender doesn't skip the next line
+                    textbox.TextStop();
+                    //textbox.mainText.text = DialogueTree[tempIndex].Line; // show last line fully
 
                     //textbox.typingCoroutine = null;
+                    // return;
                 }
 
-                colliders = FindObjectsOfType<BoxCollider2D>(true); // gets all colliders
-                foreach (BoxCollider2D col in colliders)
-                {
-                    col.enabled = true; // reenable
-                }
-
-                DialogueTree = null; // empties the list for next text sequence
                 return;
             }
 
