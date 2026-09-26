@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SwordAttack : MonoBehaviour
+public class SwordSwipe : MonoBehaviour
 {
     public GameController gameController;
     private Rigidbody2D rb;

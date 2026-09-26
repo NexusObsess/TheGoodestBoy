@@ -7,10 +7,11 @@ public class Enemy : MonoBehaviour
     public float cooldown;
     public float damage = 1f;
 
-    public GameObject eSprite;
+
     private SpriteRenderer sRenderer;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
+    private int facingDirection = 1; // 1 for right, -1 for left
 
     float currentTime;
 
@@ -18,30 +19,104 @@ public class Enemy : MonoBehaviour
     UnityEngine.Transform playerPos;
     Rigidbody2D rb;
 
+    //States
+    public float sightRange, attackRange;
+    public bool playerInSightRange, playerInAttackRange;
+    public bool isPatroling, isChasing, isAttacking;
+    public bool isDead;
+
+    //Patrolling
+    public float walkPointRange;
+    private Vector2 walkPoint;
+    private bool walkPointSet;
+
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
 
-        sRenderer = eSprite.GetComponent<SpriteRenderer>();
+        sRenderer = GetComponent<SpriteRenderer>();
         currentTime = cooldown;
+
+        isDead = false;
     }
 
     public void Update()
     {
-        currentTime -= Time.deltaTime;
-        Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
-        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        rb.MovePosition(newPos);
+        playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, LayerMask.GetMask("Player"));
+        playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, LayerMask.GetMask("Player"));
+
+        if (!playerInSightRange && !playerInAttackRange)
+        {
+            // Patrol
+            isChasing = false;
+            isAttacking = false;
+        }
+        if (playerInSightRange && !playerInAttackRange)
+        {
+            // Chase
+            isChasing = true;
+            isAttacking = false;
+        }
+        if (playerInSightRange && playerInAttackRange)
+        {
+            // Attack
+            isChasing = false;
+            isAttacking = true;
+        }
+
+
+        if (isChasing == true)
+        {
+            ChasePlayer();
+            if(playerPos.position.x > transform.position.x && facingDirection == -1)
+            {
+                Flip();
+            }
+            else if (playerPos.position.x < transform.position.x && facingDirection == 1)
+            {
+                Flip();
+            }
+        }
 
     }
 
+    private void SearchWalkPoint()
+    {
+        ////Calculate random point in range
+        //float randomY = Random.Range(-walkPointRange, walkPointRange);
+        //float randomX = Random.Range(-walkPointRange, walkPointRange);
+        //walkPoint = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
+        //if (transform.position != walkPoint)
+        //{
+        //    walkPointSet = true;
+        //}
 
+    }
+
+    private void ChasePlayer()
+    {
+        Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
+        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
+    }
+
+    private void Flip()
+    {
+        facingDirection *= -1;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    isChasing = true;
+        //}
+
         if (collision.CompareTag("Player"))
         {
 
@@ -50,6 +125,16 @@ public class Enemy : MonoBehaviour
             pStats.PlayerTakeDamage(damage);
         }
     }
+
+    //public void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if(collision.gameObject.tag == "Player")
+    //    {
+    //        isChasing = false;
+    //        rb.linearVelocity = Vector2.zero;
+    //    }
+    //}
+
 
     public void EnemyTakeDamage(float damage)
     {
@@ -74,4 +159,14 @@ public class Enemy : MonoBehaviour
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+    }
+
+
 }
