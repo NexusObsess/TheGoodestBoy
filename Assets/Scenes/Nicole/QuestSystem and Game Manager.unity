@@ -4931,6 +4931,100 @@ MonoBehaviour:
     requiredPuzzleRoom: {fileID: 0}
     requiredChallengeRoom: {fileID: 0}
     QuestOrder: 2
+  - questName: The Call to Adventure
+    questDescription: Rescue the mother's lost child from the forest
+    questDifficulty: 1
+    questLetter: {fileID: 7946720950095596724, guid: bb9739a5e63d0e04d8efb117a4ca331e, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: The worried mother is waiting for you at the edge of the forest.
+      She looks horrified to see you alone, then furious. She rushes past you into
+      the forest to get her child yourself. You don't feel like a very good boy.
+    questWon: When the wannabe hero sees his worried mother is waiting for you at
+      the edge of the forest, he runs to grip at her skirt, crying. She coos to him
+      as she carries him home. The wannabe hero waves goodbye over her shoulder as
+      he sobs.
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 10
+    knightHealthIncrease: 0
+    QuestType: 2
+    QuestLine: 4
+    requiredItem: {fileID: 7647819659818778014, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
+    requiredItemPF: {fileID: 4714680770939761051, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
+    requiredItemAmount: 3
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyAmount: 5
+    currentEnemyAmount: 0
+    questNPCID: Wannabe Hero
+    questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 0
+  - questName: Refusal of the Call
+    questDescription: Find something to cheer up the wannabe hero
+    questDifficulty: 1
+    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: You bump into the wannabe hero and his mother on the way home. When
+      he sees you, he hides behind her long skirt.
+    questWon: You bump into the wannabe hero and his mother on the way home. When
+      you give the child's toy to the wannabe hero, he pokes out just long enough
+      to slowly take it and thanks you in a quiet voice. His mother scratches you
+      behind the ear as you part ways.
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 5
+    knightHealthIncrease: 0
+    QuestType: 0
+    QuestLine: 4
+    requiredItem: {fileID: 5752050362253904843, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
+    requiredItemPF: {fileID: 44339542614276864, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
+    requiredItemAmount: 1
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyAmount: 5
+    currentEnemyAmount: 0
+    questNPCID: Wannabe Hero
+    questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 1
+  - questName: Ransom Letter
+    questDescription: Rescue the kidnapped townsperson!
+    questDifficulty: 3
+    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: You didn't find the kidnapped townsperson... hopefully they'll be
+      fine. You don't feel like a very good boy.
+    questWon: You push the unluckiest person in town back to less bumpy terrain by
+      running into their wheelchair a bunch from behind. You talk to the local body
+      builder in town, and she agrees to let him stay with her until their broken
+      bones heal fully.
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 5
+    knightHealthIncrease: 0
+    QuestType: 2
+    QuestLine: 0
+    requiredItem: {fileID: 5752050362253904843, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
+    requiredItemPF: {fileID: 44339542614276864, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
+    requiredItemAmount: 1
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    requiredEnemyAmount: 5
+    currentEnemyAmount: 0
+    questNPCID: The Unlucky
+    questNPCIDPF: {fileID: 6172555133981086305, guid: 320185903b1d0894f9ce0f90485b4b64, type: 3}
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 1
   questLines: []
   CompletedQuests: 0
   QuestResults: {fileID: 1495093567}
