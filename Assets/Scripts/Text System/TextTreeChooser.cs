@@ -6,6 +6,7 @@ public class TextTreeChooser : MonoBehaviour
 {
     public List<ConditionalDialogue> PossibleSequencesMorale; // list of system.serialized - check that script, should be arranged in descending order of townMoraleThreshold i.e., 90, 60, 30 etc
     public List<ConditionalDialogue> PossibleSequencesKnightHealth;
+    public List<ConditionalDialogue> PossibleSequencesCurrentDay;
 
     TextBoxSender textboxsender;
     GameManager gameManager;
@@ -47,5 +48,21 @@ public class TextTreeChooser : MonoBehaviour
                 break; // once they find the correct text tree to send, stops loop so multiple don't get sent
             }
         }
+    }
+
+    public void CurrentDaySelectCorrectTextTree()
+    {
+        textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
+
+        for (int i = 0; i < PossibleSequencesCurrentDay.Count; i++) // repeats for each possible variation of the text tree
+        {
+            if (gameManager.currentDay == PossibleSequencesCurrentDay[i].currentDayThreshold) // if townmoracle is above or equal to the threshold set in editor
+            {
+                textboxsender.DialogueTree.AddRange(PossibleSequencesCurrentDay[i].DialogueTree); // adds correct text tree to what is currently in the textbox sender
+                break; // once they find the correct text tree to send, stops loop so multiple don't get sent
+            }
+        }
+
+        //Debug.Log("Nothing added");
     }
 }

@@ -1,0 +1,360 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &719333084683614569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2553106847358051123}
+  - component: {fileID: 4856915336050694199}
+  - component: {fileID: 965250240303679006}
+  - component: {fileID: 1250035767264638157}
+  - component: {fileID: 3901503840622434160}
+  m_Layer: 0
+  m_Name: Witch
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2553106847358051123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719333084683614569}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4856915336050694199
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719333084683614569}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!114 &965250240303679006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719333084683614569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771298744bd7cb646a3d41b6668eff93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC
+  Name: The witch
+  TextSpeed: 0.5
+  TextColour: {r: 0.6509198, g: 0, b: 0.7433963, a: 1}
+  TextSound: {fileID: 8300000, guid: 73126974bc905de4fa7503b38dca9dbe, type: 3}
+  TextFont: {fileID: 11400000, guid: 1ddd809eed924c64987149a3181445c6, type: 2}
+  TextSize: 50
+  DialogueVariations: {fileID: 3901503840622434160}
+  ExitAnimation: {fileID: 0}
+--- !u!60 &1250035767264638157
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719333084683614569}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.28866667}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5773587}
+      - {x: -0.5, y: -0.28866667}
+      - {x: 0.5, y: -0.28866667}
+  m_UseDelaunayMesh: 1
+--- !u!114 &3901503840622434160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719333084683614569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
+  PossibleSequencesMorale: []
+  PossibleSequencesKnightHealth: []
+  PossibleSequencesCurrentDay:
+  - DialogueTree:
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1.5
+      Line: There is my special bubba, who is a good boy?
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: Yes you are! Yes you are!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: "I\u2019m so happy to see you! I have so many activities planned, I-"
+      DogSoundEffect: {fileID: 8300000, guid: 49d5ada2fd17c884caf29537df14a9fd, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: Huh? How did I know shiny was sick?
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 5
+      Line: Um, well...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 2.5
+      Line: You know... how I... uh... Straight to the point, what a pain :(
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'Oh, you are too smart a cookie, my sweet. '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'Do you remember when you accidentally bought me poison ivy for my night
+        night spell, pet? '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: Well, I saw how sad you were to be a bad boy, so I made sure to use it
+        for something very important.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: "In fact, it turned out to be a blessing in disguise! I\u2019m so proud
+        of you, bubba :)"
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 2
+      Line: That ivy gave me the most fabulous idea for how to get rid of that buzzkill
+        for good!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: Forever... ;)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'Please, hold your applause! '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: "...okay, don\u2019t hold it. Aren\u2019t I the greatest, most powerful
+        witch in the woods?"
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 2
+      Line: "Hey, what\u2019s that mean look for :("
+      DogSoundEffect: {fileID: 8300000, guid: 49296a8c99898f54cb1594373a036846, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: Look, I know you like the tin can. I did too, once... before I knew better
+        :/
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: But it's for the best. Severing our... personal ties was the second best
+        thing I have ever done, first being taking you in of course <3
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: Best get the knight out of my professional life too... so I can finally
+        invade that insolent little village and expand my magical territory.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: "Okay, I know you like that puny town too, but there\u2019s no need to
+        bark- "
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: "The townspeople? Who cares about them? I\u2019ll probably just add them
+        to my army."
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: "You know what, you\u2019re being so ungrateful for all of the work I
+        put in to my brilliant evil plan bubba!!"
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: "You\u2019re being a very bad boy!"
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: ...
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: "I\u2019m sorry... let\u2019s just..."
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The witch sighs, rubbing between his eyes.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 2
+      Line: "I\u2019ll... leave you alone for now. Just think about it, okay?"
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: "This IS a good thing. You\u2019ll see."
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 2
+  - DialogueTree:
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: Okay, I know you're upset, bubba.
+      DogSoundEffect: {fileID: 8300000, guid: f002ec0f847451742ad27eae8dd44050, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: I'm just the worst papa ever :(  I was just trying to do something nice
+        for you </3
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'And I- '
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'Huh? Why don''t you look mad anymore?? You look so... '
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: Stop making that sad sound! You're making me feel guilty!
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 0.5
+      Line: Don't you dare cry like that again! I-
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: 'I never wanted to cause you so much pain. But that stupid knight made
+        me so angry, always beating up my minions and- '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: ...Sorry, I've been selfish. I just wanted to you all to myself, my special
+        little guy. I've never been very good at sharing.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: I never considered what you wanted. I messed everything up :'(
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 3
+      Line: If you leave now, I promise I won't bother you two again </3
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: There are plenty of forests where I can build my evil army where it's...
+        less complicated.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006}
+      TextSpeed: 1
+      Line: I've already done enough damage here.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 5
