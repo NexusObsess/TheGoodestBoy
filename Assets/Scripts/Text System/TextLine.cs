@@ -5,12 +5,13 @@ public class TextLine
 {
     [Header("Dialogue Customization")]
     public NPC Speaker; // who is talking
-    public int TextSpeed = 1; // how fast the text appears, times by the npcs text speed in the textbox (more flexiable)
+    public float TextSpeed = 1; // how fast the text appears, times by the npcs text speed in the textbox (more flexiable)
     public string Line; // actual text
+    public AudioClip DogSoundEffect;
     // public enum textEffect { Normal, Addon, Shaking, InstantHide, Instant, Choice } // not currently implemented, may be added as needed
     // public textEffect TextEffect;
 
-    public TextLine(NPC speaker, int textSpeed, string line) // so you can add individual strings to textboxsender
+    public TextLine(NPC speaker, float textSpeed, string line) // so you can add individual strings to textboxsender
     {
         Speaker = speaker;
         TextSpeed = textSpeed;

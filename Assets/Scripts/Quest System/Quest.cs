@@ -28,7 +28,7 @@ public class Quest
     public enum questType { Fetch, Hunt, Talk, Location, Puzzle, Challenge }
     public questType QuestType;
 
-    public enum questLine { None, Main, Baker }
+    public enum questLine { None, Main, Baker, RivalDog, WannabeHero }
     public questLine QuestLine;
 
     // see if can hide all variables under headings when not relevant based on questtype, originally tried to hide in inspector

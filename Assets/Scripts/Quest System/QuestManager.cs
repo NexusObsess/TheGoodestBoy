@@ -7,7 +7,8 @@ public class QuestManager : MonoBehaviour
 {
     public List<Quest> activeQuests = new List<Quest>(); // quests the player gets that ingame day
     [SerializeField] List<Quest> possibleQuests = new List<Quest>(); // pool of possible quests the player can get, unsorted into questlines
-    List<QuestLine> questLines = new List<QuestLine>(); // list of the system.serialized at bottom of script
+    public List<QuestLine> questLines = new List<QuestLine>(); // list of the system.serialized at bottom of script
+    public int CompletedQuests = 0;
 
     GameManager gameManager;
 
@@ -18,6 +19,7 @@ public class QuestManager : MonoBehaviour
     // ui text in pause menu where the player can read about their current quests during game play
     [SerializeField] List<TextMeshProUGUI> QuestName = new List<TextMeshProUGUI>(); 
     [SerializeField] List<TextMeshProUGUI> QuestDescription = new List<TextMeshProUGUI>();
+    [SerializeField] List<TextMeshProUGUI> QuestRequirement = new List<TextMeshProUGUI>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -149,23 +151,37 @@ public class QuestManager : MonoBehaviour
                 // so the player can see quests on pause menu
                 QuestName[i].text = activeQuests[i].questName;
                 QuestDescription[i].text = activeQuests[i].questDescription;
+                QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n";
+                if (activeQuests[i].QuestType == Quest.questType.Fetch)
+                {
+                    QuestRequirement[i].text += activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;
+                }
+                if (activeQuests[i].QuestType == Quest.questType.Hunt)
+                {
+                    QuestRequirement[i].text += activeQuests[i].requiredEnemy.ToString() + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
+                }
+                if (activeQuests[i].QuestType == Quest.questType.Talk)
+                {
+                    QuestRequirement[i].text += activeQuests[i].questNPCID;
+                }
             }
         }
     }
 
     public void HuntCheck (Enemy enemy)
     { 
-       foreach (Quest q in activeQuests)
+       for (int i = 0; i < activeQuests.Count; i++)
        {  
-            if (q.QuestType == Quest.questType.Hunt)
+            if (activeQuests[i].QuestType == Quest.questType.Hunt)
             { 
-                if (enemy == q.requiredEnemy)
+                if (enemy == activeQuests[i].requiredEnemy)
                 { 
-                    q.currentEnemyAmount ++;
+                    activeQuests[i].currentEnemyAmount ++;
+                    QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.ToString() + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
 
-                    if (q.requiredEnemyAmount == q.currentEnemyAmount)
+                    if (activeQuests[i].requiredEnemyAmount == activeQuests[i].currentEnemyAmount)
                     {
-                        q.questCompleted = true;
+                        activeQuests[i].questCompleted = true;
                     }
                 }
             } 
@@ -174,17 +190,18 @@ public class QuestManager : MonoBehaviour
 
     public void FetchCheck (Item item)
     {
-       foreach (Quest q in activeQuests)
+       for (int i = 0; i < activeQuests.Count; i++)
        {  
-            if (q.QuestType == Quest.questType.Fetch)
+            if (activeQuests[i].QuestType == Quest.questType.Fetch)
             { 
-                if (item == q.requiredItem)
+                if (item == activeQuests[i].requiredItem)
                 { 
-                    q.currentItemAmount ++;
+                    activeQuests[i].currentItemAmount ++;
+                    QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;
 
-                    if (q.requiredItemAmount == q.currentItemAmount)
+                    if (activeQuests[i].requiredItemAmount == activeQuests[i].currentItemAmount)
                     {
-                        q.questCompleted = true;
+                        activeQuests[i].questCompleted = true;
                     }
                 }
             } 
@@ -219,6 +236,7 @@ public class QuestManager : MonoBehaviour
                 // give player any quest rewards
                 gameManager.TownMorale += quest.townMoraleIncrease;
                 gameManager.KnightHealth += quest.knightHealthIncrease;
+                CompletedQuests++;
             }
             else
             {
@@ -236,6 +254,7 @@ public class QuestManager : MonoBehaviour
         {
             QuestName[i].text = "";
             QuestDescription[i].text = "";
+            QuestRequirement[i].text = "";
         }
 
         activeQuests.Clear(); // removes all activeQuests from the list

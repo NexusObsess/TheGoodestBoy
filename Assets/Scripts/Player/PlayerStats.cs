@@ -17,11 +17,14 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
 
+    public Healthbar healthbar;
 
     public void Start()
     {
-        sRenderer = pSprite.GetComponent<SpriteRenderer>();
+        sRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
+        healthbar.SetMaxHealth(maxHealth);
 
         swordObj.SetActive(false);
     }
@@ -48,10 +51,19 @@ public class PlayerStats : MonoBehaviour
 
 
 
-
+    public void HealPlayer(float healAmount)
+    {
+        currentHealth += healAmount;
+        healthbar.SetHealth(currentHealth);
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+    }
     public void PlayerTakeDamage(float damage)
     {
         currentHealth -= damage;
+        healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
         if (currentHealth <= 0f)
         {
