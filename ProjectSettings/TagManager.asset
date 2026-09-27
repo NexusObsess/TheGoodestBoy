@@ -10,6 +10,8 @@ TagManager:
   - PlayerAttack
   - Enemy
   - SpawnFloor
+  - NPC
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,391 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4382026203799359397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2422869937714749357}
+  - component: {fileID: 3077467090278152663}
+  - component: {fileID: 3179903954906608466}
+  - component: {fileID: 7519768066965965202}
+  - component: {fileID: 9202320716330974871}
+  - component: {fileID: 7391045850966740163}
+  m_Layer: 0
+  m_Name: Baker
+  m_TagString: NPC
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2422869937714749357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &3077467090278152663
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -985203584929593305, guid: f278fe3e10cd5264f9143689530f7d07, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.06, y: 1.82}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!114 &3179903954906608466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771298744bd7cb646a3d41b6668eff93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPC
+  Name: The Baker
+  TextSpeed: 0.5
+  TextColour: {r: 0.21871834, g: 0.21881339, b: 0.83396226, a: 1}
+  TextSound: {fileID: 8300000, guid: 9a4b7383511c631409132525f20f5c62, type: 3}
+  TextFont: {fileID: 11400000, guid: 1f4e908d8c15d204bbdd2b570c0d6562, type: 2}
+  TextSize: 85
+  DialogueVariations: {fileID: 7391045850966740163}
+  ExitAnimation: {fileID: 0}
+--- !u!95 &7519768066965965202
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03cc557a54cde3d40a4ed202c8d3504f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &9202320716330974871
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.06, y: 1.82}
+    newSize: {x: 1.06, y: 1.82}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29999998, y: 0.24}
+      - {x: 0.53, y: 0.5}
+      - {x: 0.53, y: 0.63}
+      - {x: 0.29, y: 0.81}
+      - {x: 0.22999999, y: 0.84999996}
+      - {x: 0.16, y: 0.88}
+      - {x: 0.12, y: 0.9}
+      - {x: 0.08, y: 0.90999997}
+      - {x: -0.25, y: 0.90999997}
+      - {x: -0.47, y: 0.83}
+      - {x: -0.52, y: 0.77}
+      - {x: -0.48999998, y: 0.55}
+      - {x: -0.53, y: 0.44}
+      - {x: -0.53, y: 0.26999998}
+      - {x: -0.45, y: 0.21}
+      - {x: -0.34, y: 0.099999994}
+      - {x: -0.29999998, y: -0.07}
+      - {x: -0.34, y: -0.28}
+      - {x: -0.34, y: -0.77}
+      - {x: -0.32, y: -0.90999997}
+      - {x: 0.12, y: -0.90999997}
+      - {x: 0.19, y: -0.77}
+      - {x: 0.22, y: -0.06}
+      - {x: 0.32, y: 0.03}
+  m_UseDelaunayMesh: 1
+--- !u!114 &7391045850966740163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382026203799359397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
+  PossibleSequencesMorale:
+  - DialogueTree:
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Hello sweetie! How are you doing?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 0.5
+      Line: I've been hearing good things from everyone in town! You're doing a great
+        job keeping everyone safe and happy!
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: Right, what I was talking about in my letter...
+      DogSoundEffect: {fileID: 8300000, guid: 49d5ada2fd17c884caf29537df14a9fd, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: Is... the knight... is there anybody at home looking after the knight?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Aside from you, of course!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2.5
+      Line: No, not like a doctor or... I mean, like...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You tilt your head at the baker.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 0.5
+      Line: Never mind, ha ha!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: I suppose a loyal boy like you would be all the knight truly needs, always
+        looking after each other! You two are always so sweet together.
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: But, if it wouldn't be improper, it would be my greatest pleasure to
+        be someone the knight relies on too.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2
+      Line: I just...  want to make something special for her, to show my appreciation
+        for everything you both have done for all of us in town.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2
+      Line: And so, I can wish my... dearest friend a speedy recovery.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Huh? Cheesecake? I thought so!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: The knight always asks for an extra piece at parties... I certainly can
+        do that!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Hopefully, I still have enough supplies after the forest monsters ransacked
+        my bakery yesterday...
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: 'Thank you for your help, sweetie! I''ll let you get back to your adventuring. '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Don't worry about me, I'm a lot tougher than I look!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: And... don't tell anyone I butt in on the knight's private life. It was
+        really so rude of me!
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 90
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Hello sweetie! How are you doing?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1.5
+      Line: I hope you're not letting the town get to you, I know you're doing the
+        best you can... I'll believe in you no matter what!
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: Right, what I was talking about in my letter...
+      DogSoundEffect: {fileID: 8300000, guid: 49d5ada2fd17c884caf29537df14a9fd, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: Is... the knight... is there anybody at home looking after the knight?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Aside from you, of course!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2.5
+      Line: No, not like a doctor or... I mean, like...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You tilt your head at the baker.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 0.5
+      Line: Never mind, ha ha!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: I suppose a loyal boy like you would be all the knight truly needs, always
+        looking after each other! You two are always so sweet together.
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 3
+      Line: But, if it wouldn't be improper, it would be my greatest pleasure to
+        be someone the knight relies on too.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2
+      Line: I just...  want to make something special for her, to show my appreciation
+        for everything you both have done for all of us in town.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 2
+      Line: And so, I can wish my... dearest friend a speedy recovery.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Huh? Cheesecake? I thought so!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: The knight always asks for an extra piece at parties... I certainly can
+        do that!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Hopefully, I still have enough supplies after the forest monsters ransacked
+        my bakery yesterday...
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: 'Thank you for your help, sweetie! I''ll let you get back to your adventuring. '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: Don't worry about me, I'm a lot tougher than I look!
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 3179903954906608466}
+      TextSpeed: 1
+      Line: And... don't tell anyone I butt in on the knight's private life. It was
+        really so rude of me!
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  PossibleSequencesKnightHealth: []
+  PossibleSequencesCurrentDay: []

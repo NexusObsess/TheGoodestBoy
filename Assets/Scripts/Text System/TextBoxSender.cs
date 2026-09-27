@@ -11,15 +11,18 @@ public class TextBoxSender : MonoBehaviour
     [SerializeField] TextBox textbox;
     [SerializeField] GameObject textboxobject;
 
+    public AudioSource DogSoundEffectPlayer;
+
     BoxCollider2D[] colliders; // prevents player from clicking anything etc while the textbox is happening
 
     GameManager gamemanager;
 
     public void DialogueSequenceStarts() // called from other scripts
     {
+        Debug.Log("Sequence starts");
         //Debug.Log("Function called");
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
-        //Debug.Log("return check");
+        Debug.Log("return check");
 
         gamemanager = FindFirstObjectByType<GameManager>();
         gamemanager.TextActive = true;
