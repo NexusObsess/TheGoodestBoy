@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 public class Enemy : MonoBehaviour
 {
+    public string enemyName = "Enemy";
+
     public float hp = 5f;
     public float speed = 2.5f;
     public float cooldown;

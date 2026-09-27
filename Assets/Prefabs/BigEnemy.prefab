@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f591747d8bcba4f94fd4964b5b601b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  enemyName: Guglin
   hp: 5
   speed: 0.5
   cooldown: 0
