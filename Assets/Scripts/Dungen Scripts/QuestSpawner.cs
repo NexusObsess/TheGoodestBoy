@@ -7,12 +7,15 @@ public class QuestSpawner : MonoBehaviour
 {
 
     public QuestManager questManager;
+    public GameManager gameManager;
     public GameObject[] rooms;
+    [SerializeField] GameObject Witch;
     
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        QuestManager questmanager = Object.FindFirstObjectByType<QuestManager>();
+        questManager = Object.FindFirstObjectByType<QuestManager>();
+        gameManager = Object.FindFirstObjectByType<GameManager>();
         StartCoroutine(FindRooms());
 
     }
@@ -27,6 +30,10 @@ public class QuestSpawner : MonoBehaviour
 
     void SpawnQuestItems()
     {
+        if (gameManager.currentDay == 5)
+        {
+            GameObject questItem = Instantiate(Witch, new Vector3(4.5f, 0 , 0), Quaternion.identity);
+        }
         foreach (Quest quest in questManager.activeQuests)
         {
             if (quest.QuestType == Quest.questType.Fetch)
