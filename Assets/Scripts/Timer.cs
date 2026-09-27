@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        if (timerRunning && TimePause)
+        if (timerRunning && gameManager.TextActive)
         {
             if (timeRemaining > 0)
             {

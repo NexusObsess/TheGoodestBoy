@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   StartButton: {fileID: 1440883260}
   StartScene: 
-  UIScene: 
+  UIScene: UIScene
 --- !u!4 &91014290
 Transform:
   m_ObjectHideFlags: 0
