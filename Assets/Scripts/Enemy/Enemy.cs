@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        playerPos = player.transform;
         rb = GetComponent<Rigidbody2D>();
 
         sRenderer = GetComponent<SpriteRenderer>();
