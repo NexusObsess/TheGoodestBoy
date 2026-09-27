@@ -1096,6 +1096,7 @@ MonoBehaviour:
   currentDay: 0
   TownMorale: 100
   TownMoraleDailyDecrease: 20
+<<<<<<< Updated upstream
   KnightHealth: 6
   KnightHealthDailyDecrease: 1
   StatText: {fileID: 1345172592}
@@ -1109,6 +1110,12 @@ MonoBehaviour:
   Baker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
   RivalDog: {fileID: 9099556265879683154, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
   Apothecary: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+=======
+  KnightHealth: 0
+  StatText: {fileID: 1345172592}
+  EndTownMorale: {fileID: 252498381}
+  TextActive: 0
+>>>>>>> Stashed changes
 --- !u!4 &187213725
 Transform:
   m_ObjectHideFlags: 0
@@ -5472,12 +5479,17 @@ MonoBehaviour:
     questLetter: {fileID: -1709657789612851665, guid: d17942a1c9aa7cf44a236d98f560a2b8, type: 3}
     questCompleted: 0
     conditionsMet: 0
+<<<<<<< Updated upstream
     questFailed: "You completely failed to kill one of the easiest forest monsters.
       You curl up at the end of the knight\u2019s bed and howl about how you weren\u2019t
       a good boy when the knight trusted you to protect the village."
     questWon: You proved to yourself that you can protect the town until the knight
       gets better! The knight tells you what a good job you did and your tail wags
       until you fall asleep.
+=======
+    questFailed: You failed the quest
+    questWon: You won the quest
+>>>>>>> Stashed changes
     itemReward: {fileID: 0}
     townMoraleIncrease: 5
     knightHealthIncrease: 1
@@ -5503,6 +5515,7 @@ MonoBehaviour:
     questLetter: {fileID: -3494038898966782236, guid: c0ee4b1e3dbb9014bbd43557ba939cf9, type: 3}
     questCompleted: 0
     conditionsMet: 0
+<<<<<<< Updated upstream
     questFailed: "You didn\u2019t find the witch today. Your tail hangs a little
       lower on your way back into town. Hopefully he won\u2019t get mad at the knight.
       The knight isn\u2019t well enough to be taken to court... again."
@@ -5510,6 +5523,10 @@ MonoBehaviour:
       witch don\u2019t like each other anymore, but you never thought that the witch
       could do something like this. You whine, thinking about when the three of you
       still got along."
+=======
+    questFailed: You failed the quest
+    questWon: You won the quest
+>>>>>>> Stashed changes
     itemReward: {fileID: 0}
     townMoraleIncrease: 0
     knightHealthIncrease: 2
@@ -5535,11 +5552,16 @@ MonoBehaviour:
     questLetter: {fileID: -2092108468865089476, guid: ce0d08c6dbdfe3e4b91f59b5daf36eb7, type: 3}
     questCompleted: 0
     conditionsMet: 0
+<<<<<<< Updated upstream
     questFailed: You didn't find the apothecary in the forest. They must have moved
       along before you found them.
     questWon: Meeting the apothecary has given you hope for finding a cure for the
       knight's condition. Your tail wags, already planning to love a lot on the apothecary
       when you get home.
+=======
+    questFailed: You failed the quest
+    questWon: You won the quest
+>>>>>>> Stashed changes
     itemReward: {fileID: 0}
     townMoraleIncrease: 10
     knightHealthIncrease: 3
@@ -5655,11 +5677,16 @@ MonoBehaviour:
     questLetter: {fileID: -7492767392388717588, guid: 7b5a8cd3dbe412f42803ad051ed02df8, type: 3}
     questCompleted: 0
     conditionsMet: 0
+<<<<<<< Updated upstream
     questFailed: When you arrive at the party, the doorman does not let you in because
       you do not meet the dress code. Not even your sad whines convince them.
     questWon: 'You are the most popular person at the party! You are spoiled with
       treats and pets by all of the fancy folk. You fall asleep on the lap of the
       baker and wake up at home. '
+=======
+    questFailed: You failed the quest
+    questWon: You won the quest
+>>>>>>> Stashed changes
     itemReward: {fileID: 0}
     townMoraleIncrease: 15
     knightHealthIncrease: 0
@@ -5905,6 +5932,7 @@ MonoBehaviour:
     questLetter: {fileID: -3892905917985017653, guid: 0a418a6f9aedfd64f99f6ecc5224febf, type: 3}
     questCompleted: 0
     conditionsMet: 0
+<<<<<<< Updated upstream
     questFailed: You enter the bakery with your head and ears hung low. The baker
       isn't mad, but she looks sad when she tells you that, because of how long it
       takes dairy products out to the village, she probably can't make that special
@@ -5913,6 +5941,10 @@ MonoBehaviour:
       knight. When you deliver\_it, the knight insists she stays for a slice. The\_baker
       sits on the edge of the knight's bed as they laugh into the evening.\_Your\_begging
       eventually gets rewarded with your own tiny piece."
+=======
+    questFailed: You failed the quest
+    questWon: You won the quest
+>>>>>>> Stashed changes
     itemReward: {fileID: 0}
     townMoraleIncrease: 5
     knightHealthIncrease: 0
@@ -5931,9 +5963,63 @@ MonoBehaviour:
     requiredLocationRoom: {fileID: 0}
     requiredPuzzleRoom: {fileID: 0}
     requiredChallengeRoom: {fileID: 0}
+<<<<<<< Updated upstream
     QuestOrder: 2
   questLines: []
   CompletedQuests: 0
+=======
+    QuestOrder: 0
+  - questName: F
+    questDescription: sixth one
+    questDifficulty: 0
+    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: You failed the quest
+    questWon: You won the quest
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 10
+    QuestType: 0
+    QuestLine: 0
+    requiredItem: {fileID: 0}
+    requiredItemAmount: 0
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 0}
+    requiredEnemyAmount: 0
+    currentEnemyAmount: 0
+    questNPCID: 
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 0
+  - questName: G
+    questDescription: seventh
+    questDifficulty: 0
+    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: You failed the quest
+    questWon: You won the quest
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 10
+    QuestType: 0
+    QuestLine: 0
+    requiredItem: {fileID: 0}
+    requiredItemAmount: 0
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 0}
+    requiredEnemyAmount: 0
+    currentEnemyAmount: 0
+    questNPCID: 
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 0
+  questLetters:
+  - {fileID: 970388537}
+  - {fileID: 297501675}
+  - {fileID: 18596959}
+>>>>>>> Stashed changes
   QuestResults: {fileID: 1495093567}
   QuestName:
   - {fileID: 1864820344}
