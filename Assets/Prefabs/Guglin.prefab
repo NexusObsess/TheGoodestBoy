@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3657591510175452889}
   - component: {fileID: 7811825050093589848}
   m_Layer: 8
-  m_Name: BigEnemy
+  m_Name: Guglin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

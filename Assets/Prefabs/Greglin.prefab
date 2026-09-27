@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1035074328122142652}
   - component: {fileID: 5283466628935340767}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Greglin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyName: Greglin
-  hp: 5
+  hp: 3
   speed: 1
   cooldown: 0
   damage: 1

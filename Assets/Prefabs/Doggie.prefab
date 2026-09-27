@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 1784828616394448127}
   - component: {fileID: 8635755864676492325}
   m_Layer: 6
-  m_Name: PlayerTest
+  m_Name: Doggie
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
   maxHealth: 10
   currentHealth: 0
-  swordDamage: 3
+  swordDamage: 1
   pSprite: {fileID: 5101432231231015141}
   swordObj: {fileID: 3813833656579838726}
   iFramesDuration: 1
