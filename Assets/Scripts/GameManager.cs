@@ -75,6 +75,10 @@ public class GameManager : MonoBehaviour
         KnightHealth -= KnightHealthDailyDecrease * currentDay;
 
         questManager.EndQuestCheck(); // checks if each quest was completed and then sends the corrosponding fail or win text into the end of day sequence text
+        if (TownMorale < 0)
+        {
+            TownMorale = 0;
+        }
         UpdatePauseStats();
 
         EndOfDayVariations.MoraleSelectCorrectTextTree();
