@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: 50d8895045c91f04fb0565c54a96086f
+  - enabled: 1
+    path: Assets/Scenes/UIScene.unity
+    guid: c468010e3089a404f84aca2bccd9deb5
+  - enabled: 1
+    path: Assets/Scenes/QuestSystem and Game Manager.unity
+    guid: f345d71839e1eb0419598bb3197f7a0e
+  - enabled: 1
     path: Assets/Scenes/Dungeon.unity
     guid: c637c7c516c19534f95b6b5909ceaf01
+  - enabled: 1
+    path: Assets/Scenes/GameOverDied.unity
+    guid: 811fa326214adf54ba4598e5bee3514a
+  - enabled: 1
+    path: Assets/Scenes/GameOverOutOfTime.unity
+    guid: 339a597501f94cd42ac1cf1db3084f70
+  - enabled: 1
+    path: Assets/Scenes/GameOverQuestNotComplete.unity
+    guid: 05a827111ba8dac43828a9c0637fec45
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
