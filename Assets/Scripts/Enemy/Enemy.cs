@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
 
     //States
+    private EnemyState currentState;
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public bool isPatroling, isChasing, isAttacking;
@@ -27,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     //Patrolling
     public float walkPointRange;
-    private Vector2 walkPoint;
+    private Vector3 walkPoint;
     private bool walkPointSet;
 
     public void Awake()
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         sRenderer = GetComponent<SpriteRenderer>();
+        ChangeState(EnemyState.Patrol);
         currentTime = cooldown;
 
         isDead = false;
@@ -52,6 +54,12 @@ public class Enemy : MonoBehaviour
             // Patrol
             isChasing = false;
             isAttacking = false;
+            if (!walkPointSet)
+            {
+                SearchWalkPoint();
+            }
+            Patrolling();
+
         }
         if (playerInSightRange && !playerInAttackRange)
         {
@@ -80,20 +88,54 @@ public class Enemy : MonoBehaviour
             }
         }
 
-    }
 
+        
+
+}
+    public void ChangeState(EnemyState newState)
+    {
+        currentState = newState;
+        //Code for changing animation states here
+
+    }
     private void SearchWalkPoint()
     {
-        ////Calculate random point in range
-        //float randomY = Random.Range(-walkPointRange, walkPointRange);
-        //float randomX = Random.Range(-walkPointRange, walkPointRange);
-        //walkPoint = new Vector2(transform.position.x + randomX, transform.position.y + randomY);
-        //if (transform.position != walkPoint)
-        //{
-        //    walkPointSet = true;
-        //}
+        //Calculate random point in range
+        float randomY = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y + randomY, 0);
+        Vector3 walkDistance = transform.position - walkPoint;
+        if (walkDistance.magnitude >= 0)
+        {
+            walkPointSet = true;
+        }
 
     }
+
+    private void Patrolling()
+    {
+        if (!walkPointSet)
+        {
+            SearchWalkPoint();
+        }
+
+        if (walkPointSet)
+        {
+            Vector2 target = new Vector2(walkPoint.x, walkPoint.y);
+            Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+            rb.MovePosition(newPos);
+        }
+        float walkDistance = Vector2.Distance(transform.position, walkPoint);
+
+        if (walkDistance < 1f)
+        {
+            walkPointSet = false;
+        }
+    }
+
+
+
+
 
     private void ChasePlayer()
     {
@@ -112,10 +154,6 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.tag == "Player")
-        //{
-        //    isChasing = true;
-        //}
 
         if (collision.CompareTag("Player"))
         {
@@ -126,14 +164,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //public void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    if(collision.gameObject.tag == "Player")
-    //    {
-    //        isChasing = false;
-    //        rb.linearVelocity = Vector2.zero;
-    //    }
-    //}
 
 
     public void EnemyTakeDamage(float damage)
@@ -169,4 +199,11 @@ public class Enemy : MonoBehaviour
     }
 
 
+}
+
+public enum EnemyState
+{
+    Patrol,
+    Chase,
+    Attack
 }
