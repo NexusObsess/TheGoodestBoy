@@ -20,7 +20,8 @@ public class PlayerStats : MonoBehaviour
 
     public void Start()
     {
-        sRenderer = pSprite.GetComponent<SpriteRenderer>();
+        sRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
 
         swordObj.SetActive(false);

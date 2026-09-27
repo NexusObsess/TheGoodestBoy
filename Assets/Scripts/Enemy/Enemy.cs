@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
 
     private SpriteRenderer sRenderer;
+    private Animator anim;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private int facingDirection = 1; // 1 for right, -1 for left
@@ -40,6 +41,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         sRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         ChangeState(EnemyState.Patrol);
         currentTime = cooldown;
 
@@ -136,15 +138,22 @@ public class Enemy : MonoBehaviour
     }
 
 
-
-
-
     private void ChasePlayer()
     {
         Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
     }
+
+
+    private void AttackPlayer()
+    {
+        // Implement attack logic here
+    }
+
+
+
+
 
     private void Flip()
     {
@@ -200,6 +209,22 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
+
+    private void ChangeState()
+    {
+        if(currentState == EnemyState.Patrol)
+        {
+            // Patrol logic
+        }
+        else if (currentState == EnemyState.Chase)
+        {
+            // Chase logic
+        }
+        else if (currentState == EnemyState.Attack)
+        {
+            // Attack logic
+        }
+    }
 
 }
 
