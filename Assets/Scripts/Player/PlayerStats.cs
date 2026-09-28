@@ -1,6 +1,7 @@
-using UnityEngine;
-using UnityEngine.UIElements;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 public class PlayerStats : MonoBehaviour
 {
     public float maxHealth = 10f;
@@ -13,6 +14,7 @@ public class PlayerStats : MonoBehaviour
     private Animator anim;
     public GameObject pSprite;
     private SpriteRenderer sRenderer;
+    private Rigidbody2D rb;
     [SerializeField] GameObject swordObj;
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
@@ -23,6 +25,7 @@ public class PlayerStats : MonoBehaviour
     {
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
 
@@ -46,6 +49,8 @@ public class PlayerStats : MonoBehaviour
     // Activate Sword Attack
     void Attack()
     {
+        anim.SetTrigger("Attack");
+        rb.linearVelocity = Vector2.zero;
         swordObj.SetActive(true);
     }
 
@@ -96,12 +101,14 @@ public class PlayerStats : MonoBehaviour
 
     public void EndGame()
     {
+        SceneManager.LoadScene("GameOverDied");
+
         // For standalone built versions of the game
-        Application.Quit();
+        //Application.Quit();
 
         // For testing inside the Unity Editor
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
+//#if UNITY_EDITOR
+//        UnityEditor.EditorApplication.isPlaying = false;
+//#endif
     }
 }
