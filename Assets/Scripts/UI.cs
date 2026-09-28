@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
+
+    public GameManager gameManager;
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject UnPauseButton;
@@ -10,7 +12,11 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject XMailbox;
 
 
-
+    private void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+        //gameManager.NewDay();
+    }
     public void Pause()
     {
         PauseMenu.SetActive(true);

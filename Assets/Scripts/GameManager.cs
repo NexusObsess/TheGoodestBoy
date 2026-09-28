@@ -39,11 +39,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // get any necessary manager scripts to call functions
-        questManager = FindFirstObjectByType<QuestManager>();
+        
         textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
-
+        questManager = FindFirstObjectByType<QuestManager>();
         // opening sequence
-        // call newday()
+        NewDay();
     }
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
@@ -54,16 +54,16 @@ public class GameManager : MonoBehaviour
 
 
 
-        Debug.Log("NewDay");
+        
         // spawns player in starting location healed(?)
         // loads scenes if needed
 
         // create new version of 'dungeon' ?
 
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
-
+        Debug.Log("NewDay");
         currentDay ++; // keep at bottom, for quest system
-        SceneManager.LoadScene(dungeonScene, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Dungeon", LoadSceneMode.Additive);
 
         UpdatePauseStats(); // call everytime one of the stats changes
     }
