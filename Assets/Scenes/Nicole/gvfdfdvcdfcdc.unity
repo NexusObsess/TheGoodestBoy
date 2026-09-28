@@ -321,14 +321,245 @@ PrefabInstance:
       value: QuestManager
       objectReference: {fileID: 0}
     - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questWon
+      value: You successfully beat your new friend's challenge! You sniff through
+        the whole town top to bottom, but you cannot find them, almost like they're
+        hiding from you...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questWon
+      value: Kill more skellys than your 'rival'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[17].QuestLine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[18].QuestLine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[19].QuestLine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
       propertyPath: possibleQuests.Array.data[19].questName
       value: 'The Mystery of [null]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].QuestLine
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].QuestType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questName
+      value: A Challenger Approaches!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].QuestLine
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].QuestType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questName
+      value: Beat the High Score!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[17].QuestOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[18].QuestOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[19].QuestOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].QuestOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questNPCID
+      value: Glitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].QuestOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questNPCID
+      value: Glitch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questFailed
+      value: You didn't manage to pick up 10 bones today. Your new friend is probably
+        disappointed that you messed up their games. You feel the possibility of
+        having another doggy friend slipping through your paws.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questLetter
+      value: 
+      objectReference: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questFailed
+      value: You didn't manage to pick up 10 bones today. Your new friend is probably
+        disappointed that you messed up their games. You feel the possibility of
+        having another doggy friend slipping through your paws.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questLetter
+      value: 
+      objectReference: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questNPCIDPF
+      value: 
+      objectReference: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredItem
+      value: 
+      objectReference: {fileID: 3685330357435017766, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questNPCIDPF
+      value: 
+      objectReference: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredItem
+      value: 
+      objectReference: {fileID: 3685330357435017766, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredEnemy
+      value: 
+      objectReference: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredEnemy
+      value: 
+      objectReference: {fileID: 442417054845871736, guid: 1f16358f4689ee44193fca72266eda3e, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredItemPF
+      value: 
+      objectReference: {fileID: 1628071829107190243, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredItemPF
+      value: 
+      objectReference: {fileID: 1628071829107190243, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questDifficulty
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredEnemyPF
+      value: 
+      objectReference: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredEnemyPF
+      value: 
+      objectReference: {fileID: 3592104576542595330, guid: 1f16358f4689ee44193fca72266eda3e, type: 3}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].questDescription
+      value: Dig up 10 bones
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].questDescription
+      value: Kill more skellys than your 'rival'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredItemAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].townMoraleIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredItemAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].townMoraleIncrease
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[20].requiredEnemyAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[21].requiredEnemyAmount
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+--- !u!1001 &1954903874003180750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1628071829107190243, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_Name
+      value: Bone
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090487492193076648, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -336,3 +567,4 @@ SceneRoots:
   - {fileID: 843850624}
   - {fileID: 1508659252}
   - {fileID: 1345823808}
+  - {fileID: 1954903874003180750}
