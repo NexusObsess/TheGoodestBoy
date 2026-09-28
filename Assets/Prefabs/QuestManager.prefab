@@ -707,10 +707,14 @@ MonoBehaviour:
     questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
     questCompleted: 0
     conditionsMet: 0
-    questFailed: You didn't manage to pick up 10 bones today. Your new friend is
-      probably disappointed that you messed up their games. You feel the possibility
-      of having another doggy friend slipping through your paws.
-    questWon: Kill more skellys than your 'rival'
+    questFailed: While you're walking through town, a bit glum after not killing
+      enough skellys, another dog jumps in front of you and barks loudly about how
+      he is better than you. Before you can respond, he gallops away again. You then
+      feel even more glum...
+    questWon: You run around town like a mad dog trying to find the rival dog but
+      again, have no luck. You can definitely hear paws rapidly hitting the pavement
+      in front of you. You've never been good at hide and seek or tag. You wonder
+      why he is avoiding you...
     itemReward: {fileID: 0}
     townMoraleIncrease: 5
     knightHealthIncrease: 0
@@ -730,6 +734,33 @@ MonoBehaviour:
     requiredPuzzleRoom: {fileID: 0}
     requiredChallengeRoom: {fileID: 0}
     QuestOrder: 1
+  - questName: A Misunderstanding?
+    questDescription: Comfort your 'rival'
+    questDifficulty: 2
+    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
+    questCompleted: 0
+    conditionsMet: 0
+    questFailed: 
+    questWon: 
+    itemReward: {fileID: 0}
+    townMoraleIncrease: 5
+    knightHealthIncrease: 0
+    QuestType: 2
+    QuestLine: 3
+    requiredItem: {fileID: 3685330357435017766, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    requiredItemPF: {fileID: 1628071829107190243, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
+    requiredItemAmount: 10
+    currentItemAmount: 0
+    requiredEnemy: {fileID: 442417054845871736, guid: 1f16358f4689ee44193fca72266eda3e, type: 3}
+    requiredEnemyPF: {fileID: 3592104576542595330, guid: 1f16358f4689ee44193fca72266eda3e, type: 3}
+    requiredEnemyAmount: 5
+    currentEnemyAmount: 0
+    questNPCID: Rival Dog
+    questNPCIDPF: {fileID: 8210371082398829670, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
+    requiredLocationRoom: {fileID: 0}
+    requiredPuzzleRoom: {fileID: 0}
+    requiredChallengeRoom: {fileID: 0}
+    QuestOrder: 2
   questLines: []
   CompletedQuests: 0
   QuestResults: {fileID: 0}
