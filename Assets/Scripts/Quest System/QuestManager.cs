@@ -158,7 +158,7 @@ public class QuestManager : MonoBehaviour
                 }
                 if (activeQuests[i].QuestType == Quest.questType.Hunt)
                 {
-                    QuestRequirement[i].text += activeQuests[i].requiredEnemy.ToString() + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
+                    QuestRequirement[i].text += activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + " / " + activeQuests[i].requiredEnemyAmount;
                 }
                 if (activeQuests[i].QuestType == Quest.questType.Talk)
                 {

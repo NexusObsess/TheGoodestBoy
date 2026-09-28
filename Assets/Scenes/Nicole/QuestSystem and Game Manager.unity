@@ -766,552 +766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
---- !u!1 &187213723
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 187213725}
-  - component: {fileID: 187213724}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &187213724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187213723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ccd90bb4fc441c4dad1eaae243e5500, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  currentDay: 0
-  TownMorale: 100
-  TownMoraleDailyDecrease: 20
-  KnightHealth: 6
-  KnightHealthDailyDecrease: 1
-  StatText: {fileID: 1345172592}
-  textboxobject: {fileID: 893279050}
-  EndOfDayVariations: {fileID: 252498381}
-  TextActive: 0
-  GameOverTriggered: 0
-  Knight: {fileID: 3775439028298555850, guid: 74f122a1ecb0b594c95de78a006d2559, type: 3}
-  Witch: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-  WannabeHero: {fileID: 4932804068736571853, guid: c7c020152fd24704692bf0d212843913, type: 3}
-  Baker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
-  RivalDog: {fileID: 9099556265879683154, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
-  Apothecary: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
---- !u!4 &187213725
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187213723}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.60595, y: -0.07434, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 252498380}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &216187987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 216187988}
-  - component: {fileID: 216187991}
-  - component: {fileID: 216187990}
-  - component: {fileID: 216187989}
-  m_Layer: 5
-  m_Name: Button (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &216187988
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216187987}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.0588, y: 5.0588, z: 5.0588}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1040136210}
-  m_Father: {fileID: 1882955947}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -562.41, y: -419.82}
-  m_SizeDelta: {x: 150.74, y: 33.75}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &216187989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216187987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 216187990}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 187213724}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EndDay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &216187990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216187987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &216187991
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216187987}
-  m_CullTransparentMesh: 1
---- !u!1 &252498379
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 252498380}
-  - component: {fileID: 252498381}
-  m_Layer: 0
-  m_Name: End of Day Variations
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &252498380
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252498379}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.48902, y: 6.543605, z: 0.000015258789}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 187213725}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &252498381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252498379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
-  PossibleSequencesMorale:
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The people of the town are in high spirits! The streets are full of friendly
-        smiling faces who give you many pets and treats.
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 90
-    knightHealthThreshold: 0
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The people of the town are slightly nervous. The streets seem less lively
-        and when people approach you with pets and treats, they also ask after the
-        knight's health.
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 60
-    knightHealthThreshold: 0
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'The people of the town are very tense. Very few sorry looking townspeople
-        are still out by the time you get back and they all walk in groups. The baker
-        asks if the town should prepare for the worst. '
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 30
-    knightHealthThreshold: 0
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You don't see anyone on the way into town, aside from the woodworker
-        fortifying the end of the town leading into the forest who doesn't look at
-        you. The buildings are boarded up and you get no treats.
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 0
-    currentDayThreshold: 0
-  PossibleSequencesKnightHealth:
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The knight's condition is stable and even threw your ball a few times
-        before you snuggled up and fell asleep.
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 6
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'Despite the knight reassuring you with lots of cuddles and pets that
-        you just had a bad day, your confidence is completely shattered after failing
-        so badly. '
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You spend the rest of week sighing randomly and laying with your head
-        and paws out.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The knight deteriorates quickly, and your week gets worse when you wake
-        up to a completely silent bedroom.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'Bad ending 1: Bark Worse than Bite'
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 5
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You fall asleep on top of the knight, feeling the cool press of armour
-        on your fur.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: When you next wake up, the witch is standing by the bed glaring at you.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-      TextSpeed: 1
-      Line: "You didn\u2019t visit me today :( That makes me sad, bubba."
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-      TextSpeed: 1
-      Line: "Why don\u2019t you make it up to me by having a sleepover tonight?"
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: "Instead of barking like you would at any other intruder, you decide
-        to go with the witch. You\u2019ll be back before the knight even notices
-        you\u2019re gone tomorrow! "
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: "The next day, however, the forest doesn\u2019t let you leave. No matter
-        how much you whine, bark, bite or beg, the witch only pouts at you."
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-      TextSpeed: 1
-      Line: "Come on, bubba! Now you get to live with the fun parent <3! You\u2019ll
-        learn to love it in the forest :) "
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-      TextSpeed: 1
-      Line: ...and eventually forget every worthless thing in that town.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-      TextSpeed: 1
-      Line: You never learn what happens to the knight or the town.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'Bad ending 2: Unofficial Custody Change'
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 4
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You tried not to lose hope.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'Surely, you would be able to find a different solution, or the knight
-        would get better without help. '
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: Yet, every time you came home from adventuring, the knight looked worse
-        and worse.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: After the next weekend passes, you lay stubbornly on the knight.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Don't worry your little head, my good boy. I'm not dead yet.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: ...You're doing great, you know.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Hey, don't look so sad. None of this is your fault.
-      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: I love you so much. You are precious. The town is in good hands.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Now, go on. They... I'm relying on you.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The knight is dead when you get back home.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The townspeople help with the funeral and there isn't a dry eye in attendance.
-        Especially not yours.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The baker lifts you out of the casket despite your efforts to cling on
-        what remains of your knight. She holds you close when the tradesmen lower
-        it down and bury it.
-      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
-    - Speaker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
-      TextSpeed: 1
-      Line: Hey, why don't you come live with me, sweetie? It must be lonely in that
-        big house. We can look after each other.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Hey, don't look so sad. None of this is your fault.
-      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Hey, don't look so sad. None of this is your fault.
-      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
-    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
-      TextSpeed: 1
-      Line: Hey, don't look so sad. None of this is your fault.
-      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 3
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The knight and apothecary reassured you that you can try again to pick
-        enough herbs.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: When you waddle into the forest the next day though, there are no herbs
-        at all.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: In fact, the herbs never grow in the forest again.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The apothecary tries to make do with what you have, but that only delays
-        the inevitable.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-      TextSpeed: 2
-      Line: I'm sorry, dog. There's nothing more I can do for you two.
-      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
-    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-      TextSpeed: 3
-      Line: I... I know it's not my place to say, but I hope you know that this wasn't
-        your fault.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You know it wasn't your fault.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 3
-      Line: But it was someone else's fault.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: The witch controls the forest; he chooses what grows.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: Now, the witch will know how it feels to lose something precious.
-      DogSoundEffect: {fileID: 8300000, guid: 49296a8c99898f54cb1594373a036846, type: 3}
-    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-      TextSpeed: 1
-      Line: I'm sorry, dog. There's nothing more I can do for you two.
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 2
-    currentDayThreshold: 0
-  - DialogueTree:
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: You wonder if the witch was being honest or if it was a mean trick.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-      TextSpeed: 1
-      Line: My medicine already seems to have improved your condition
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-      TextSpeed: 1
-      Line: Please still take it easy for the next couple of days. But if you pass
-        a few more checkups, I will clear you to start adventuring again.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: For the first time in a week, you walk to the edge of the forest with
-        the knight. You keep stopping to look at the knight like you think this is
-        all too good to be true. Despite nearly tripping over you multiple times,
-        the knight only laughs at your antics.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: To your further shock, you find the forest completely rid of any monsters,
-        traces of magic or the witch. It seems that papa really was telling the truth...
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 3775439028298555850, guid: 74f122a1ecb0b594c95de78a006d2559, type: 3}
-      TextSpeed: 0.5
-      Line: You did it, buddy! The witch is gone. I am so proud of you, my goodest
-        boy!
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: Your tail wags as the knight spoils you with pets.
-      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: It's only a matter of time before another magical beast takes residence
-        in the forest. But, for the little time it will last, the town enjoys the
-        calm.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: Somedays, you miss the witch. You kick your legs in your sleep, wondering
-        if you could have done anything differently for a better outcome.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: Mostly though, you and the knight enjoy the time off, keeping busy with
-        helping the townspeople with less important errands.
-      DogSoundEffect: {fileID: 0}
-    - Speaker: {fileID: 0}
-      TextSpeed: 1
-      Line: 'Neutral ending: Full Physical Custody'
-      DogSoundEffect: {fileID: 0}
-    townMoraleThreshold: 0
-    knightHealthThreshold: 1
-    currentDayThreshold: 0
-  PossibleSequencesCurrentDay: []
 --- !u!114 &297932699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1413,7 +867,7 @@ Transform:
   m_GameObject: {fileID: 399183711}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.83, y: -2.96, z: 0}
+  m_LocalPosition: {x: -11.62, y: -2.96, z: 0}
   m_LocalScale: {x: 0.71716, y: 0.71716, z: 0.71716}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1906,143 +1360,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513588124}
   m_CullTransparentMesh: 1
---- !u!1 &519420028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 519420032}
-  - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_AllowHDROutput: 1
-  m_UseScreenCoordOverride: 0
-  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
-  m_Version: 2
---- !u!20 &519420031
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 34
-  orthographic: 1
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 0
-  m_HDR: 1
-  m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 0
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &519420032
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581177897
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,90 +1591,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1 &619394800
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 619394802}
-  - component: {fileID: 619394801}
-  m_Layer: 0
-  m_Name: Global Light 2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &619394801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619394800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ComponentVersion: 2
-  m_LightType: 4
-  m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_LightVolumeIntensity: 1
-  m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
-  m_LightCookieSprite: {fileID: 0}
-  m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
-  m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
-  m_NormalMapDistance: 3
-  m_NormalMapQuality: 2
-  m_UseNormalMap: 0
-  m_ShadowsEnabled: 0
-  m_ShadowIntensity: 0.75
-  m_ShadowSoftness: 0
-  m_ShadowSoftnessFalloffIntensity: 0.5
-  m_ShadowVolumeIntensityEnabled: 0
-  m_ShadowVolumeIntensity: 0.75
-  m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
-  m_ShapeLightParametricSides: 5
-  m_ShapeLightParametricAngleOffset: 0
-  m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
-  m_ShapeLightFalloffOffset: {x: 0, y: 0}
-  m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
---- !u!4 &619394802
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619394800}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &689983622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,7 +1708,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2514,7 +1747,7 @@ GameObject:
   - component: {fileID: 830047063}
   - component: {fileID: 830047062}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Pop Up Letter Selection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2991,143 +2224,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996394025}
-  m_CullTransparentMesh: 1
---- !u!1 &1040136209
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1040136210}
-  - component: {fileID: 1040136212}
-  - component: {fileID: 1040136211}
-  m_Layer: 5
-  m_Name: End Day
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1040136210
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040136209}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 216187988}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1040136211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040136209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: End Day
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 0
-  m_fontSizeMax: 0
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1040136212
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040136209}
   m_CullTransparentMesh: 1
 --- !u!1 &1213513009
 GameObject:
@@ -4419,627 +3515,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599334705}
   m_CullTransparentMesh: 1
---- !u!1 &1605359455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1605359456}
-  - component: {fileID: 1605359457}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1605359456
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605359455}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.26395, y: 0.48327, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1605359457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1605359455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ccb5def6728497438939c15b1f92efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuestManager
-  activeQuests: []
-  possibleQuests:
-  - questName: First Solo Mission
-    questDescription: Kill one greglin
-    questDifficulty: 0
-    questLetter: {fileID: -1709657789612851665, guid: d17942a1c9aa7cf44a236d98f560a2b8, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: "You completely failed to kill one of the easiest forest monsters.
-      You curl up at the end of the knight\u2019s bed and howl about how you weren\u2019t
-      a good boy when the knight trusted you to protect the village."
-    questWon: You proved to yourself that you can protect the town until the knight
-      gets better! The knight tells you what a good job you did and your tail wags
-      until you fall asleep.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 1
-    QuestType: 1
-    QuestLine: 1
-    requiredItem: {fileID: 0}
-    requiredItemPF: {fileID: 0}
-    requiredItemAmount: 0
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 1
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Find the Witch
-    questDescription: "Search the forest for the witch\u2019s hiding spot"
-    questDifficulty: 1
-    questLetter: {fileID: -3494038898966782236, guid: c0ee4b1e3dbb9014bbd43557ba939cf9, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: "You didn\u2019t find the witch today. Your tail hangs a little
-      lower on your way back into town. Hopefully he won\u2019t get mad at the knight.
-      The knight isn\u2019t well enough to be taken to court... again."
-    questWon: "You\u2019re not sure what to think. You knew that the knight and the
-      witch don\u2019t like each other anymore, but you never thought that the witch
-      could do something like this. You whine, thinking about when the three of you
-      still got along."
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 0
-    knightHealthIncrease: 2
-    QuestType: 2
-    QuestLine: 1
-    requiredItem: {fileID: 0}
-    requiredItemPF: {fileID: 0}
-    requiredItemAmount: 0
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: The WItch
-    questNPCIDPF: {fileID: 719333084683614569, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 1
-  - questName: The Out-of-Town Apothecary
-    questDescription: "Guide\_the famous apothecary through the forest"
-    questDifficulty: 2
-    questLetter: {fileID: -2092108468865089476, guid: ce0d08c6dbdfe3e4b91f59b5daf36eb7, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You didn't find the apothecary in the forest. They must have moved
-      along before you found them.
-    questWon: Meeting the apothecary has given you hope for finding a cure for the
-      knight's condition. Your tail wags, already planning to love a lot on the apothecary
-      when you get home.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 3
-    QuestType: 2
-    QuestLine: 1
-    requiredItem: {fileID: 193959953051639115, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemPF: {fileID: 7629429788557098647, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemAmount: 2
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: The Apothecary
-    questNPCIDPF: {fileID: 3051157041494673867, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 2
-  - questName: Finally a cure?
-    questDescription: Find herbs for the knight's medicine
-    questDifficulty: 3
-    questLetter: {fileID: -4014821736977150173, guid: c6f82531e2b4bb840bf543a0832f66a9, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You didn't pick up enough herbs for the apothecary's cure today.
-      In the meantime, the apothecary uses what you have for some pain relief.
-    questWon: The apothecary mixes the herbs into a paste with willow bark and ginger
-      then boils it over the stove. The knight barely stomachs the medicine but feels
-      immediate but slow improvement. They both get a lot of kisses from you.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 0
-    knightHealthIncrease: 4
-    QuestType: 0
-    QuestLine: 1
-    requiredItem: {fileID: 7894468348002340712, guid: 6f47413e7d20ebb4a967c09ce6c48c57, type: 3}
-    requiredItemPF: {fileID: 3518617267615938002, guid: 6f47413e7d20ebb4a967c09ce6c48c57, type: 3}
-    requiredItemAmount: 5
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 3
-  - questName: Final Confrontation
-    questDescription: Deal with Papa and his minions :(
-    questDifficulty: 4
-    questLetter: {fileID: 8184967623560046432, guid: e2e22a02026b07547b556143accd7093, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: Unsure how to feel, you left the forest before killing many of the
-      witch's minions.
-    questWon: You defeated most of the witch's minions! Now you only have to deal
-      with papa, once and for all...
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 4
-    QuestType: 1
-    QuestLine: 1
-    requiredItem: {fileID: 0}
-    requiredItemPF: {fileID: 0}
-    requiredItemAmount: 5
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 139605101872726483, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
-    requiredEnemyPF: {fileID: 6146527453023367423, guid: 3517a851ae9a9f4498df9eb71a51476c, type: 3}
-    requiredEnemyAmount: 10
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 4
-  - questName: Stolen groceries
-    questDescription: Find and return the hermit's stolen groceries
-    questDifficulty: 2
-    questLetter: {fileID: -2344036921581987684, guid: c325ac8acd63ca84f82b40c349da1555, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: Somehow, while you waddle through town, you hear the door of a fridge
-      opening and closing repeatedly, as if praying a sudden act of god will cause
-      it to have food.
-    questWon: You carry the groceries back on your back. After your bark at the hermit's
-      door, she waits until you waddle away to open the door and quickly swipe the
-      groceries inside.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 7647819659818778014, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemPF: {fileID: 4714680770939761051, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemAmount: 3
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Fancy Party Invite
-    questDescription: Find a fancy dress outfit for the party tonight
-    questDifficulty: 0
-    questLetter: {fileID: -7492767392388717588, guid: 7b5a8cd3dbe412f42803ad051ed02df8, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: When you arrive at the party, the doorman does not let you in because
-      you do not meet the dress code. Not even your sad whines convince them.
-    questWon: 'You are the most popular person at the party! You are spoiled with
-      treats and pets by all of the fancy folk. You fall asleep on the lap of the
-      baker and wake up at home. '
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 15
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 5185782763372722024, guid: 6043335da37ce6943b732efad22dbda3, type: 3}
-    requiredItemPF: {fileID: 1070399376722758225, guid: 6043335da37ce6943b732efad22dbda3, type: 3}
-    requiredItemAmount: 1
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: She doesn't have a problem! You do!
-    questDescription: Find the fool's lost six pack of the forbidden beverage
-    questDifficulty: 3
-    questLetter: {fileID: 8423666676809221860, guid: a54ddebc48f5c5e45b111345443c5e85, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: The fool is waiting for you at the edge of the forest. Once she
-      sees you empty pawed, she storms offs, kicking a nearby rock and nearly stubbing
-      her toe. You tilt your head but move on.
-    questWon: The fool is waiting for you at the edge of the forest. When she sees
-      the bottles, she takes a swing from one before pulling you into a spontaneous
-      cuddle session. You are covered in red kisses but you're just glad the fool
-      was so happy to see you.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 7908364652816073106, guid: 72851f9eadd579849b4d47c7c9db43f8, type: 3}
-    requiredItemPF: {fileID: 1493711811137123496, guid: 72851f9eadd579849b4d47c7c9db43f8, type: 3}
-    requiredItemAmount: 6
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Saucer in the sky????
-    questDescription: Find the UFO the 'prophet' saw last night
-    questDifficulty: 1
-    questLetter: {fileID: 3415686035000456955, guid: 462f7004ddf486b40b2c2fbb139d350c, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: On the way into town, you see a group of concerned townsfolk crowded
-      around a small dining table in the 'prophet's' house as he gestures wildly.
-      You sigh. The knight always says to nip the 'prophet's' end of the world theories
-      in the bud quickly.
-    questWon: After you show the frizbees off to the town, the 'prophet' loses their
-      thunder and the townsfolk laugh off their previous worries. Your tail wags
-      as you waddle home with your new toy.
-    itemReward: {fileID: 917288505979223177, guid: 47cb5a02b3b73744e9f8ed4210c81012, type: 3}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 8505821263004295309, guid: 47cb5a02b3b73744e9f8ed4210c81012, type: 3}
-    requiredItemPF: {fileID: 917288505979223177, guid: 47cb5a02b3b73744e9f8ed4210c81012, type: 3}
-    requiredItemAmount: 2
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Here comes the bride!
-    questDescription: Search for the romantic's promise ring, engagement ring and
-      wedding ring before his wedding tonight
-    questDifficulty: 1
-    questLetter: {fileID: -7388159012544206568, guid: 9eb6c7a08964d724c828973773be904f, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: The town chruch is empty all night, aside from the romantic sat
-      at the end of aisle with his head in his hands crying.
-    questWon: "You dramatically bust open the church doors, balancing all three rings
-      on your head. The romantic pats you on the head before sliding each ring onto
-      his beautiful... cactus bride\u2019s spikes."
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 4154879015770823470, guid: 49d4eb50ca0808d41b355ce0726bf584, type: 3}
-    requiredItemPF: {fileID: 6572946359595343898, guid: 49d4eb50ca0808d41b355ce0726bf584, type: 3}
-    requiredItemAmount: 3
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Revenge >:D
-    questDescription: Pick some cucumber in the forest to... surprise the alley cat
-    questDifficulty: 2
-    questLetter: {fileID: 8298646712422644024, guid: 09f3345a0af49ea4698e5340f6f1dbc1, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: The alley cat stalks you on your way through town, hissing and occasionally
-      jumping out to scratch at you. Your tail hangs low - you regret taking the
-      high road in your beef (not the yummy kind).
-    questWon: 'The alley cat approaches you but once she sees your cucumber, she
-      scampers away like her tail is on fire. The nearby towns people laugh heartedly
-      at the funny sight. '
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 6711364246500682078, guid: bf8bdc494bbe75e47abcd2297761d0ac, type: 3}
-    requiredItemPF: {fileID: 2317139873284124918, guid: bf8bdc494bbe75e47abcd2297761d0ac, type: 3}
-    requiredItemAmount: 4
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: An artist's tools
-    questDescription: Find the magic art supplies in the forest
-    questDifficulty: 2
-    questLetter: {fileID: -1968523917951881669, guid: 2c15117f1e694de4f9241cda3eb26f3e, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: When you pass the artist, they look hopefully but visibly shrink
-      when you aren't carrying all of the paint. Yet another reason that sculpture
-      commission of you and the knight will be put on the back burner forever.
-    questWon: The artist is so grateful for the art supplies that he promises to
-      a sculpture of you and the knight protecting the village... once they have
-      finally free time.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 0
-    requiredItem: {fileID: 193959953051639115, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemPF: {fileID: 7629429788557098647, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemAmount: 2
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 0}
-    requiredEnemyPF: {fileID: 0}
-    requiredEnemyAmount: 0
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Vandals from the Wood
-    questDescription: Teach the jerks bothering the baker a lesson
-    questDifficulty: 0
-    questLetter: {fileID: -985203584929593305, guid: f50368cba9ac05b46ab47343eca9a0d1, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You pass the bakery on your way through town. The baker is busy
-      washing the mud off the walls.
-    questWon: You pass the bakery on your way through town. The baker is busy washing
-      the mud off the walls. However, when she sees you, the baker bends down to
-      give you a handshake and lots of pets. Your tail threatens to knock over her
-      water bucket.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 1
-    QuestLine: 2
-    requiredItem: {fileID: 193959953051639115, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemPF: {fileID: 7629429788557098647, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemAmount: 2
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: 
-    questNPCIDPF: {fileID: 0}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: A Private Conversation
-    questDescription: Meet up with the baker away from prying eyes
-    questDifficulty: 1
-    questLetter: {fileID: -7685843290236148453, guid: 476df8ff36a646c4c95c97fe9daf49fa, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: When the baker sees you on the way out of the forest, her face suddenly
-      goes very red. She insists you forget about your secret meeting. You tilt your
-      head as the baker stumbles away, calling herself silly under her breath.
-    questWon: The first thing you do when you get back into town is tug the baker
-      by the apron back to the knight. They talk for two hours, and you get to lay
-      between two of your favourite people getting many belly rubs. The knight seems
-      to be in higher spirits!
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 2
-    QuestLine: 2
-    requiredItem: {fileID: 193959953051639115, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemPF: {fileID: 7629429788557098647, guid: a2c80ce6fe9c76a41af4735ef096c1d3, type: 3}
-    requiredItemAmount: 2
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: Baker
-    questNPCIDPF: {fileID: 4382026203799359397, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 1
-  - questName: The Way to the Heart
-    questDescription: Retrieve ingredients for the knight's cheesecake
-    questDifficulty: 2
-    questLetter: {fileID: -3892905917985017653, guid: 0a418a6f9aedfd64f99f6ecc5224febf, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You enter the bakery with your head and ears hung low. The baker
-      isn't mad, but she looks sad when she tells you that, because of how long it
-      takes dairy products out to the village, she probably can't make that special
-      cheesecake for the knight until next week.
-    questWon: "The baker lets you supervise her as she bakes a cheesecake for the
-      knight. When you deliver\_it, the knight insists she stays for a slice. The\_baker
-      sits on the edge of the knight's bed as they laugh into the evening.\_Your\_begging
-      eventually gets rewarded with your own tiny piece."
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 2
-    requiredItem: {fileID: 7647819659818778014, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemPF: {fileID: 4714680770939761051, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemAmount: 3
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: Baker
-    questNPCIDPF: {fileID: 4382026203799359397, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 2
-  - questName: The Call to Adventure
-    questDescription: Rescue the mother's lost child from the forest
-    questDifficulty: 1
-    questLetter: {fileID: 7946720950095596724, guid: bb9739a5e63d0e04d8efb117a4ca331e, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: The worried mother is waiting for you at the edge of the forest.
-      She looks horrified to see you alone, then furious. She rushes past you into
-      the forest to get her child yourself. You don't feel like a very good boy.
-    questWon: When the wannabe hero sees his worried mother is waiting for you at
-      the edge of the forest, he runs to grip at her skirt, crying. She coos to him
-      as she carries him home. The wannabe hero waves goodbye over her shoulder as
-      he sobs.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 10
-    knightHealthIncrease: 0
-    QuestType: 2
-    QuestLine: 4
-    requiredItem: {fileID: 7647819659818778014, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemPF: {fileID: 4714680770939761051, guid: c4def0c43032b6644ab0d76d960be982, type: 3}
-    requiredItemAmount: 3
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: Wannabe Hero
-    questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 0
-  - questName: Refusal of the Call
-    questDescription: Find something to cheer up the wannabe hero
-    questDifficulty: 1
-    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You bump into the wannabe hero and his mother on the way home. When
-      he sees you, he hides behind her long skirt.
-    questWon: You bump into the wannabe hero and his mother on the way home. When
-      you give the child's toy to the wannabe hero, he pokes out just long enough
-      to slowly take it and thanks you in a quiet voice. His mother scratches you
-      behind the ear as you part ways.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 0
-    QuestLine: 4
-    requiredItem: {fileID: 5752050362253904843, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
-    requiredItemPF: {fileID: 44339542614276864, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
-    requiredItemAmount: 1
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: Wannabe Hero
-    questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 1
-  - questName: Ransom Letter
-    questDescription: Rescue the kidnapped townsperson!
-    questDifficulty: 3
-    questLetter: {fileID: -912049818900472294, guid: bef49a0c3d584cf44a2d26293a6a4255, type: 3}
-    questCompleted: 0
-    conditionsMet: 0
-    questFailed: You didn't find the kidnapped townsperson... hopefully they'll be
-      fine. You don't feel like a very good boy.
-    questWon: You push the unluckiest person in town back to less bumpy terrain by
-      running into their wheelchair a bunch from behind. You talk to the local body
-      builder in town, and she agrees to let him stay with her until their broken
-      bones heal fully.
-    itemReward: {fileID: 0}
-    townMoraleIncrease: 5
-    knightHealthIncrease: 0
-    QuestType: 2
-    QuestLine: 0
-    requiredItem: {fileID: 5752050362253904843, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
-    requiredItemPF: {fileID: 44339542614276864, guid: 5db35ad782e497f4fa4edfae71d4f7be, type: 3}
-    requiredItemAmount: 1
-    currentItemAmount: 0
-    requiredEnemy: {fileID: 4455635858415265513, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
-    requiredEnemyAmount: 5
-    currentEnemyAmount: 0
-    questNPCID: The Unlucky
-    questNPCIDPF: {fileID: 6172555133981086305, guid: 320185903b1d0894f9ce0f90485b4b64, type: 3}
-    requiredLocationRoom: {fileID: 0}
-    requiredPuzzleRoom: {fileID: 0}
-    requiredChallengeRoom: {fileID: 0}
-    QuestOrder: 1
-  questLines: []
-  CompletedQuests: 0
-  QuestResults: {fileID: 1495093567}
-  QuestName:
-  - {fileID: 1864820344}
-  - {fileID: 423656271}
-  - {fileID: 1377909706}
-  QuestDescription:
-  - {fileID: 1220471405}
-  - {fileID: 1599334707}
-  - {fileID: 868459989}
-  QuestRequirement:
-  - {fileID: 2098024588}
-  - {fileID: 58650212}
-  - {fileID: 1690555762}
 --- !u!114 &1610265092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5191,276 +3666,6 @@ RectTransform:
   m_AnchoredPosition: {x: 211.65009, y: -226}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1710412251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1710412252}
-  - component: {fileID: 1710412254}
-  - component: {fileID: 1710412253}
-  m_Layer: 5
-  m_Name: New Day
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1710412252
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710412251}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1723173086}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1710412253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710412251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: New Day
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 0
-  m_fontSizeMax: 0
-  m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_characterHorizontalScale: 1
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 0
-  m_ActiveFontFeatures: 
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_EmojiFallbackSupport: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1710412254
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710412251}
-  m_CullTransparentMesh: 1
---- !u!1 &1723173085
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1723173086}
-  - component: {fileID: 1723173089}
-  - component: {fileID: 1723173088}
-  - component: {fileID: 1723173087}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1723173086
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723173085}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.0588, y: 5.0588, z: 5.0588}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1710412252}
-  m_Father: {fileID: 1882955947}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -562.41, y: -174.5}
-  m_SizeDelta: {x: 150.74, y: 33.75}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1723173087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723173085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1723173088}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 187213724}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: NewDay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1723173088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723173085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1723173089
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723173085}
-  m_CullTransparentMesh: 1
 --- !u!1 &1781314307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5937,7 +4142,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 519420031}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -5962,8 +4167,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1723173086}
-  - {fileID: 216187988}
   - {fileID: 1495093565}
   - {fileID: 893279051}
   - {fileID: 2107485443}
@@ -6408,14 +4611,174 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2107485442}
   m_CullTransparentMesh: 1
+--- !u!1001 &1361898570060498935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.60595
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881358007134154664, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: StatText
+      value: 
+      objectReference: {fileID: 1345172592}
+    - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: textboxobject
+      value: 
+      objectReference: {fileID: 893279050}
+    - target: {fileID: 8089513195827388384, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+--- !u!1001 &3094024094154770182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.26395
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48327
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504499186824714132, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3272812700168509187, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: m_Name
+      value: QuestManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: QuestResults
+      value: 
+      objectReference: {fileID: 1495093567}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestName.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1864820344}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestName.Array.data[1]'
+      value: 
+      objectReference: {fileID: 423656271}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestName.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1377909706}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestDescription.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1220471405}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestDescription.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1599334707}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestDescription.Array.data[2]'
+      value: 
+      objectReference: {fileID: 868459989}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestRequirement.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2098024588}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestRequirement.Array.data[1]'
+      value: 
+      objectReference: {fileID: 58650212}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: 'QuestRequirement.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1690555762}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
-  - {fileID: 619394802}
-  - {fileID: 1605359456}
-  - {fileID: 187213725}
+  - {fileID: 3094024094154770182}
+  - {fileID: 1361898570060498935}
   - {fileID: 1882955947}
   - {fileID: 1553284397}
   - {fileID: 399183713}

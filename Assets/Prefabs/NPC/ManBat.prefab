@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 588162025974711989}
   - component: {fileID: 4526620105784809457}
   - component: {fileID: 724266360300035824}
+  - component: {fileID: 1225499625068750689}
   m_Layer: 0
   m_Name: ManBat
   m_TagString: NPC
@@ -109,11 +110,10 @@ MonoBehaviour:
   Name: ManBat
   TextSpeed: 2
   TextColour: {r: 0.3056603, g: 0.120643705, b: 0.096311815, a: 1}
-  TextSound: {fileID: 0}
-  TextFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  TextSound: {fileID: 8300000, guid: 9d16e6e2e5b4c54498f3274fed70c78a, type: 3}
+  TextFont: {fileID: 11400000, guid: 1f213746c4789334faa2870596c0fb28, type: 2}
   TextSize: 60
-  DialogueVariations: {fileID: 0}
-  ExitAnimation: {fileID: 0}
+  DialogueVariations: {fileID: 1225499625068750689}
 --- !u!60 &4526620105784809457
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -144,7 +144,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -160,14 +160,30 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.02, y: 0.08}
-      - {x: 0.02, y: 0.01}
-      - {x: 0.02, y: 0.08}
-      - {x: -0.049999997, y: 0.08}
-      - {x: -0.049999997, y: -0.02}
-      - {x: 0.01, y: -0.08}
-      - {x: 0.049999997, y: -0.08}
-      - {x: 0.049999997, y: 0.08}
+    - - {x: 0.64, y: 0.13}
+      - {x: 0.55, y: 0.21}
+      - {x: 0.22999999, y: 0.22}
+      - {x: 0.24, y: 0.32}
+      - {x: 0.22999999, y: 0.42}
+      - {x: 0.099999994, y: 0.42}
+      - {x: 0.08, y: 0.41}
+      - {x: -0.01, y: 0.42}
+      - {x: -0.24, y: 0.42}
+      - {x: -0.19, y: 0.25}
+      - {x: -0.55, y: 0.19999999}
+      - {x: -0.64, y: 0.11}
+      - {x: -0.64, y: -0.04}
+      - {x: -0.53999996, y: -0.07}
+      - {x: -0.51, y: -0.19}
+      - {x: -0.37, y: -0.12}
+      - {x: -0.35999998, y: -0.25}
+      - {x: -0.21, y: -0.22}
+      - {x: -0.07, y: -0.39999998}
+      - {x: -0.04, y: -0.42}
+      - {x: 0.04, y: -0.42}
+      - {x: 0.13, y: -0.32}
+      - {x: 0.53, y: -0.16}
+      - {x: 0.64, y: -0.04}
   m_UseDelaunayMesh: 1
 --- !u!95 &724266360300035824
 Animator:
@@ -191,3 +207,61 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1225499625068750689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069460206690902056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
+  PossibleSequencesMorale:
+  - DialogueTree:
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: Hello young one...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: What brings a dog into our forest? And with a sword no less?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: 'My, are you here to battle me? I must warn you, I am a lot smarter than
+        most of the monsters in these woods. '
+      DogSoundEffect: {fileID: 8300000, guid: 49296a8c99898f54cb1594373a036846, type: 3}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: You want to talk? How cute.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: Why do I attack the villagers? Because if I didn't, they would attack
+        me first. Humans are cruel creatures to anything different than them.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: Of course, they are! I have the scar to prove it, you mutt!
+      DogSoundEffect: {fileID: 8300000, guid: 49296a8c99898f54cb1594373a036846, type: 3}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: What? The humans of your town are... kind to you? They give you pets
+        and treats and call you a very good boy?
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 2
+      Line: Hmm, perhaps humans aren't all bad after all...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 588162025974711989}
+      TextSpeed: 1
+      Line: I will leave your town alone from now on. I apologize for the trouble.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  PossibleSequencesKnightHealth: []
+  PossibleSequencesCurrentDay: []
