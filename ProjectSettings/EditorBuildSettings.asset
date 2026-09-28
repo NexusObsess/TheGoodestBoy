@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOverQuestNotComplete.unity
     guid: 05a827111ba8dac43828a9c0637fec45
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: a0aa86b8da67d8449bb840d9db948068
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

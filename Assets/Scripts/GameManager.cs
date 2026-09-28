@@ -49,12 +49,12 @@ public class GameManager : MonoBehaviour
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
 
-        
 
 
 
 
 
+        Debug.Log("NewDay");
         // spawns player in starting location healed(?)
         // loads scenes if needed
 
