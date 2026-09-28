@@ -43,7 +43,7 @@ public class SpawnerScript : MonoBehaviour
             Vector3 pos = this.transform.position;//Checks position of the room to spawn enemies within
             float posX = pos.x;
             float posY = pos.y;
-            GameObject newEnemy = Instantiate(swarmerPrefab, new Vector3(Random.Range(posX +=6, posX -=6), Random.Range(posY += 6, posY -= 6), 0), Quaternion.identity);
+            GameObject newEnemy = Instantiate(swarmerPrefab, new Vector3(Random.Range(posX +=5, posX -=5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
             newEnemy.SetActive(true);
          
             EnemiesSpawned++;

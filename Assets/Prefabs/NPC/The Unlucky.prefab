@@ -114,7 +114,6 @@ MonoBehaviour:
   TextFont: {fileID: 11400000, guid: 23b94236a6865374d923122e585405fc, type: 2}
   TextSize: 50
   DialogueVariations: {fileID: 2408563282561386927}
-  ExitAnimation: {fileID: 0}
 --- !u!60 &3358727649112452186
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -286,11 +285,43 @@ MonoBehaviour:
   PossibleSequencesMorale:
   - DialogueTree:
     - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 0.5
+      Line: Huh? Who's there?!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 0.5
+      Line: Please leave me alone... I-
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 1019812753075749127}
       TextSpeed: 1
-      Line: "The baker lets you supervise her as she bakes a cheesecake for the knight.
-        When you deliver\_it, the knight insists she stays for a slice. The\_baker
-        sits on the edge of the knight's bed as they laugh into the evening.\_Your\_begging
-        eventually gets rewarded with your own tiny piece."
+      Line: Oh! Hello puppy! Please tell me you're here to rescue me?
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 1
+      Line: You are, oh thank god.
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 1
+      Line: Oh no, the monsters didn't wrap me up like a zombie. I recently just
+        broke my foot, my legs, my arms, my ribs, uh...
+      DogSoundEffect: {fileID: 8300000, guid: 49d5ada2fd17c884caf29537df14a9fd, type: 3}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 0.8
+      Line: It might actually be easier to list the bones I haven't broken this week
+        to be honest, ha! Ha... I've been really unlucky my whole life.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 2
+      Line: This week has been... rough on everyone in town. Sorry, I'm rambling.
+        You and the knight have had the worst of it.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 1
+      Line: Um, I'm not sure I can roll home. It's a bit too... bumpy.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 1019812753075749127}
+      TextSpeed: 1
+      Line: I'll wait for you to be done adventuring!
       DogSoundEffect: {fileID: 0}
     townMoraleThreshold: 0
     knightHealthThreshold: 0

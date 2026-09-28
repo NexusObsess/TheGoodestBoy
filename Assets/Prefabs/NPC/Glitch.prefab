@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8286167420193686658}
   - component: {fileID: 160383047780745905}
   - component: {fileID: 4576282547625742493}
+  - component: {fileID: 2163480504622500354}
+  - component: {fileID: 7294772491238400653}
   m_Layer: 0
   m_Name: Glitch
   m_TagString: NPC
@@ -83,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -394645172001473197, guid: 9f06e9ddac632124a86c6e2a3963ac80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,13 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771298744bd7cb646a3d41b6668eff93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  Name: Glitch
-  TextSpeed: 1
-  TextColour: {r: 0, g: 0, b: 0, a: 0}
-  TextSound: {fileID: 0}
-  TextFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  TextSize: 60
-  DialogueVariations: {fileID: 0}
+  Name: '[null]'
+  TextSpeed: 2
+  TextColour: {r: 0, g: 0, b: 0, a: 1}
+  TextSound: {fileID: 8300000, guid: 926c4a13a78edd2469199540fb80c9aa, type: 3}
+  TextFont: {fileID: 11400000, guid: 7d05d52607ecfcf49a878c6ae580ef3a, type: 2}
+  TextSize: 50
+  DialogueVariations: {fileID: 2163480504622500354}
 --- !u!60 &4576282547625742493
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -149,8 +151,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.26, y: 1.26}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,3 +164,78 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 1
+--- !u!114 &2163480504622500354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735160272024946422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
+  PossibleSequencesMorale:
+  - DialogueTree:
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: P*L*A*Y*E*R
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: G*A*M*E O*B*J*E*C*T... F*O*U*N*D
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: C*O*L*L*I*S*I*O*N D*E*T*E*C*T*E*D
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: T*E*X T A*C*T*I*V*E E*Q*U*A*L*S... T*R*U*E
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: 'T*A*L*K C*H*E*C*K... N*O*N*P*L*A*Y*A*B*L*E C*H*A*R*A*C*T*E*R... M*A*T*C*H
+        Q*U*E*S*T  R*E*Q*U*I*R*E*M*E*N*T*S '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 160383047780745905}
+      TextSpeed: 1
+      Line: Q*U*E*S*T C*O*M*P*L*E*T*E E*Q*U*A*L*S... T*R*U*E
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 2
+      Line: You don't understand what this... thing means, but it sounds like talking
+        to it accomplished... something?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You decide not to think too hard about any of this.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  PossibleSequencesKnightHealth: []
+  PossibleSequencesCurrentDay: []
+--- !u!95 &7294772491238400653
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735160272024946422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42e1f052d89bdd541891a7d70ab658ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

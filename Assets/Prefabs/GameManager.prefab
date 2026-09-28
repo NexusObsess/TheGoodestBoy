@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3397237845037723569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7688846571038934011}
+  - component: {fileID: 1382063270853130187}
+  m_Layer: 0
+  m_Name: End of Day Variations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7688846571038934011
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397237845037723569}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.48902, y: 6.543605, z: 0.000015258789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1881358007134154664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1382063270853130187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3397237845037723569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2efde7e9e75a7e747817347127bcb875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextTreeChooser
+  PossibleSequencesMorale:
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The people of the town are in high spirits! The streets are full of friendly
+        smiling faces who give you many pets and treats.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 90
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The people of the town are slightly nervous. The streets seem less lively
+        and when people approach you with pets and treats, they also ask after the
+        knight's health.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 60
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'The people of the town are very tense. Very few sorry looking townspeople
+        are still out by the time you get back and they all walk in groups. The baker
+        asks if the town should prepare for the worst. '
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 30
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You don't see anyone on the way into town, aside from the woodworker
+        fortifying the end of the town leading into the forest who doesn't look at
+        you. The buildings are boarded up and you get no treats.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 0
+    currentDayThreshold: 0
+  PossibleSequencesKnightHealth:
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The knight's condition is stable and even threw your ball a few times
+        before you snuggled up and fell asleep.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 6
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'Despite the knight reassuring you with lots of cuddles and pets that
+        you just had a bad day, your confidence is completely shattered after failing
+        so badly. '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You spend the rest of week sighing randomly and laying with your head
+        and paws out.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The knight deteriorates quickly, and your week gets worse when you wake
+        up to a completely silent bedroom.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'Bad ending 1: Bark Worse than Bite'
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 5
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You fall asleep on top of the knight, feeling the cool press of armour
+        on your fur.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: When you next wake up, the witch is standing by the bed glaring at you.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+      TextSpeed: 1
+      Line: "You didn\u2019t visit me today :( That makes me sad, bubba."
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+      TextSpeed: 1
+      Line: "Why don\u2019t you make it up to me by having a sleepover tonight?"
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: "Instead of barking like you would at any other intruder, you decide
+        to go with the witch. You\u2019ll be back before the knight even notices
+        you\u2019re gone tomorrow! "
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: "The next day, however, the forest doesn\u2019t let you leave. No matter
+        how much you whine, bark, bite or beg, the witch only pouts at you."
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+      TextSpeed: 1
+      Line: "Come on, bubba! Now you get to live with the fun parent <3! You\u2019ll
+        learn to love it in the forest :) "
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+      TextSpeed: 1
+      Line: ...and eventually forget every worthless thing in that town.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+      TextSpeed: 1
+      Line: You never learn what happens to the knight or the town.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'Bad ending 2: Unofficial Custody Change'
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 4
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You tried not to lose hope.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'Surely, you would be able to find a different solution, or the knight
+        would get better without help. '
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: Yet, every time you came home from adventuring, the knight looked worse
+        and worse.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: After the next weekend passes, you lay stubbornly on the knight.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Don't worry your little head, my good boy. I'm not dead yet.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: ...You're doing great, you know.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Hey, don't look so sad. None of this is your fault.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: I love you so much. You are precious. The town is in good hands.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Now, go on. They... I'm relying on you.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The knight is dead when you get back home.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The townspeople help with the funeral and there isn't a dry eye in attendance.
+        Especially not yours.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The baker lifts you out of the casket despite your efforts to cling on
+        what remains of your knight. She holds you close when the tradesmen lower
+        it down and bury it.
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
+      TextSpeed: 1
+      Line: Hey, why don't you come live with me, sweetie? It must be lonely in that
+        big house. We can look after each other.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Hey, don't look so sad. None of this is your fault.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Hey, don't look so sad. None of this is your fault.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    - Speaker: {fileID: 6153638517153327099, guid: ffcf93ef33950864583a376d4cd0d5e6, type: 3}
+      TextSpeed: 1
+      Line: Hey, don't look so sad. None of this is your fault.
+      DogSoundEffect: {fileID: 8300000, guid: b0457ef8882733244885214b1de98c91, type: 3}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 3
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The knight and apothecary reassured you that you can try again to pick
+        enough herbs.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: When you waddle into the forest the next day though, there are no herbs
+        at all.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: In fact, the herbs never grow in the forest again.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The apothecary tries to make do with what you have, but that only delays
+        the inevitable.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+      TextSpeed: 2
+      Line: I'm sorry, dog. There's nothing more I can do for you two.
+      DogSoundEffect: {fileID: 8300000, guid: dd3e8ea5a61f2124ab5bd38d4210a117, type: 3}
+    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+      TextSpeed: 3
+      Line: I... I know it's not my place to say, but I hope you know that this wasn't
+        your fault.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You know it wasn't your fault.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 3
+      Line: But it was someone else's fault.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The witch controls the forest; he chooses what grows.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: Now, the witch will know how it feels to lose something precious.
+      DogSoundEffect: {fileID: 8300000, guid: 49296a8c99898f54cb1594373a036846, type: 3}
+    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+      TextSpeed: 1
+      Line: I'm sorry, dog. There's nothing more I can do for you two.
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 2
+    currentDayThreshold: 0
+  - DialogueTree:
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You wonder if the witch was being honest or if it was a mean trick.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+      TextSpeed: 1
+      Line: My medicine already seems to have improved your condition
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+      TextSpeed: 1
+      Line: Please still take it easy for the next couple of days. But if you pass
+        a few more checkups, I will clear you to start adventuring again.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: For the first time in a week, you walk to the edge of the forest with
+        the knight. You keep stopping to look at the knight like you think this is
+        all too good to be true. Despite nearly tripping over you multiple times,
+        the knight only laughs at your antics.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: To your further shock, you find the forest completely rid of any monsters,
+        traces of magic or the witch. It seems that papa really was telling the truth...
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 3775439028298555850, guid: 74f122a1ecb0b594c95de78a006d2559, type: 3}
+      TextSpeed: 0.5
+      Line: You did it, buddy! The witch is gone. I am so proud of you, my goodest
+        boy!
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: Your tail wags as the knight spoils you with pets.
+      DogSoundEffect: {fileID: 8300000, guid: c999fc6f85824e147a0cd66eb210482f, type: 3}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: It's only a matter of time before another magical beast takes residence
+        in the forest. But, for the little time it will last, the town enjoys the
+        calm.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: Somedays, you miss the witch. You kick your legs in your sleep, wondering
+        if you could have done anything differently for a better outcome.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: Mostly though, you and the knight enjoy the time off, keeping busy with
+        helping the townspeople with less important errands.
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: 'Neutral ending: Full Physical Custody'
+      DogSoundEffect: {fileID: 0}
+    townMoraleThreshold: 0
+    knightHealthThreshold: 1
+    currentDayThreshold: 0
+  PossibleSequencesCurrentDay: []
+--- !u!1 &8089513195827388384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881358007134154664}
+  - component: {fileID: 6049576229786542918}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881358007134154664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089513195827388384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.60595, y: -0.07434, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7688846571038934011}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6049576229786542918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089513195827388384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ccd90bb4fc441c4dad1eaae243e5500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  currentDay: 0
+  TownMorale: 100
+  TownMoraleDailyDecrease: 20
+  KnightHealth: 6
+  KnightHealthDailyDecrease: 1
+  StatText: {fileID: 0}
+  textboxobject: {fileID: 0}
+  EndOfDayVariations: {fileID: 1382063270853130187}
+  TextActive: 0
+  GameOverTriggered: 0
+  Knight: {fileID: 3775439028298555850, guid: 74f122a1ecb0b594c95de78a006d2559, type: 3}
+  Witch: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
+  WannabeHero: {fileID: 4932804068736571853, guid: c7c020152fd24704692bf0d212843913, type: 3}
+  Baker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
+  RivalDog: {fileID: 9099556265879683154, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
+  Apothecary: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}

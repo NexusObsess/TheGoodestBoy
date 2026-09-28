@@ -66,5 +66,5 @@ public class Quest
 
 
     // for quests in questlines
-    [QuestLineType(Quest.questLine.Main, Quest.questLine.Baker)] public int QuestOrder = 0; // the order the quests in a quest line appear
+    [QuestLineType(Quest.questLine.Main, Quest.questLine.Baker, Quest.questLine.WannabeHero, Quest.questLine.RivalDog)] public int QuestOrder = 0; // the order the quests in a quest line appear
 }
