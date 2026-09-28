@@ -1,6 +1,8 @@
-using UnityEngine;
 using System.Collections;
 using TMPro;
+using Unity.VectorGraphics;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +34,8 @@ public class GameManager : MonoBehaviour
     public NPC RivalDog;
     public NPC Apothecary;
 
+    [SerializeField] string dungeonScene;
+
     void Start()
     {
         // get any necessary manager scripts to call functions
@@ -44,6 +48,13 @@ public class GameManager : MonoBehaviour
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
+
+        
+
+
+
+
+
         // spawns player in starting location healed(?)
         // loads scenes if needed
 
@@ -52,16 +63,22 @@ public class GameManager : MonoBehaviour
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
 
         currentDay ++; // keep at bottom, for quest system
+        SceneManager.LoadScene(dungeonScene, LoadSceneMode.Additive);
+
         UpdatePauseStats(); // call everytime one of the stats changes
     }
 
     public void EndDay() // called at the end of every ingame day or if player leaves dunegon
     {
-        // stop 'dungeon' stuff
+        SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
         TownMorale -= TownMoraleDailyDecrease; // daily decrease of town morale
         KnightHealth -= KnightHealthDailyDecrease * currentDay;
 
         questManager.EndQuestCheck(); // checks if each quest was completed and then sends the corrosponding fail or win text into the end of day sequence text
+        if (TownMorale < 0)
+        {
+            TownMorale = 0;
+        }
         UpdatePauseStats();
 
         EndOfDayVariations.MoraleSelectCorrectTextTree();

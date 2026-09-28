@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 120;
+    public float timeRemaining = 32;
     public bool timerRunning = false;
     public TextMeshProUGUI timeText;
     [SerializeField] string GameOver;
     public GameManager gameManager;
     public bool TimePause;
+    [SerializeField] GameObject ThirtySeconds;
+    private bool thirtyDone = false;
     
     void Start()
     {
-        GameManager gameManager = Object.FindFirstObjectByType<GameManager>();
+        ThirtySeconds.SetActive(false);
+        gameManager = Object.FindFirstObjectByType<GameManager>();
         timerRunning = true;
     }
     
@@ -28,14 +30,20 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (timeRemaining <= 30 && !thirtyDone)
+        {
+            thirtyDone = true;
+            StartCoroutine(Thirty());
+            Debug.Log("Thirty Seconds Left");
+        }
         if (timerRunning && gameManager.TextActive)
         {
+            
             if (timeRemaining > 0)
             {
                 timerRunning = false;
                 DisplayTime(timeRemaining);
-
+                
             }
 
         }
@@ -61,6 +69,12 @@ public class Timer : MonoBehaviour
             }
 
         }
+    }
+    IEnumerator Thirty()
+    {
+        ThirtySeconds.SetActive(true);
+        yield return new WaitForSeconds(2);
+        ThirtySeconds.SetActive(false);
     }
 
     void DisplayTime(float timeToDisplay)
