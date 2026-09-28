@@ -811,6 +811,7 @@ MonoBehaviour:
   Baker: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
   RivalDog: {fileID: 9099556265879683154, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
   Apothecary: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
+  dungeonScene: 
 --- !u!4 &187213725
 Transform:
   m_ObjectHideFlags: 0
@@ -3420,7 +3421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1248013155
 SpriteRenderer:
   serializedVersion: 2
