@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private EnemyShooting shootScript;
 
+    public GameObject healthDrop;
 
     //States
     public EnemyType attackType;
@@ -39,6 +40,10 @@ public class Enemy : MonoBehaviour
     private Vector3 walkPoint;
     private bool walkPointSet;
 
+
+    [SerializeField][Range(0f, 1f)] private float dropChance= 0.3f;
+
+
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -49,6 +54,7 @@ public class Enemy : MonoBehaviour
 
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        anim.SetBool("isWalking", true);
         ChangeState(EnemyState.Patrol);
 
         isDead = false;
@@ -61,6 +67,7 @@ public class Enemy : MonoBehaviour
 
         timer += Time.deltaTime;
 
+    
 
         if (!playerInSightRange && !playerInAttackRange)
         {
@@ -85,7 +92,6 @@ public class Enemy : MonoBehaviour
             // Attack
             isChasing = false;
             isAttacking = true;
-            rb.linearVelocity = Vector2.zero;
             AttackPlayer();
         }
 
@@ -165,20 +171,37 @@ public class Enemy : MonoBehaviour
             if (attackType == EnemyType.Melee)
             {
                 Debug.Log(enemyName + "Attacking");
-                //Melee Script
+                anim.SetTrigger("Attack");
+
+                rb.linearVelocity = Vector2.zero;
+
+                timer = 0;
             }
             else if (attackType == EnemyType.Ranged)
             {
                 Debug.Log(enemyName + "Shooting");
-                
+                anim.SetTrigger("Attack");
                 shootScript.Shoot();
+
+
+                rb.linearVelocity = Vector2.zero;
+
                 timer = 0;
             }
 
         }
         else
         {
+
             return;
+        }
+    }
+
+    public void HealthDrop()
+    {
+        if (Random.value <= dropChance)
+        {
+            Instantiate(healthDrop, gameObject.transform.position, Quaternion.identity);
         }
     }
 
@@ -210,6 +233,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Invulnerability());
         if (hp <= 0)
         {
+            HealthDrop();
             Destroy(gameObject);
         }
     }

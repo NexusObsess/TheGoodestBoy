@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
+    public Animator anim;
+
     bool isSprinting;
 
 
@@ -21,8 +23,11 @@ public class PlayerMovement : MonoBehaviour
         //transform.position = playerSpawn;
 
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
         speed = moveSpeed;
         isSprinting = false;
+        anim.SetBool("isIdle", true);
     }
 
     // Update is called once per frame

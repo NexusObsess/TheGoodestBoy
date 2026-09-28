@@ -225,12 +225,13 @@ MonoBehaviour:
   enemyName: Guglin
   hp: 5
   speed: 0.5
-  cooldown: 0
+  cooldown: 5
   damage: 2
   iFramesDuration: 0.5
   numberOfFlashes: 1
   player: {fileID: 0}
   shootScript: {fileID: 0}
+  healthDrop: {fileID: 5524855593190738879, guid: c07ab8d27ab38aa41b097b6700f90106, type: 3}
   attackType: 1
   sightRange: 3
   attackRange: 1.5
@@ -241,6 +242,7 @@ MonoBehaviour:
   isAttacking: 0
   isDead: 1
   walkPointRange: 5
+  dropChance: 1
 --- !u!50 &458844070286809772
 Rigidbody2D:
   serializedVersion: 5

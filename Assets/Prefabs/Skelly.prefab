@@ -92,16 +92,18 @@ MonoBehaviour:
   numberOfFlashes: 2
   player: {fileID: 0}
   shootScript: {fileID: 0}
+  healthDrop: {fileID: 5524855593190738879, guid: c07ab8d27ab38aa41b097b6700f90106, type: 3}
   attackType: 0
   sightRange: 5
   attackRange: 4
   playerInSightRange: 0
-  playerInAttackRange: 0
-  isPatroling: 0
+  playerInAttackRange: 1
+  isPatroling: 1
   isChasing: 0
   isAttacking: 0
   isDead: 0
   walkPointRange: 5
+  dropChance: 0.3
 --- !u!114 &5009204799152267191
 MonoBehaviour:
   m_ObjectHideFlags: 0
