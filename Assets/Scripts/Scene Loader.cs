@@ -13,20 +13,21 @@ public class SceneLoader : MonoBehaviour
     void Start()
     {
         EventSystem.current.SetSelectedGameObject(StartButton);
-        SceneManager.LoadScene(UIScene, LoadSceneMode.Additive);
+        //
         //gameManager = Object.FindFirstObjectByType<GameManager>();
     }
 
     private void Update()
     {
-        gameManager = Object.FindFirstObjectByType<GameManager>();
+        
     }
 
     public void LoadScene()
     {
-        SceneManager.LoadScene(Town, LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync(StartScene);
-        gameManager.NewDay();
+        SceneManager.LoadScene(Town);
+        SceneManager.LoadScene(UIScene, LoadSceneMode.Additive);
+        
+        
     }
 
 }
