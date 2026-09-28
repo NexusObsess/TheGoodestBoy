@@ -65,6 +65,10 @@ public class PlayerStats : MonoBehaviour
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
+
+
+
+        //PUT GAME OVER SCREEN HERE
         if (currentHealth <= 0f)
         {
             Debug.Log("You died");
