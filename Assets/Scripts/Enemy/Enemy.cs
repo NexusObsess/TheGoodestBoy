@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float speed = 2.5f;
     public float cooldown;
     public float damage = 1f;
-
+    float timer;
 
     private SpriteRenderer sRenderer;
     private Animator anim;
@@ -22,12 +22,17 @@ public class Enemy : MonoBehaviour
     UnityEngine.Transform playerPos;
     Rigidbody2D rb;
 
+    [SerializeField] private EnemyShooting shootScript;
+
+
     //States
+    public EnemyType attackType;
     private EnemyState currentState;
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     public bool isPatroling, isChasing, isAttacking;
     public bool isDead;
+
 
     //Patrolling
     public float walkPointRange;
@@ -40,10 +45,11 @@ public class Enemy : MonoBehaviour
         playerPos = player.transform;
         rb = GetComponent<Rigidbody2D>();
 
+        shootScript = GetComponent<EnemyShooting>();
+
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         ChangeState(EnemyState.Patrol);
-        currentTime = cooldown;
 
         isDead = false;
     }
@@ -52,6 +58,9 @@ public class Enemy : MonoBehaviour
     {
         playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, LayerMask.GetMask("Player"));
         playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, LayerMask.GetMask("Player"));
+
+        timer += Time.deltaTime;
+
 
         if (!playerInSightRange && !playerInAttackRange)
         {
@@ -76,6 +85,8 @@ public class Enemy : MonoBehaviour
             // Attack
             isChasing = false;
             isAttacking = true;
+            rb.linearVelocity = Vector2.zero;
+            AttackPlayer();
         }
 
 
@@ -148,12 +159,28 @@ public class Enemy : MonoBehaviour
 
     private void AttackPlayer()
     {
-        // Implement attack logic here
+
+        if (timer > cooldown)
+        {
+            if (attackType == EnemyType.Melee)
+            {
+                Debug.Log(enemyName + "Attacking");
+                //Melee Script
+            }
+            else if (attackType == EnemyType.Ranged)
+            {
+                Debug.Log(enemyName + "Shooting");
+                
+                shootScript.Shoot();
+                timer = 0;
+            }
+
+        }
+        else
+        {
+            return;
+        }
     }
-
-
-
-
 
     private void Flip()
     {
@@ -226,6 +253,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+}
+public enum EnemyType
+{
+    Ranged,
+    Melee
 }
 
 public enum EnemyState
