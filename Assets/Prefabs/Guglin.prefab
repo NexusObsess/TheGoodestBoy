@@ -230,6 +230,8 @@ MonoBehaviour:
   iFramesDuration: 0.5
   numberOfFlashes: 1
   player: {fileID: 0}
+  shootScript: {fileID: 0}
+  attackType: 1
   sightRange: 3
   attackRange: 1.5
   playerInSightRange: 0
@@ -300,7 +302,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.118778944, y: 0.0064204633}
+  m_Offset: {x: 0.12428212, y: 0.0339365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -310,7 +312,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1134291, y: 1.2396975}
+  m_Size: {x: 1.1244354, y: 1.302067}
   m_EdgeRadius: 0
 --- !u!61 &7811825050093589848
 BoxCollider2D:
@@ -346,7 +348,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.114498496, y: 0.006420374}
+  m_Offset: {x: 0.041122198, y: -0.12198788}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -356,5 +358,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1177089, y: 1.2268565}
+  m_Size: {x: 0.80219173, y: 0.97003996}
   m_EdgeRadius: 0

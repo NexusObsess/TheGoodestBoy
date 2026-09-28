@@ -7,11 +7,14 @@ public class EnemySpawner : MonoBehaviour
     private GameObject swarmerPrefab;
     [SerializeField]
     private GameObject bigSwarmerPrefab;
+    [SerializeField]
+    private GameObject rangedSwarmerPrefab;
 
     private float swarmerInterval = 3.5f;
+    private float rangedSwarmerInterval = 5f;
     private float bigSwarmerInterval = 10f;
     [SerializeField] GameManager gameManager;
-    private float MaxEnemies = 6;
+    [SerializeField] private float MaxEnemies = 6;
     private int EnemiesSpawned;
     private int EnemiesSpawning;
     
@@ -26,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
         EnemiesSpawning = (int)randomFloat;
         Debug.Log("Enemies Spawning = " + EnemiesSpawning);
         StartCoroutine(spawnEnemy(swarmerInterval, swarmerPrefab));
+        StartCoroutine(spawnEnemy(rangedSwarmerInterval, rangedSwarmerPrefab));
         StartCoroutine(spawnEnemy(bigSwarmerInterval, bigSwarmerPrefab));
         
     }

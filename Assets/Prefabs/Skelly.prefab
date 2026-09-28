@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1876125689331503385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3881236461905383508}
+  m_Layer: 8
+  m_Name: BoltSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3881236461905383508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876125689331503385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5980346612147739043}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3592104576542595330
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980346612147739043}
   - component: {fileID: 442417054845871736}
+  - component: {fileID: 5009204799152267191}
   - component: {fileID: 421901742588641215}
   - component: {fileID: 5843795538971632425}
   - component: {fileID: 7694840417804200630}
@@ -36,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3341617237981160699}
+  - {fileID: 3881236461905383508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &442417054845871736
@@ -53,11 +86,13 @@ MonoBehaviour:
   enemyName: Skelly
   hp: 2
   speed: 1
-  cooldown: 0
+  cooldown: 2
   damage: 1
   iFramesDuration: 1
   numberOfFlashes: 2
   player: {fileID: 0}
+  shootScript: {fileID: 0}
+  attackType: 0
   sightRange: 5
   attackRange: 4
   playerInSightRange: 0
@@ -67,6 +102,20 @@ MonoBehaviour:
   isAttacking: 0
   isDead: 0
   walkPointRange: 5
+--- !u!114 &5009204799152267191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3592104576542595330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5421c31e67cfef6488e3cf60253fdfd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  bullet: {fileID: 1304325740609424036, guid: a66ff9568a352f44f9df5a00651bc557, type: 3}
+  bulletPos: {fileID: 3881236461905383508}
 --- !u!212 &421901742588641215
 SpriteRenderer:
   serializedVersion: 2
@@ -209,7 +258,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.015277028, y: 0.021108627}
+  m_Offset: {x: 0.031002283, y: -0.083652556}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -219,7 +268,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8161199, y: 0.5488241}
+  m_Size: {x: 0.631907, y: 0.838024}
   m_EdgeRadius: 0
 --- !u!61 &1933741648211989054
 BoxCollider2D:
@@ -255,7 +304,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.015554786, y: 0.022482514}
+  m_Offset: {x: 0.046254873, y: -0.21027479}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -265,7 +314,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8155644, y: 0.5505221}
+  m_Size: {x: 0.32092524, y: 0.552731}
   m_EdgeRadius: 0
 --- !u!1 &6005705471470432304
 GameObject:
