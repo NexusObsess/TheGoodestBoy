@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager current;
+
     public int currentDay = 0; // what ingame day is it - used for determining the difficulty of the quests the player can get and for ui
     public float TownMorale = 100; // determines game ending and some flavour text
     public float TownMoraleDailyDecrease; // how much the morale of the town decreases every ingame day
@@ -38,23 +40,28 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        // get any necessary manager scripts to call functions
-        
-        textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
-        questManager = FindFirstObjectByType<QuestManager>();
-        // opening sequence
-        NewDay();
+        if(current == null)
+        {
+            current = this;
+            DontDestroyOnLoad(gameObject);
+
+
+            // get any necessary manager scripts to call functions
+
+            textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
+            questManager = FindFirstObjectByType<QuestManager>();
+            // opening sequence
+            NewDay();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
 
-
-
-
-
-
-        
         // spawns player in starting location healed(?)
         // loads scenes if needed
 

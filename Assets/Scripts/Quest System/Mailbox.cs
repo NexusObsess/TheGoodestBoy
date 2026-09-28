@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class MailBox : MonoBehaviour // still cooking
 {
+    public static MailBox current;
+
     [SerializeField] GameObject readQuestLetter;
     SpriteRenderer spriteRenderer;
     public GameObject panel;
@@ -19,9 +21,17 @@ public class MailBox : MonoBehaviour // still cooking
 
     bool activated = false;
 
-    void Start()
+    void Awake()
     {
-        spriteRenderer = readQuestLetter.GetComponent<SpriteRenderer>();
+        if (current == null)
+        {
+            current = this;
+            spriteRenderer = readQuestLetter.GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            //Destroy(gameObject);
+        }
     }
 
     public void SetPopUp()

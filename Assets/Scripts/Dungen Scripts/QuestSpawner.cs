@@ -36,16 +36,23 @@ public class QuestSpawner : MonoBehaviour
         }
         foreach (Quest quest in questManager.activeQuests)
         {
+           
             if (quest.QuestType == Quest.questType.Fetch)
             {
+               
                 for (int i = 0; i < quest.requiredItemAmount; i++)
                 {
                     GameObject randomRoom = rooms[Random.Range(0, rooms.Length)];
                     Vector3 pos = randomRoom.transform.position;//Checks position of the room to spawn enemies within
                     float posX = pos.x;
                     float posY = pos.y;
+                    
+                   
                     GameObject questItem = Instantiate(quest.requiredItemPF, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
                     questItem.SetActive(true);
+                    Debug.Log(questItem + " Spawned");
+                    
+                    
                 }
                
             }

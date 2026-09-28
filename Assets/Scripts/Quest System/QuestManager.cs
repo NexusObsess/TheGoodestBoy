@@ -22,7 +22,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> QuestRequirement = new List<TextMeshProUGUI>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         foreach (Quest.questLine line in System.Enum.GetValues(typeof(Quest.questLine))) // find questline enums from quest script
         {
@@ -30,8 +30,8 @@ public class QuestManager : MonoBehaviour
             questLines.Add(new QuestLine(line)); // adds each questline to an entry of QuestLine
         }
 
-        gameManager = FindFirstObjectByType<GameManager>();
-        mailbox = FindFirstObjectByType<MailBox>();
+        //gameManager = FindFirstObjectByType<GameManager>();
+        //mailbox = FindFirstObjectByType<MailBox>();
 
         SortQuestLines();
     }
@@ -57,6 +57,8 @@ public class QuestManager : MonoBehaviour
     public Quest GetNextQuest(Quest.questLine line)
     {
         QuestLine questLine = questLines.Find(ql => ql.lineType == line); // find the questline that matches what was sent in brackets i.e., main
+        if (questLine == null)
+            return null;
 
         if (questLine.quests == null) return null; // for debug
         // Debug.Log("Get past return");
@@ -76,6 +78,8 @@ public class QuestManager : MonoBehaviour
     {
         QuestLine questLine = questLines.Find(ql => ql.lineType == line); // find the questline that matches what was sent in brackets i.e., main
 
+        if (questLine == null) return null; // if questline has not been failed or is empty, mostly for debug
+
         if (questLine.quests == null) return null; // if questline has not been failed or is empty, mostly for debug
 
         if (questLine.quests[0].questCompleted == true) // check if player has started questline 
@@ -93,6 +97,8 @@ public class QuestManager : MonoBehaviour
         //     Debug.LogError("Quest.questLine.Main is null");
         //     return;
         // }
+
+        Debug.Log("Give quest lines");
 
         Quest nextMainQuest = GetNextQuest(Quest.questLine.Main);
 
@@ -121,11 +127,16 @@ public class QuestManager : MonoBehaviour
     }
 
     void SetSideQuests()
-    {
+    { 
         if (activeQuests.Count < 3) // repeats function until true
         {
             int randomIndex = Random.Range(0, possibleQuests.Count); // create random number between 1 and the total number of possible quests
             Quest randomSideQuest = possibleQuests[randomIndex]; // get possible quest
+
+            if(gameManager == null)
+            {
+                gameManager = GameManager.current;
+            }
 
             // checks if difficulty and questline of quest match, if not skip to repeating function
             if (randomSideQuest.questDifficulty <= gameManager.currentDay && randomSideQuest.QuestLine != Quest.questLine.Main && randomSideQuest.QuestOrder == 0)
@@ -141,12 +152,23 @@ public class QuestManager : MonoBehaviour
         }
         else // after getting three quests
         {
-            for (int i = 0; i < activeQuests.Count; i++) // repeats for every active quests
+            for (int i = 0; i < activeQuests.Count ; i++) // repeats for every active quests
             {
                 //Debug.Log("if loop check");
                 //mailbox.QuestLetterSprite.Add(activeQuests[i].questLetter);
                 //questLetters[i].SetPopUp(activeQuests[i].questLetter); // assigns one of the quest letter game objects to the sprite attached to the active quest
+                if(mailbox == null)
+                {
+                    Debug.LogWarning("No mailbox?");
+                    mailbox = MailBox.current;
+                }
                 mailbox.QuestLetterSprite.Add(new QuestLetter(activeQuests[i].questLetter, false));
+
+                if (QuestName[i] == null)
+                {
+                    Debug.Log("No Active Quest");
+                    return;
+                }
 
                 // so the player can see quests on pause menu
                 QuestName[i].text = activeQuests[i].questName;
