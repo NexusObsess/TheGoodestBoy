@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Linq; // Required for LINQ
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class MailBox : MonoBehaviour // still cooking
 {
@@ -15,6 +16,8 @@ public class MailBox : MonoBehaviour // still cooking
 
     public GameObject exitLetter;
     public GameObject exitPanel;
+
+    bool activated = false;
 
     void Start()
     {
@@ -41,6 +44,17 @@ public class MailBox : MonoBehaviour // still cooking
         if (allTrue)
         {
            exitPanel.SetActive(true);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && activated)
+        {
+            Debug.Log("Enter");
+            Activate();
+            activated = true;
+            // prevent player from moving
         }
     }
 
