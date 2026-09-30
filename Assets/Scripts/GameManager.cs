@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
 
         // spawns player in starting location healed(?)
         playerstats.currentHealth = playerstats.maxHealth;
-        playerstats.healthbar.SetHealth(playerstats.currentHealth);
+        //playerstats.healthbar.SetHealth(playerstats.currentHealth);
         Player.transform.position = PlayerSpawn;
 
         // loads scenes if needed

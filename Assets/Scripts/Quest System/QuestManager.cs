@@ -154,10 +154,7 @@ public class QuestManager : MonoBehaviour
         {
             for (int i = 0; i < activeQuests.Count ; i++) // repeats for every active quests
             {
-                //Debug.Log("if loop check");
-                //mailbox.QuestLetterSprite.Add(activeQuests[i].questLetter);
-                //questLetters[i].SetPopUp(activeQuests[i].questLetter); // assigns one of the quest letter game objects to the sprite attached to the active quest
-                if(mailbox == null)
+                if (mailbox == null)
                 {
                     Debug.LogWarning("No mailbox?");
                     mailbox = MailBox.current;
@@ -169,6 +166,9 @@ public class QuestManager : MonoBehaviour
                     Debug.Log("No Active Quest");
                     return;
                 }
+
+                TextMeshProUGUI childTMPText = mailbox.questLetters[i].GetComponentInChildren<TextMeshProUGUI>();
+                childTMPText.text = activeQuests[i].questName;
 
                 // so the player can see quests on pause menu
                 QuestName[i].text = activeQuests[i].questName;
