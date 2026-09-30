@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,7 +114,6 @@ MonoBehaviour:
   TextFont: {fileID: 11400000, guid: 334439677b340c34dbd68963086e75f7, type: 2}
   TextSize: 70
   DialogueVariations: {fileID: 6029366264072640790}
-  ExitAnimation: {fileID: 0}
 --- !u!60 &8778935082708561257
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -224,10 +223,51 @@ MonoBehaviour:
   - DialogueTree:
     - Speaker: {fileID: 9099556265879683154}
       TextSpeed: 1
-      Line: "The baker lets you supervise her as she bakes a cheesecake for the knight.
-        When you deliver\_it, the knight insists she stays for a slice. The\_baker
-        sits on the edge of the knight's bed as they laugh into the evening.\_Your\_begging
-        eventually gets rewarded with your own tiny piece."
+      Line: Woof, woof! (Look at what the cat dragged in! I was beginning to think
+        you were too much of a coward to meet me face to face.)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 1
+      Line: Groooowwlll... (No more hiding behind stupid letters! Let's fight...
+        pata e pata...)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 2
+      Line: Boof? Woof, woof! (You want to... talk? Oh, are you so scared of my awesomeness
+        that you're going to plead for mercy? You really are a coward, I-)
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 2
+      Line: Woof... woof, woof? (Huh? You thought... I was just playing around?)
+      DogSoundEffect: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 2
+      Line: Boof, boof... woof, woof... (But... you kept trying to find me? I bet
+        you wanted to rub in how much of a good boy you were to my face... A way
+        better boy than me...)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 2
+      Line: Boof... (Was... this really all in my head?)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: You really wanted to be friends, but the rival dog clearly has a lot
+        going on. You aren't sure how to help... But maybe someone else can?
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 1
+      Line: Woof? Woof, woof! (Counseling? What, you think I need some dumb human
+        to tell me I'm a good boy to feel good about myself. Forget it, I-)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 9099556265879683154}
+      TextSpeed: 1
+      Line: Boof... Woof, woof! (...I'll think about it. But... not because you told
+        me too! Stupid mutt!)
+      DogSoundEffect: {fileID: 0}
+    - Speaker: {fileID: 0}
+      TextSpeed: 1
+      Line: The rival dog storms off. You... think that went well?
       DogSoundEffect: {fileID: 0}
     townMoraleThreshold: 0
     knightHealthThreshold: 0

@@ -4,6 +4,7 @@ public class Item : MonoBehaviour
 {
     private Collider2D itemCollider;
 
+    QuestManager questManager;
 
     public string itemName;
 
@@ -18,6 +19,7 @@ public class Item : MonoBehaviour
     {
         itemCollider = GetComponent<Collider2D>();
         posOffset = transform.position;
+        questManager = FindFirstObjectByType<QuestManager>();
     }
 
     void Update()
@@ -29,14 +31,12 @@ public class Item : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Player"))
         {
-
             Debug.Log("You picked up " + itemName);
 
             // Add item to inventory(?)
-
+            questManager.FetchCheck(this);
 
             Destroy(gameObject);
         }

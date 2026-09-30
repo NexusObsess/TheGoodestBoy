@@ -14,12 +14,11 @@ public class NPC : MonoBehaviour // not system.serializable so npc dialogue can 
     public TMP_FontAsset TextFont;
     public int TextSize;
 
-    PolygonCollider2D[] colliders;
-
     public TextTreeChooser DialogueVariations;
     
     TextBoxSender textboxsender;
     GameManager gameManager;
+    QuestManager questManager;
 
     Animator ExitAnimation;
 
@@ -27,21 +26,16 @@ public class NPC : MonoBehaviour // not system.serializable so npc dialogue can 
     {
         textboxsender = FindFirstObjectByType<TextBoxSender>(); // finds the script that sends to actual textbox one by one based on player input
         gameManager = FindFirstObjectByType<GameManager>(); // finds game manager for townmorale int
+        questManager = FindFirstObjectByType<QuestManager>();
         ExitAnimation = GameObject.Find("BlackOut").GetComponent<Animator>();
     }
 
     public void InteractedWith()
     {
+        questManager.TalkCheck(this);
         DialogueVariations.MoraleSelectCorrectTextTree();
         DialogueVariations.KnightHealthSelectCorrectTextTree();
         DialogueVariations.CurrentDaySelectCorrectTextTree();
-
-        // disables colliders while npc dialogue is playing
-        colliders = BoxCollider2D.FindObjectsOfType<PolygonCollider2D>();
-        foreach (PolygonCollider2D col in colliders)
-        {
-            col.enabled = false;
-        }
 
         textboxsender.DialogueSequenceStarts(); // would trigger the npc dialogue
 
@@ -61,8 +55,19 @@ public class NPC : MonoBehaviour // not system.serializable so npc dialogue can 
         ExitAnimation.SetBool("Fade Out", true);
     }
 
-    void OnMouseDown() // to replace when player interacting/talking in implemnted and if i have time to add npcs to town
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        InteractedWith();
+        if (collision.CompareTag("Player"))
+        {
+
+            Debug.Log("You talked to " + Name);
+
+            InteractedWith();
+        }
     }
+
+    // void OnMouseDown() // to replace when player interacting/talking in implemnted and if i have time to add npcs to town
+    // {
+    //     InteractedWith();
+    // }
 }

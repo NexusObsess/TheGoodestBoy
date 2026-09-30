@@ -25,7 +25,7 @@ public class Quest
 
     //[Header("Quest Specifications")]
 
-    public enum questType { Fetch, Hunt, Talk, Location, Puzzle, Challenge }
+    public enum questType { Fetch, Hunt, Talk }
     public questType QuestType;
 
     public enum questLine { None, Main, Baker, RivalDog, WannabeHero }
@@ -51,18 +51,18 @@ public class Quest
     // maybe multiple in a list?
     // reference in NPC script
 
-    // for Location
-    [QuestType(questType.Location)] public GameObject requiredLocationRoom;
-    // must spawn in forest that day
+    // // for Location
+    // [QuestType(questType.Location)] public GameObject requiredLocationRoom;
+    // // must spawn in forest that day
 
-    // Puzzle
-    [QuestType(questType.Puzzle)] public GameObject requiredPuzzleRoom;
-    // reference in code
-    // must spawn in forest that day
+    // // Puzzle
+    // [QuestType(questType.Puzzle)] public GameObject requiredPuzzleRoom;
+    // // reference in code
+    // // must spawn in forest that day
 
-    // Challenges
-    [QuestType(questType.Challenge)] public GameObject requiredChallengeRoom;
-    // challenge conditions to spawn i.e., time limit, enemies
+    // // Challenges
+    // [QuestType(questType.Challenge)] public GameObject requiredChallengeRoom;
+    // // challenge conditions to spawn i.e., time limit, enemies
 
 
     // for quests in questlines

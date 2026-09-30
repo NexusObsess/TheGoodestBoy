@@ -3,30 +3,40 @@ using TMPro;
 using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager current;
 
+    [Header ("UI")]
+    [SerializeField] GameObject PauseMenu;
+    [SerializeField] GameObject PauseButton;
+    [SerializeField] GameObject UnPauseButton;
+    [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
+
+    [Header ("Basics")]
     public int currentDay = 0; // what ingame day is it - used for determining the difficulty of the quests the player can get and for ui
     public float TownMorale = 100; // determines game ending and some flavour text
     public float TownMoraleDailyDecrease; // how much the morale of the town decreases every ingame day
     public float KnightHealth = 6;
     public float KnightHealthDailyDecrease;
 
-    [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
-
     [Header ("Manager Scripts")]
     QuestManager questManager; // manages quest system
+    public GameObject Player;
+    Vector2 PlayerSpawn;
+    PlayerStats playerstats;
 
     [Header ("Text trees")]
     public GameObject textboxobject;
+    TextBox textbox;
     TextBoxSender textboxsender;
     [SerializeField] TextTreeChooser EndOfDayVariations;
-    // [SerializeField] TextTreeChooserMorale EndTownMorale; // picks which text tree checking in on the town based on the town morale int at the end of every ingame day
-    // [SerializeField] TextTreeChooserKnightHealth EndKnightHealth; // picks which text tree checking in on the town based on the town morale int at the end of every ingame day
+
     public bool TextActive = false;
     public bool GameOverTriggered = false;
+    public bool TrueEndingTriggered = false;
 
     [Header ("NPCs")]
     public NPC Knight;
@@ -49,7 +59,10 @@ public class GameManager : MonoBehaviour
             // get any necessary manager scripts to call functions
 
             textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
+            textbox = FindFirstObjectByType<TextBox>(); // again, just in case
             questManager = FindFirstObjectByType<QuestManager>();
+            playerstats = FindFirstObjectByType<PlayerStats>();
+            PlayerSpawn = Player.transform.position;
             // opening sequence
             NewDay();
         }
@@ -59,18 +72,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        PauseMenu.SetActive(true);
+        PauseButton.SetActive(false);
+        UnPauseButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(UnPauseButton);
+    }
+
+    public void UnPause()
+    {
+        PauseMenu.SetActive(false);
+        PauseButton.SetActive(true);
+        UnPauseButton.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(PauseButton);
+    }
+
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
 
         // spawns player in starting location healed(?)
+        playerstats.currentHealth = playerstats.maxHealth;
+        playerstats.healthbar.SetHealth(playerstats.currentHealth);
+        Player.transform.position = PlayerSpawn;
+
         // loads scenes if needed
 
-        // create new version of 'dungeon' ?
+        questManager.mailbox.ResetMailBox();
+        GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject g in npcs)
+        {
+            Destroy(g);
+        }
 
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
         Debug.Log("NewDay");
         currentDay ++; // keep at bottom, for quest system
-        SceneManager.LoadScene("Dungeon", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Dungeon", LoadSceneMode.Additive); // create new version of 'dungeon' ?
 
         UpdatePauseStats(); // call everytime one of the stats changes
     }
@@ -88,11 +126,11 @@ public class GameManager : MonoBehaviour
         }
         UpdatePauseStats();
 
+        textbox.BackgroundOn();
         EndOfDayVariations.MoraleSelectCorrectTextTree();
         if (currentDay != 5 || questManager.questLines[0].quests[4].questCompleted == false)
         {
             EndOfDayVariations.KnightHealthSelectCorrectTextTree();
-            // visuals
 
             textboxsender.DialogueSequenceStarts();
             StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
@@ -107,12 +145,20 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !TextActive);
         Debug.Log("TEXTBOX IS OVER PARTY");
+        textbox.BackgroundOff();
         textboxobject.SetActive(false);
         
         if (GameOverTriggered == true)
         {
             // trigger game over screen
             Debug.Log("Game over screen load");
+            SceneManager.LoadScene("GameOverQuestNotComplete");
+        }
+
+        if (TrueEndingTriggered == true)
+        {
+            // trigger ending screen
+            Debug.Log("End screen load");
         }
     }
 
@@ -123,32 +169,39 @@ public class GameManager : MonoBehaviour
 
     void TrueEndingDialogueSequence()
     {
-        GameOverTriggered = true;
+        TrueEndingTriggered = true;
 
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The next day, the knight is finally able to get out of bed. You nearly knock the knight over in your excitement!"));
         textboxsender.DialogueTree.Add(new TextLine(Apothecary, 1, "My medicine already seems to have improved your condition."));
         textboxsender.DialogueTree.Add(new TextLine(Apothecary, 1, "Please still take it easy for the next couple of days. But if you pass a few more checkups, I will clear you to start adventuring again."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "For the first time in a week, you walk to the edge of the forest with the knight. You keep stopping to look at the knight like you think this is all too good to be true. Despite nearly tripping over you multiple times, the knight only laughs at your antics."));
 
-        if (TownMorale >= 100)
+        // Town Morale variations
+        if (TownMorale >= 90)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, ""));
-        }
-        else if (TownMorale >= 90)
-        {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, ""));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "It seems the apothecary told everyone in town the good news. The streets are full of people enjoying a spontaneous festival celebrating the knight's recovery."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "When you pass, people cheer and spoil you with treats. You and the knight mingle with the excited townspeople."));
+            textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Wow, everyone in town seems so happy! I'll have to step up my game or else I'll be out of a job! Good job, boy."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The knight scratches you behind the ears. You momentarily get so happy you simply must have zoomies around the courtyard! The townspeople laugh at your antics."));
         }
         else if (TownMorale >= 60)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, ""));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "At first, the town just operates as usual, if slightly gloomier. However, once they see the knight up again, everyone visibly relaxes. All the stores you pass offer you both gifts of appreciation. They wish you luck on your adventure that day."));
+            textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Good job holding down the fort, boy. I knew you could! I know it must have been difficult on your own."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The knight uses your side as a set of drums. Your tail nearly knocks her over in your excitement."));
         }
         else if (TownMorale >= 30)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, ""));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "Only a few townspeople are out in public this early, still grouped together like a monster will jump out at any moment. When you pass, they greet you both, but their smiles seem a little forced, and they hurry away."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "In one group, the body builder mutters under her breath something about unreliable people. The knight tells her to repeat herself louder. Wisely, the body builder just apologizes and rushes away. Your ears fold down onto your head."));
+            textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Ugh, leave it boy. They're just... stressed, it's been a hard week for everybody. What matters is that you did that best you could, and now I'm feeling better."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "To distract you, the knight throws your ball a couple of times. The exercise helps to take your mind off of the town for now. Now that the knight is better, she can cheer everybody up anyway!"));
         }
         else
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, ""));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The town is almost completely lifeless. The knight glances around all the boarded-up windows and empty streets, clearly concerned. Your pace slows as you tuck your tail."));
+            textboxsender.DialogueTree.Add(new TextLine(Knight, 1.5f, "Ah, don't worry too much about it! Taking care of a whole town by yourself is very hard, I'm sure you did the best you could! We'll make everyone feel safe again together; this is just a rough patch..."));
+            textboxsender.DialogueTree.Add(new TextLine(null, 1, "You hope the knight is right..."));
         }
 
         if (questManager.questLines[3].quests[1].questCompleted) // if all wannabe questline is complete
@@ -158,11 +211,12 @@ public class GameManager : MonoBehaviour
             textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 0.5f, "Here! I know it's ugly, but I drew you two beating up all the bad guys. Sorry again for causing wrouble..."));
             textboxsender.DialogueTree.Add(new TextLine(null, 1, "The knight stifles a laugh and takes the drawing, tucking it into her breast plate. You imagine that she will pin the drawing to the fridge when you get home."));
             textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Tell you what kid, why don't you join us on an adventure sometime? That way we can show you the ropes while keeping you safe."));
-            textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 2f, "Wow! Really? T-thank you, Knight!"));
+            textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 1.5f, "Wow! Really? T-thank you, Knight!"));
             textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Of course! As long as you wait a couple years for your poor mother's sake."));
             textboxsender.DialogueTree.Add(new TextLine(null, 1, "The wannabe hero nods so eagerly that his little papier mache helmet nearly falls off. You part ways and continue to the forest."));
         }
 
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "You and the knight eventually arrive at the forest."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch is standing at the edge of the forest, as if he was expecting you both. The knight instinctively places a hand on the scabbard of her sword, ready for a fight."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "However, you step between them and lie down with your paws stretched in front of you and your head down. You make sure to sigh very loudly. They both look down at you and then more grudgingly back at each other. The witch sighs less obnoxiously."));
         textboxsender.DialogueTree.Add(new TextLine(Witch, 2, "Sorry for like... cursing you, tin can, or whatever >:(  I was just... jealous that you basically had our dog all to yourself."));

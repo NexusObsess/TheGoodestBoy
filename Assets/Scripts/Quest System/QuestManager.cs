@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
 
     GameManager gameManager;
 
-    MailBox mailbox;
+    public MailBox mailbox;
 
     [SerializeField] TextBoxSender QuestResults; // sends the quest win or lose text to textbox
 
@@ -114,7 +114,7 @@ public class QuestManager : MonoBehaviour
         {
             if (quest.QuestLine == Quest.questLine.Main || quest.QuestLine == Quest.questLine.None) continue; // if quest is not in main questline OR has no questline
 
-            Quest nextSideQuest = LookForTrackingQuestLines(quest.QuestLine); // give next quest that is not complete in line
+            Quest nextSideQuest = LookForTrackingQuestLines(quest.QuestLine);
 
             if (nextSideQuest != null && activeQuests.Count < 3) // quest is not null and there are less than three active quests
             {

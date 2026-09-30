@@ -212,7 +212,7 @@ MonoBehaviour:
   questManager: {fileID: 0}
   gameManager: {fileID: 0}
   rooms: []
-  Witch: {fileID: 0}
+  Witch: {fileID: 719333084683614569, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
 --- !u!4 &1291066418
 Transform:
   m_ObjectHideFlags: 0

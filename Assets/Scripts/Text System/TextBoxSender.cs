@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class TextBoxSender : MonoBehaviour
 {
@@ -17,9 +19,13 @@ public class TextBoxSender : MonoBehaviour
 
     GameManager gamemanager;
 
+    GameObject DefaultCurrentSelectedGameObject;
+
     public void DialogueSequenceStarts() // called from other scripts
     {
         Debug.Log("Sequence starts");
+        DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
+        EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Function called");
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
         Debug.Log("return check");
@@ -61,13 +67,15 @@ public class TextBoxSender : MonoBehaviour
                     currentOnscreenLine = 0;
                     previousOnscreenLine = 0;
 
-                    colliders = FindObjectsOfType<BoxCollider2D>(true); // gets all colliders
-                    foreach (BoxCollider2D col in colliders)
-                    {
-                        col.enabled = true; // reenable
-                    }
+                    // colliders = FindObjectsOfType<BoxCollider2D>(true); // gets all colliders
+                    // foreach (BoxCollider2D col in colliders)
+                    // {
+                    //     col.enabled = true; // reenable
+                    // }
 
                     DialogueTree.Clear(); // empties the list for next text sequence
+
+                    StartCoroutine(Reassign());
                 }
                 else // meaning if the player is just clicking through the text quickly, was being weird on last line otherwise
                 {
@@ -88,6 +96,12 @@ public class TextBoxSender : MonoBehaviour
             textbox.ShowText(DialogueTree[currentOnscreenLine], this); // starts the text appearing
             currentOnscreenLine++;
         }
+    }
+
+    IEnumerator Reassign()
+    {
+        yield return new WaitForSeconds(1); // Waits 5 seconds (scaled)
+        EventSystem.current.SetSelectedGameObject(DefaultCurrentSelectedGameObject);
     }
 
     public void GoBackLine() // called from textbox script

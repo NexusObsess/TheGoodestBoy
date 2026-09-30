@@ -43,12 +43,15 @@ public class Enemy : MonoBehaviour
 
     [SerializeField][Range(0f, 1f)] private float dropChance= 0.3f;
 
+    QuestManager questManager;
+
 
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform;
         rb = GetComponent<Rigidbody2D>();
+        questManager = FindFirstObjectByType<QuestManager>();
 
         shootScript = GetComponent<EnemyShooting>();
 
@@ -234,6 +237,8 @@ public class Enemy : MonoBehaviour
         if (hp <= 0)
         {
             HealthDrop();
+
+            questManager.HuntCheck(this);
             Destroy(gameObject);
         }
     }

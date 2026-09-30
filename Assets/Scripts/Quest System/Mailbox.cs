@@ -9,17 +9,30 @@ public class MailBox : MonoBehaviour // still cooking
     public static MailBox current;
 
     [SerializeField] GameObject readQuestLetter;
+    [SerializeField] GameObject DungeonGate;
     SpriteRenderer spriteRenderer;
     public GameObject panel;
 
     public List<GameObject> questLetters = new List<GameObject>(); // game objects that trigger the letter for the active quests
     public List<QuestLetter> QuestLetterSprite = new List<QuestLetter>();
-    //public List<Sprite> QuestLetterSprite = new List<Sprite>();
 
     public GameObject exitLetter;
     public GameObject exitPanel;
 
     bool activated = false;
+
+    [Header ("Sound Effects")]
+    [SerializeField] AudioSource SoundEffect;
+    [SerializeField] AudioClip PaperSE;
+    [SerializeField] AudioClip MailBoxSE;
+
+    [Header ("MailBox Sprites")]
+    [SerializeField] Sprite NonRead;
+    [SerializeField] Sprite Read;
+    SpriteRenderer mailboxRenderer;
+
+    Rigidbody2D PlayerRB;
+    GameObject PlayerGO;
 
     void Awake()
     {
@@ -27,11 +40,20 @@ public class MailBox : MonoBehaviour // still cooking
         {
             current = this;
             spriteRenderer = readQuestLetter.GetComponent<SpriteRenderer>();
+            mailboxRenderer = GetComponent<SpriteRenderer>();
+            mailboxRenderer.sprite = NonRead;
         }
         else
         {
             //Destroy(gameObject);
         }
+    }
+
+    public void ResetMailBox()
+    {
+        activated = false;
+        mailboxRenderer.sprite = NonRead;
+        DungeonGate.SetActive(true);
     }
 
     public void SetPopUp()
@@ -40,8 +62,7 @@ public class MailBox : MonoBehaviour // still cooking
         {
             if (EventSystem.current.currentSelectedGameObject == questLetters[i])
             {
-                // Debug.Log("Set pop up check");
-                //spriteRenderer.sprite = QuestLetterSprite[i];
+                PlayAudio(PaperSE);
                 spriteRenderer.sprite = QuestLetterSprite[i].sprite;
                 QuestLetterSprite[i].Read = true;
                 readQuestLetter.SetActive(true);
@@ -54,35 +75,63 @@ public class MailBox : MonoBehaviour // still cooking
         if (allTrue)
         {
            exitPanel.SetActive(true);
+           mailboxRenderer.sprite = Read;
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && activated)
+        if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Enter");
+            PlayerRB = other.gameObject.GetComponent<Rigidbody2D>();
+            PlayerGO = other.gameObject;
+
+            if (PlayerRB != null)
+            {
+                PlayerRB.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+            }
+            Debug.Log("Rigidbody position frozen due to collision.");
             Activate();
-            activated = true;
+
+            if (!activated)
+            {
+                exitPanel.SetActive(false);
             // prevent player from moving
+            }
+            activated = true;
+        }
+    }
+
+    public void PlayAudio(AudioClip ToPlay)
+    {
+        SoundEffect.clip = ToPlay;
+        if (SoundEffect != null && SoundEffect.clip != null) // checks if audio source was on game object and if it has an audio clip attached
+        {
+            SoundEffect.Play();
         }
     }
 
     public void Activate()
     {
+        PlayAudio(MailBoxSE);
         panel.SetActive(true);
+        readQuestLetter.transform.position = PlayerGO.transform.position;;
         EventSystem.current.SetSelectedGameObject(questLetters[0]);
-        exitPanel.SetActive(false);
-        Debug.Log(QuestLetterSprite.ToString());
     }
 
     public void Deactivate()
     {
+        PlayAudio(MailBoxSE);
+        PlayerRB.constraints = RigidbodyConstraints2D.None;
+        PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
         panel.SetActive(false);
+        DungeonGate.SetActive(false);
     }
 
     public void ExitLetter()
     {
+        PlayAudio(PaperSE);
         readQuestLetter.SetActive(false);
         EventSystem.current.SetSelectedGameObject(questLetters[0]);
     }

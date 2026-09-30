@@ -27,7 +27,10 @@ public class PlayerStats : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        if (healthbar != null)
+        {
+            healthbar.SetMaxHealth(maxHealth);
+        }
 
         swordObj.SetActive(false);
     }

@@ -9,6 +9,7 @@ public class TextBox : MonoBehaviour
     public TextMeshProUGUI mainText; // the text game object itself
     [SerializeField] TextMeshProUGUI characterText; // text of speaking character
     [SerializeField] GameObject characterTextBG; // only so if no speaker is set, so i can be removed
+    [SerializeField] GameObject dialogueBG;
     public Coroutine typingCoroutine = null; // Coroutine that types the string over the course of a few seconds
     string LastestLine; // for when player is clicking through text fast
     public AudioSource TextSound;
@@ -118,6 +119,16 @@ public class TextBox : MonoBehaviour
         {
             Debug.LogWarning("No audio source on game object");
         }
+    }
+
+    public void BackgroundOn()
+    {
+        dialogueBG.SetActive(true);
+    }
+
+    public void BackgroundOff()
+    {
+        dialogueBG.SetActive(false);
     }
 
     public void TextClear()

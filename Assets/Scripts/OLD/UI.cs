@@ -7,9 +7,9 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject UnPauseButton;
-    [SerializeField] GameObject MailboxButton;
-    [SerializeField] GameObject MailBoxUI;
-    [SerializeField] GameObject XMailbox;
+    // [SerializeField] GameObject MailboxButton;
+    // [SerializeField] GameObject MailBoxUI;
+    // [SerializeField] GameObject XMailbox;
 
 
     private void Start()
@@ -30,10 +30,10 @@ public class UI : MonoBehaviour
         UnPauseButton.SetActive(false);
     }
 
-    public void Mailbox()
-    {
-        MailboxButton.SetActive(false);
-        MailBoxUI.SetActive(true);
+    // public void Mailbox()
+    // {
+    //     MailboxButton.SetActive(false);
+    //     MailBoxUI.SetActive(true);
        
-    }
+    // }
 }

@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -114,7 +114,6 @@ MonoBehaviour:
   TextFont: {fileID: 11400000, guid: 1f4e908d8c15d204bbdd2b570c0d6562, type: 2}
   TextSize: 85
   DialogueVariations: {fileID: 7391045850966740163}
-  ExitAnimation: {fileID: 0}
 --- !u!95 &7519768066965965202
 Animator:
   serializedVersion: 7
