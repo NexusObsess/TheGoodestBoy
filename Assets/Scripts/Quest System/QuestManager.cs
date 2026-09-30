@@ -199,7 +199,7 @@ public class QuestManager : MonoBehaviour
                 if (enemy == activeQuests[i].requiredEnemy)
                 { 
                     activeQuests[i].currentEnemyAmount ++;
-                    QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.ToString() + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
+                    QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
 
                     if (activeQuests[i].requiredEnemyAmount == activeQuests[i].currentEnemyAmount)
                     {
