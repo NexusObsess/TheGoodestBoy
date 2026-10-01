@@ -10,6 +10,7 @@ public class EnemyBulletScript : MonoBehaviour
     private float timer;
     public float damage;
 
+    GameManager gameManager;
 
     void Awake()
     {
@@ -21,11 +22,14 @@ public class EnemyBulletScript : MonoBehaviour
 
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
+
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.GameIsPaused) return;
         timer = +Time.deltaTime;
         if (timer > 10)
         {
@@ -35,7 +39,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (gameManager.GameIsPaused) return;
         if (collision.CompareTag("Player"))
         {
 

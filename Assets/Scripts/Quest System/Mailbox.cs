@@ -70,6 +70,7 @@ public class MailBox : MonoBehaviour // still cooking
                 QuestLetterSprite[i].Read = true;
                 readQuestLetter.SetActive(true);
                 EventSystem.current.SetSelectedGameObject(exitLetter);
+                panel.SetActive(false);
             }
         }
 
@@ -153,6 +154,7 @@ public class MailBox : MonoBehaviour // still cooking
     {
         PlayAudio(PaperSE);
         readQuestLetter.SetActive(false);
+        panel.SetActive(true);
         if (!exitPanel.activeSelf)
         {
             EventSystem.current.SetSelectedGameObject(questLetters[0]);

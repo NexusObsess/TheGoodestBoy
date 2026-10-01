@@ -21,6 +21,8 @@ public class TextBoxSender : MonoBehaviour
 
     GameObject DefaultCurrentSelectedGameObject;
 
+    // public Rigidbody2D PlayerRB;
+
     public void DialogueSequenceStarts() // called from other scripts
     {
         Debug.Log("Sequence starts");
@@ -32,10 +34,13 @@ public class TextBoxSender : MonoBehaviour
 
         gamemanager = FindFirstObjectByType<GameManager>();
         gamemanager.TextActive = true;
+        gamemanager.GameIsPaused = true;
 
         textboxobject.SetActive(true); // textbox appears on screen
         textbox.ShowText(DialogueTree[currentOnscreenLine], this); // sends first line to text box
         currentOnscreenLine++; // 1
+
+        // PlayerRB.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
     }
 
     public void NextLine(InputAction.CallbackContext context) // called when player pushed next line button on the play
@@ -62,16 +67,13 @@ public class TextBoxSender : MonoBehaviour
                 {
                     Debug.Log("null check");
                     textbox.TextClear(); // clears text
-                    // textboxobject.SetActive(false); // deactivates the textbox
                     gamemanager.TextActive = false;
                     currentOnscreenLine = 0;
                     previousOnscreenLine = 0;
 
-                    // colliders = FindObjectsOfType<BoxCollider2D>(true); // gets all colliders
-                    // foreach (BoxCollider2D col in colliders)
-                    // {
-                    //     col.enabled = true; // reenable
-                    // }
+                    // PlayerRB.constraints = RigidbodyConstraints2D.None;
+                    // PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    gamemanager.GameIsPaused = false;
 
                     DialogueTree.Clear(); // empties the list for next text sequence
 
@@ -79,13 +81,7 @@ public class TextBoxSender : MonoBehaviour
                 }
                 else // meaning if the player is just clicking through the text quickly, was being weird on last line otherwise
                 {
-                    // StopCoroutine(textbox.typingCoroutine); // stops corountine, may replace?
-                    //GoBackLine(); // goes back line so the textbox sender doesn't skip the next line
                     textbox.TextStop();
-                    //textbox.mainText.text = DialogueTree[tempIndex].Line; // show last line fully
-
-                    //textbox.typingCoroutine = null;
-                    // return;
                 }
 
                 return;

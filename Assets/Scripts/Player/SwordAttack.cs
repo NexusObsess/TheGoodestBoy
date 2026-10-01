@@ -10,18 +10,22 @@ public class SwordAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
+    GameManager gameManager;
 
     private void OnEnable()
     {
+        gameManager = FindFirstObjectByType<GameManager>();
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
         }
+        if (gameManager.GameIsPaused) return;
         Attack();
     }
 
     void Attack()
     {
+        if (gameManager.GameIsPaused) return;
         Debug.Log("Attacked");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -42,6 +46,7 @@ public class SwordAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        if (gameManager.GameIsPaused) return;
         if (attackPoint == null)
             return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);

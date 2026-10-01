@@ -434,7 +434,7 @@ MonoBehaviour:
     requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
-    questNPCID: Baker
+    questNPCID: The Baker
     questNPCIDPF: {fileID: 4382026203799359397, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
     QuestOrder: 1
   - questName: The Way to the Heart
@@ -607,7 +607,7 @@ MonoBehaviour:
     requiredEnemyPF: {fileID: 1534292998851997743, guid: 935d92c58db50f746a74e429f337e13c, type: 3}
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
-    questNPCID: Glitch
+    questNPCID: '[null]'
     questNPCIDPF: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
     QuestOrder: 0
   - questName: A Challenger Approaches!
@@ -674,8 +674,13 @@ MonoBehaviour:
     questLetter: {fileID: -8383821361431479564, guid: 3b57e7ffed6260c4e91517119ee51949, type: 3}
     questCompleted: 0
     conditionsMet: 0
-    questFailed: 
-    questWon: 
+    questFailed: You didn't manage to find the rival dog in the forest. When you
+      try to sniff him out in the town, it's like he completely vanished. Maybe you're
+      just not cut out for friendships with other dogs. You whimper sadly.
+    questWon: You pass the town's counseling office. Through the windows, you see
+      paws on the receptionist's desk, ringing the desk bell furiously. Even though
+      your tail starts wagging, you decide not to approach for now. This is something
+      your 'rival' should do on his own.
     itemReward: {fileID: 0}
     townMoraleIncrease: 5
     knightHealthIncrease: 0

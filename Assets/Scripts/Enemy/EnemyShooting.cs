@@ -5,12 +5,14 @@ public class EnemyShooting : MonoBehaviour
     public GameObject bullet;
     public Transform bulletPos;
 
+    GameManager gameManager;
+
     private float timer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class EnemyShooting : MonoBehaviour
 
     public void Shoot()
     {
+        if (gameManager.GameIsPaused) return;
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
 }

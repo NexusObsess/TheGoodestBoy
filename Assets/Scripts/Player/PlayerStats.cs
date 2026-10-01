@@ -21,12 +21,15 @@ public class PlayerStats : MonoBehaviour
 
     public Healthbar healthbar;
 
+    GameManager gameManager;
+
     public void Start()
     {
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        gameManager = FindFirstObjectByType<GameManager>();
         if (healthbar != null)
         {
             healthbar.SetMaxHealth(maxHealth);
@@ -38,6 +41,7 @@ public class PlayerStats : MonoBehaviour
 
     public void Update()
     {
+        if (gameManager.GameIsPaused) return;
         // Attack Input
         if (Input.GetButtonDown("Fire1"))
         {
@@ -52,6 +56,7 @@ public class PlayerStats : MonoBehaviour
     // Activate Sword Attack
     void Attack()
     {
+        if (gameManager.GameIsPaused) return;
         anim.SetTrigger("Attack");
         rb.linearVelocity = Vector2.zero;
         swordObj.SetActive(true);
@@ -61,6 +66,7 @@ public class PlayerStats : MonoBehaviour
 
     public void HealPlayer(float healAmount)
     {
+        if (gameManager.GameIsPaused) return;
         currentHealth += healAmount;
         healthbar.SetHealth(currentHealth);
         if (currentHealth > maxHealth)
@@ -70,6 +76,7 @@ public class PlayerStats : MonoBehaviour
     }
     public void PlayerTakeDamage(float damage)
     {
+        if (gameManager.GameIsPaused) return;
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
@@ -92,8 +99,10 @@ public class PlayerStats : MonoBehaviour
         {
             sRenderer.color = new Color(1, 0, 0, 0.5f);
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            yield return new WaitWhile(() => gameManager.GameIsPaused);
             sRenderer.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            yield return new WaitWhile(() => gameManager.GameIsPaused);
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
     }

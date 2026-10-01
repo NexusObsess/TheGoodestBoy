@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float dropChance= 0.3f;
 
     QuestManager questManager;
+    GameManager gameManager;
 
 
     public void Awake()
@@ -52,6 +53,7 @@ public class Enemy : MonoBehaviour
         playerPos = player.transform;
         rb = GetComponent<Rigidbody2D>();
         questManager = FindFirstObjectByType<QuestManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
 
         shootScript = GetComponent<EnemyShooting>();
 
@@ -65,6 +67,7 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
+        if (gameManager.GameIsPaused) return;
         playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, LayerMask.GetMask("Player"));
         playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, LayerMask.GetMask("Player"));
 
@@ -118,12 +121,14 @@ public class Enemy : MonoBehaviour
 }
     public void ChangeState(EnemyState newState)
     {
+        if (gameManager.GameIsPaused) return;
         currentState = newState;
         //Code for changing animation states here
 
     }
     private void SearchWalkPoint()
     {
+        if (gameManager.GameIsPaused) return;
         //Calculate random point in range
         float randomY = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -138,6 +143,7 @@ public class Enemy : MonoBehaviour
 
     private void Patrolling()
     {
+        if (gameManager.GameIsPaused) return;
         if (!walkPointSet)
         {
             SearchWalkPoint();
@@ -160,6 +166,7 @@ public class Enemy : MonoBehaviour
 
     private void ChasePlayer()
     {
+        if (gameManager.GameIsPaused) return;
         Vector2 target = new Vector2(playerPos.position.x, playerPos.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
@@ -168,7 +175,7 @@ public class Enemy : MonoBehaviour
 
     private void AttackPlayer()
     {
-
+        if (gameManager.GameIsPaused) return;
         if (timer > cooldown)
         {
             if (attackType == EnemyType.Melee)
@@ -202,6 +209,7 @@ public class Enemy : MonoBehaviour
 
     public void HealthDrop()
     {
+        if (gameManager.GameIsPaused) return;
         if (Random.value <= dropChance)
         {
             Instantiate(healthDrop, gameObject.transform.position, Quaternion.identity);
@@ -210,6 +218,7 @@ public class Enemy : MonoBehaviour
 
     private void Flip()
     {
+        if (gameManager.GameIsPaused) return;
         facingDirection *= -1;
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
@@ -218,6 +227,7 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        if (gameManager.GameIsPaused) return;
 
         if (collision.CompareTag("Player"))
         {

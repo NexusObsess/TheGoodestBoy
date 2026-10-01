@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     bool isSprinting;
 
+    GameManager gameManager;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gameManager = FindFirstObjectByType<GameManager>();
 
         speed = moveSpeed;
         isSprinting = false;
@@ -33,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isSprinting == true)
+        if (isSprinting == true && !gameManager.GameIsPaused)
         {
             speed = moveSpeed * sprintSpeed;
         }
@@ -47,12 +50,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        if (gameManager.GameIsPaused) return;
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void Sprint()
     {
-
+        if (gameManager.GameIsPaused) return;
         isSprinting = true;
     }
 

@@ -1646,27 +1646,6 @@ PrefabInstance:
       propertyPath: 'QuestRequirement.Array.data[2]'
       value: 
       objectReference: {fileID: 917998956}
-    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
-      propertyPath: possibleQuests.Array.data[22].questWon
-      value: You pass the town's counseling office. Through the windows, you see
-        paws on the receptionist's desk, ringing the desk bell furiously. Even though
-        your tail starts wagging, you decide not to approach for now. This is something
-        your 'rival' should do on his own.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
-      propertyPath: possibleQuests.Array.data[13].questNPCID
-      value: The Baker
-      objectReference: {fileID: 0}
-    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
-      propertyPath: possibleQuests.Array.data[19].questNPCID
-      value: '[null]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
-      propertyPath: possibleQuests.Array.data[22].questFailed
-      value: You didn't manage to find the rival dog in the forest. When you try
-        to sniff him out in the town, it's like he completely vanished. Maybe you're
-        just not cut out for friendships with other dogs. You whimper sadly.
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2056,7 +2035,6 @@ MonoBehaviour:
   QuestLetterSprite: []
   exitLetter: {fileID: 397774328}
   exitPanel: {fileID: 585302518}
-  DefaultCurrentSelectedGameObject: {fileID: 0}
   SoundEffect: {fileID: 943375968}
   PaperSE: {fileID: 8300000, guid: bd77ef1cc3e1b9b46b69bf04d3b3dda7, type: 3}
   MailBoxSE: {fileID: 8300000, guid: e4be1504e06668048866a2f2e7a6bc12, type: 3}
@@ -3478,6 +3456,7 @@ MonoBehaviour:
   textbox: {fileID: 1462918279}
   textboxobject: {fileID: 1462918276}
   DogSoundEffectPlayer: {fileID: 943375968}
+  PlayerRB: {fileID: 1604233335}
 --- !u!1 &962600432
 GameObject:
   m_ObjectHideFlags: 0
@@ -4758,6 +4737,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1388488254}
     - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
+      propertyPath: GameIsPaused
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
       propertyPath: UnPauseButton
       value: 
       objectReference: {fileID: 1145886805}
@@ -5349,6 +5332,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4984534418631498513, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
   m_PrefabInstance: {fileID: 1789102172}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1604233335 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6769715512192239268, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+  m_PrefabInstance: {fileID: 1789102172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1698475702
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,7 +5496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1792042794
 SpriteRenderer:
   serializedVersion: 2

@@ -6,10 +6,17 @@ public class SwordPosition : MonoBehaviour
     public Vector2 rawPointerPos;
     public Vector2 pointerPosition { get; set; }
 
+    GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = FindFirstObjectByType<GameManager>();
+    }
+
     // Update is called once per frame
     private void Update()
     {
-
+            if (gameManager.GameIsPaused) return;
             rawPointerPos = Input.mousePosition;
             pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

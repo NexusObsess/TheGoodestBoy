@@ -34,9 +34,11 @@ public class GameManager : MonoBehaviour
     TextBoxSender textboxsender;
     [SerializeField] TextTreeChooser EndOfDayVariations;
 
+    [Header ("Bools")]
     public bool TextActive = false;
     public bool GameOverTriggered = false;
     public bool TrueEndingTriggered = false;
+    public bool GameIsPaused = false;
 
     [Header ("NPCs")]
     public NPC Knight;
@@ -74,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        GameIsPaused = true;
         PauseMenu.SetActive(true);
         PauseButton.SetActive(false);
         UnPauseButton.SetActive(true);
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void UnPause()
     {
+        GameIsPaused = false;
         PauseMenu.SetActive(false);
         PauseButton.SetActive(true);
         UnPauseButton.SetActive(false);
@@ -99,11 +103,6 @@ public class GameManager : MonoBehaviour
         // loads scenes if needed
 
         questManager.mailbox.ResetMailBox();
-        GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
-        foreach (GameObject g in npcs)
-        {
-            Destroy(g);
-        }
 
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
         Debug.Log("NewDay");
@@ -124,6 +123,11 @@ public class GameManager : MonoBehaviour
         foreach (var questStuffs in QuestSpawner.QuestStuffs) //removes leftover quest things
         {
             Destroy(questStuffs);
+        }
+        GameObject[] npcs = GameObject.FindGameObjectsWithTag("NPC");
+        foreach (GameObject g in npcs)
+        {
+            Destroy(g);
         }
         TownMorale -= TownMoraleDailyDecrease; // daily decrease of town morale
         KnightHealth -= KnightHealthDailyDecrease * currentDay;
