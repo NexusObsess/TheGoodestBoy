@@ -116,6 +116,15 @@ public class GameManager : MonoBehaviour
     public void EndDay() // called at the end of every ingame day or if player leaves dunegon
     {
         SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
+        foreach (var enemy in SpawnerScript.enemies) //removes leftover enemies
+        {
+            TownMorale -= 1;
+            Destroy(enemy);
+        }
+        foreach (var questStuffs in QuestSpawner.QuestStuffs) //removes leftover quest things
+        {
+            Destroy(questStuffs);
+        }
         TownMorale -= TownMoraleDailyDecrease; // daily decrease of town morale
         KnightHealth -= KnightHealthDailyDecrease * currentDay;
 

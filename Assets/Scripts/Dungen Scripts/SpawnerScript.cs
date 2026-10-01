@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SpawnerScript : MonoBehaviour
@@ -15,14 +18,17 @@ public class SpawnerScript : MonoBehaviour
     private int EnemiesSpawning;
     private float roomTopLeft;
     private float roomBottomRight;
+    [SerializeField] string DungeonScene;
+    public static List<GameObject> enemies = new List<GameObject>();
   
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         
+
+
         Debug.Log("spawner working");
         gameManager = FindFirstObjectByType<GameManager>();   
         MaxEnemies -= gameManager.TownMorale / 25;
@@ -45,9 +51,17 @@ public class SpawnerScript : MonoBehaviour
             float posY = pos.y;
             GameObject newEnemy = Instantiate(swarmerPrefab, new Vector3(Random.Range(posX +=5, posX -=5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
             newEnemy.SetActive(true);
-         
+            enemies.Add(newEnemy);
             EnemiesSpawned++;
             SpawnEnemies();
+        }
+    }
+
+    public void RemoveEnemies()
+    {
+        foreach (var objects in enemies)
+        {
+            Destroy(objects);
         }
     }
 }

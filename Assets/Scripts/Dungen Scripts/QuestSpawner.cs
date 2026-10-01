@@ -10,12 +10,13 @@ public class QuestSpawner : MonoBehaviour
     public GameManager gameManager;
     public GameObject[] rooms;
     [SerializeField] GameObject Witch;
-    
+    public static List<GameObject> QuestStuffs = new List<GameObject>();
+
     //Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        questManager = Object.FindFirstObjectByType<QuestManager>();
-        gameManager = Object.FindFirstObjectByType<GameManager>();
+        questManager = FindFirstObjectByType<QuestManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
         StartCoroutine(FindRooms());
 
     }
@@ -32,7 +33,8 @@ public class QuestSpawner : MonoBehaviour
     {
         if (gameManager.currentDay == 5)
         {
-            GameObject questItem = Instantiate(Witch, new Vector3(4.5f, 0 , 0), Quaternion.identity);
+            GameObject witch = Instantiate(Witch, new Vector3(4.5f, 0 , 0), Quaternion.identity);
+            QuestStuffs.Add(witch);
         }
         foreach (Quest quest in questManager.activeQuests)
         {
@@ -50,6 +52,7 @@ public class QuestSpawner : MonoBehaviour
                    
                     GameObject questItem = Instantiate(quest.requiredItemPF, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
                     questItem.SetActive(true);
+                    QuestStuffs.Add(questItem);
                     Debug.Log(questItem + " Spawned");
                     
                     
@@ -67,6 +70,7 @@ public class QuestSpawner : MonoBehaviour
                     float posY = pos.y;
                     GameObject questEnemy = Instantiate(quest.requiredEnemyPF, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
                     questEnemy.SetActive(true);
+                    QuestStuffs.Add(questEnemy);
                 }
 
             }
@@ -80,7 +84,8 @@ public class QuestSpawner : MonoBehaviour
                     float posY = pos.y;
                     GameObject questNPC = Instantiate(quest.questNPCIDPF, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
                     questNPC.SetActive(true);
-               
+                    QuestStuffs.Add(questNPC);
+
             }
 
         }
