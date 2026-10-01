@@ -663,54 +663,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1604233327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &170577230
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 170577232}
-  - component: {fileID: 170577231}
-  m_Layer: 0
-  m_Name: UiScriptt
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &170577231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170577230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20e47fcca6b2b64ab0a3f0cb3debca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UI
-  gameManager: {fileID: 0}
-  PauseMenu: {fileID: 1296683988}
-  PauseButton: {fileID: 1388488254}
-  UnPauseButton: {fileID: 1145886805}
---- !u!4 &170577232
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 170577230}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.17569, y: 1.24001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &193575977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,7 +1526,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 15
+  m_SortingOrder: 170
   m_TargetDisplay: 0
 --- !u!224 &357937830
 RectTransform:
@@ -1700,6 +1652,14 @@ PrefabInstance:
         paws on the receptionist's desk, ringing the desk bell furiously. Even though
         your tail starts wagging, you decide not to approach for now. This is something
         your 'rival' should do on his own.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[13].questNPCID
+      value: The Baker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
+      propertyPath: possibleQuests.Array.data[19].questNPCID
+      value: '[null]'
       objectReference: {fileID: 0}
     - target: {fileID: 5009024372567879900, guid: 4ada7c73690da664ea54592ed3299efc, type: 3}
       propertyPath: possibleQuests.Array.data[22].questFailed
@@ -2096,6 +2056,7 @@ MonoBehaviour:
   QuestLetterSprite: []
   exitLetter: {fileID: 397774328}
   exitPanel: {fileID: 585302518}
+  DefaultCurrentSelectedGameObject: {fileID: 0}
   SoundEffect: {fileID: 943375968}
   PaperSE: {fileID: 8300000, guid: bd77ef1cc3e1b9b46b69bf04d3b3dda7, type: 3}
   MailBoxSE: {fileID: 8300000, guid: e4be1504e06668048866a2f2e7a6bc12, type: 3}
@@ -3991,7 +3952,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 150
+  m_SortingOrder: 215
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5424,7 +5385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 763, y: 301}
+  m_AnchoredPosition: {x: 763, y: 293}
   m_SizeDelta: {x: -1472.0002, y: -767.7001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698475704
@@ -5616,9 +5577,9 @@ Transform:
   m_GameObject: {fileID: 1792042793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80, y: -0.06, z: 0}
-  m_LocalScale: {x: 0.2880299, y: 1.5394256, z: 1.33}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -104.69, y: -0.49, z: 0}
+  m_LocalScale: {x: 1.2333, y: 1.2333, z: 1.2333}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6066,7 +6027,6 @@ SceneRoots:
   - {fileID: 433547567}
   - {fileID: 376328222}
   - {fileID: 1384279332}
-  - {fileID: 170577232}
   - {fileID: 1789102172}
   - {fileID: 357937830}
   - {fileID: 891214992}

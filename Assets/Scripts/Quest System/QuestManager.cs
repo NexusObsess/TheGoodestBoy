@@ -196,7 +196,7 @@ public class QuestManager : MonoBehaviour
        {  
             if (activeQuests[i].QuestType == Quest.questType.Hunt)
             { 
-                if (enemy == activeQuests[i].requiredEnemy)
+                if (enemy.enemyName == activeQuests[i].requiredEnemy.enemyName)
                 { 
                     activeQuests[i].currentEnemyAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
@@ -216,7 +216,7 @@ public class QuestManager : MonoBehaviour
        {  
             if (activeQuests[i].QuestType == Quest.questType.Fetch)
             { 
-                if (item == activeQuests[i].requiredItem)
+                if (item.itemName == activeQuests[i].requiredItem.itemName)
                 { 
                     activeQuests[i].currentItemAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;

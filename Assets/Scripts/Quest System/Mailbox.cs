@@ -18,6 +18,8 @@ public class MailBox : MonoBehaviour // still cooking
 
     public GameObject exitLetter;
     public GameObject exitPanel;
+    GameObject DefaultCurrentSelectedGameObject;
+    GameObject PauseMenu;
 
     bool activated = false;
 
@@ -54,6 +56,7 @@ public class MailBox : MonoBehaviour // still cooking
         activated = false;
         mailboxRenderer.sprite = NonRead;
         DungeonGate.SetActive(true);
+        QuestLetterSprite.Clear();
     }
 
     public void SetPopUp()
@@ -116,24 +119,48 @@ public class MailBox : MonoBehaviour // still cooking
     {
         PlayAudio(MailBoxSE);
         panel.SetActive(true);
-        readQuestLetter.transform.position = PlayerGO.transform.position;;
+        readQuestLetter.transform.position = PlayerGO.transform.position;
+
+        DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
+        DefaultCurrentSelectedGameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(questLetters[0]);
+        PauseMenu = GameObject.Find("Pause");
+        if (PauseMenu != null)
+        {
+            PauseMenu.SetActive(false);
+        }
     }
 
     public void Deactivate()
     {
         PlayAudio(MailBoxSE);
+
         PlayerRB.constraints = RigidbodyConstraints2D.None;
         PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         panel.SetActive(false);
         DungeonGate.SetActive(false);
+
+        DefaultCurrentSelectedGameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(DefaultCurrentSelectedGameObject);
+        if (PauseMenu != null)
+        {
+            PauseMenu.SetActive(true);
+        }
     }
 
     public void ExitLetter()
     {
         PlayAudio(PaperSE);
         readQuestLetter.SetActive(false);
-        EventSystem.current.SetSelectedGameObject(questLetters[0]);
+        if (!exitPanel.activeSelf)
+        {
+            EventSystem.current.SetSelectedGameObject(questLetters[0]);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(exitPanel);
+        }
     }
 }
 
