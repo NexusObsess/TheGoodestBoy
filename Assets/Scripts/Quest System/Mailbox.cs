@@ -123,7 +123,7 @@ public class MailBox : MonoBehaviour // still cooking
         readQuestLetter.transform.position = PlayerGO.transform.position;
 
         DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
-        DefaultCurrentSelectedGameObject.SetActive(false);
+        //DefaultCurrentSelectedGameObject.SetActive(false);
         EventSystem.current.SetSelectedGameObject(questLetters[0]);
         PauseMenu = GameObject.Find("Pause");
         if (PauseMenu != null)

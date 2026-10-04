@@ -6,68 +6,73 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 32;
+    public float timeRemaining = 180;
     public bool timerRunning = false;
     public TextMeshProUGUI timeText;
+
     [SerializeField] string GameOver;
     public GameManager gameManager;
     public bool TimePause;
     [SerializeField] GameObject ThirtySeconds;
     private bool thirtyDone = false;
+    private bool timerStart = false;
     
     void Start()
     {
         ThirtySeconds.SetActive(false);
-        gameManager = Object.FindFirstObjectByType<GameManager>();
-        timerRunning = true;
+        gameManager = FindFirstObjectByType<GameManager>();
+        timerRunning = false;
     }
     
     public void TimerStart()
     {
-        timerRunning = true;
+        timerStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timeRemaining <= 30 && !thirtyDone)
+        if (timerStart)
         {
-            thirtyDone = true;
-            StartCoroutine(Thirty());
-            Debug.Log("Thirty Seconds Left");
-        }
-        if (timerRunning && gameManager.TextActive)
-        {
-            
-            if (timeRemaining > 0)
+            if (timeRemaining <= 30 && !thirtyDone)
             {
-                timerRunning = false;
-                DisplayTime(timeRemaining);
-                
+                thirtyDone = true;
+                StartCoroutine(Thirty());
+                Debug.Log("Thirty Seconds Left");
             }
-
-        }
-
-        else
-        {
-            timerRunning = true;
-            Debug.Log(timerRunning);
-
-            if (timeRemaining > 0)
+            if (timerRunning && gameManager.TextActive)
             {
 
-                timeRemaining -= Time.deltaTime;
-                DisplayTime(timeRemaining);
+                if (timeRemaining > 0)
+                {
+                    timerRunning = false;
+                    DisplayTime(timeRemaining);
+
+                }
 
             }
+
             else
             {
-                Debug.Log("Day Failed - Time Ran Out");
-                timeRemaining = 0;
-                timerRunning = false;
-                TimeOut();
-            }
+                timerRunning = true;
+                Debug.Log(timerRunning);
 
+                if (timeRemaining > 0)
+                {
+
+                    timeRemaining -= Time.deltaTime;
+                    DisplayTime(timeRemaining);
+
+                }
+                else
+                {
+                    Debug.Log("Day Failed - Time Ran Out");
+                    timeRemaining = 0;
+                    timerRunning = false;
+                    TimeOut();
+                }
+
+            }
         }
     }
     IEnumerator Thirty()
@@ -88,5 +93,13 @@ public class Timer : MonoBehaviour
     void TimeOut()
     {
         SceneManager.LoadScene(GameOver);
+    }
+
+    public void ResetTimer()
+    {
+        timerStart = false;
+        timeRemaining = 180;
+        timerRunning = false;
+        thirtyDone = false;
     }
 }

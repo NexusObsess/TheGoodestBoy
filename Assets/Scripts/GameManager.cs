@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
         }
         UpdatePauseStats();
 
-        textbox.BackgroundOn();
+        //textbox.BackgroundOn();
         EndOfDayVariations.MoraleSelectCorrectTextTree();
         if (currentDay != 5 || questManager.questLines[0].quests[4].questCompleted == false)
         {
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !TextActive);
         Debug.Log("TEXTBOX IS OVER PARTY");
-        textbox.BackgroundOff();
+        ///textbox.BackgroundOff();
         textboxobject.SetActive(false);
         
         if (GameOverTriggered == true)
