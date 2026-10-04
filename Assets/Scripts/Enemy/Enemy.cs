@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.IO;
+using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public string enemyName = "Enemy";
@@ -21,6 +22,13 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     UnityEngine.Transform playerPos;
     Rigidbody2D rb;
+
+    public GameObject eCollide;
+    BoxCollider2D enemyCollider;
+    BoxCollider2D attackCollider;
+
+    [SerializeField] float waitTimeOnWayPoint = 1.0f;
+    float waitTime;
 
     [SerializeField] private EnemyShooting shootScript;
 
@@ -52,6 +60,7 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform;
         rb = GetComponent<Rigidbody2D>();
+        attackCollider = GetComponent<BoxCollider2D>();
         questManager = FindFirstObjectByType<QuestManager>();
         gameManager = FindFirstObjectByType<GameManager>();
 
@@ -59,7 +68,11 @@ public class Enemy : MonoBehaviour
 
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        anim.SetBool("isWalking", true);
+
+        attackCollider.enabled = false;
+
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isIdle", true);
         ChangeState(EnemyState.Patrol);
 
         isDead = false;
@@ -154,12 +167,22 @@ public class Enemy : MonoBehaviour
             Vector2 target = new Vector2(walkPoint.x, walkPoint.y);
             Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isIdle", false);
         }
         float walkDistance = Vector2.Distance(transform.position, walkPoint);
 
         if (walkDistance < 1f)
         {
-            walkPointSet = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isIdle", true);
+            waitTime += Time.deltaTime;
+            if (waitTime >= waitTimeOnWayPoint)
+            {
+                waitTime = 0.0f;
+                walkPointSet = false;
+            }
+            
         }
     }
 
@@ -205,6 +228,16 @@ public class Enemy : MonoBehaviour
 
             return;
         }
+    }
+
+    public void AttackActive()
+    {
+        attackCollider.enabled = true;
+    }
+
+    public void AttackEnded()
+    {
+        attackCollider.enabled = false;
     }
 
     public void HealthDrop()

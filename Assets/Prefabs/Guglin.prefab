@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 139605101872726483}
   - component: {fileID: 458844070286809772}
   - component: {fileID: 3657591510175452889}
-  - component: {fileID: 7811825050093589848}
   m_Layer: 8
   m_Name: Guglin
   m_TagString: Enemy
@@ -127,6 +126,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3319901155863625686}
+  - {fileID: 7658460283286120321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1395183417185708694
@@ -230,6 +230,8 @@ MonoBehaviour:
   iFramesDuration: 0.5
   numberOfFlashes: 1
   player: {fileID: 0}
+  eCollide: {fileID: 7559737426598314154}
+  waitTimeOnWayPoint: 1
   shootScript: {fileID: 0}
   healthDrop: {fileID: 5524855593190738879, guid: c07ab8d27ab38aa41b097b6700f90106, type: 3}
   attackType: 1
@@ -277,7 +279,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6146527453023367423}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -316,13 +318,45 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.1244354, y: 1.302067}
   m_EdgeRadius: 0
---- !u!61 &7811825050093589848
+--- !u!1 &7559737426598314154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7658460283286120321}
+  - component: {fileID: 238733457509498112}
+  m_Layer: 9
+  m_Name: GugCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7658460283286120321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559737426598314154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4805260856734614404}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &238733457509498112
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6146527453023367423}
+  m_GameObject: {fileID: 7559737426598314154}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -350,15 +384,15 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.041122198, y: -0.12198788}
+  m_Offset: {x: 0.11970341, y: -0.09679037}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.5}
-    newSize: {x: 1.5, y: 1.5}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.80219173, y: 0.97003996}
+  m_Size: {x: 1.1176746, y: 1.0255376}
   m_EdgeRadius: 0
