@@ -204,6 +204,7 @@ public class QuestManager : MonoBehaviour
                     if (activeQuests[i].requiredEnemyAmount == activeQuests[i].currentEnemyAmount)
                     {
                         activeQuests[i].questCompleted = true;
+                        QuestRequirement[i].text += "\nCOMPLETE";
                     }
                 }
             } 
@@ -224,6 +225,7 @@ public class QuestManager : MonoBehaviour
                     if (activeQuests[i].requiredItemAmount == activeQuests[i].currentItemAmount)
                     {
                         activeQuests[i].questCompleted = true;
+                        QuestRequirement[i].text += "\nCOMPLETE";
                     }
                 }
             } 
@@ -232,13 +234,14 @@ public class QuestManager : MonoBehaviour
 
     public void TalkCheck (NPC npc)
     {
-       foreach (Quest q in activeQuests)
+       for (int i = 0; i < activeQuests.Count; i++)
        {  
-            if (q.QuestType == Quest.questType.Talk)
+            if (activeQuests[i].QuestType == Quest.questType.Talk)
             { 
-                if (npc.Name == q.questNPCID)
+                if (npc.Name == activeQuests[i].questNPCID)
                 { 
-                    q.questCompleted = true;
+                    activeQuests[i].questCompleted = true;
+                    QuestRequirement[i].text += "\nCOMPLETE";
                 }
             } 
         } 
