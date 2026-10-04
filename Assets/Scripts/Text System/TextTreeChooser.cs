@@ -44,6 +44,7 @@ public class TextTreeChooser : MonoBehaviour
                 {
                     Debug.Log("Day specific game over");
                     gameManager.GameOverTriggered = true;
+                    //gameManager.NewDay();
                 }
                 break; // once they find the correct text tree to send, stops loop so multiple don't get sent
             }

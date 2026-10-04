@@ -12,12 +12,15 @@ public class SpawnerScript : MonoBehaviour
 
     [SerializeField] private GameObject swarmerPrefab;
     [SerializeField] private GameObject bigSwarmerPrefab;
+    [SerializeField] private GameObject rangedPrefab;
     private GameManager gameManager;
     private float MaxEnemies = 6;
+    private float MaxBigEnemies = 4;
+    private float MaxRanged = 5;
     private int EnemiesSpawned = 0;
-    private int EnemiesSpawning;
-    private float roomTopLeft;
-    private float roomBottomRight;
+    private float EnemiesSpawning;
+    private float BigSpawning;
+    private float RangedSpawning;
     [SerializeField] string DungeonScene;
     public static List<GameObject> enemies = new List<GameObject>();
   
@@ -26,18 +29,26 @@ public class SpawnerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-
-
+    
         Debug.Log("spawner working");
-        gameManager = FindFirstObjectByType<GameManager>();   
-        MaxEnemies -= gameManager.TownMorale / 25;
+        gameManager = FindFirstObjectByType<GameManager>();
 
-        Debug.Log("Max Enemies = " + MaxEnemies + gameObject.name);
-        float randomFloat = Random.Range(1, MaxEnemies + 1);
-        int roundValue = Mathf.RoundToInt(randomFloat);
-        EnemiesSpawning = (int)randomFloat;
+        //decides how many regular enemies
+        EnemiesSpawning = Random.Range(1, MaxEnemies -= gameManager.TownMorale / 25);
+        EnemiesSpawning = Mathf.RoundToInt(EnemiesSpawning);
         Debug.Log("Enemies Spawning = " + EnemiesSpawning);
+        
+        
+        //decides how many big enemies. wont spawn until morale is below 70
+        BigSpawning = Random.Range(0, MaxBigEnemies -= gameManager.TownMorale / 20);
+        BigSpawning = Mathf.RoundToInt(BigSpawning);
+        Debug.Log("Big Enemy Spawning = " + BigSpawning);
+
+        //Decideds how many ranged. wont spawn until morale is below 90
+        RangedSpawning = Random.Range(0, MaxRanged -= gameManager.TownMorale / 20);
+        RangedSpawning = Mathf.RoundToInt(RangedSpawning);
+        Debug.Log("Ranged Enemy Spawning = " + RangedSpawning);
+
         SpawnEnemies();
 
     }
@@ -53,8 +64,32 @@ public class SpawnerScript : MonoBehaviour
             newEnemy.SetActive(true);
             enemies.Add(newEnemy);
             EnemiesSpawned++;
+
+            int RangedSpawned = 0;
+            int BigSpawned = 0;
+
+            if (RangedSpawning > RangedSpawned)
+            {
+                GameObject newRanged = Instantiate(rangedPrefab, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
+                newRanged.SetActive(true);
+                enemies.Add(newRanged);
+                RangedSpawned++;
+            }
+
+            if (BigSpawning > BigSpawned)
+            {
+                GameObject newBig = Instantiate(bigSwarmerPrefab, new Vector3(Random.Range(posX += 5, posX -= 5), Random.Range(posY += 5, posY -= 5), 0), Quaternion.identity);
+                newBig.SetActive(true);
+                enemies.Add(newBig);
+                BigSpawned++;
+            }
+
             SpawnEnemies();
         }
+
+
+
+
     }
 
     public void RemoveEnemies()
