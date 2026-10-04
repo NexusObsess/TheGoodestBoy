@@ -152,6 +152,7 @@ public class GameManager : MonoBehaviour
         {
             TrueEndingDialogueSequence();
         }
+       
     }
 
     IEnumerator TextBoxCheck()
