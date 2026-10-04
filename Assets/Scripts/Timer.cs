@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining = 32;
+    public float timeRemaining = 180;
     public bool timerRunning = false;
     public TextMeshProUGUI timeText;
+
     [SerializeField] string GameOver;
     public GameManager gameManager;
     public bool TimePause;
@@ -92,5 +93,13 @@ public class Timer : MonoBehaviour
     void TimeOut()
     {
         SceneManager.LoadScene(GameOver);
+    }
+
+    public void ResetTimer()
+    {
+        timerStart = false;
+        timeRemaining = 180;
+        timerRunning = false;
+        thirtyDone = false;
     }
 }
