@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
 
     public Animator anim;
+    public SpriteRenderer sRenderer;
+    private bool facingRight = true;
 
     bool isSprinting;
 
@@ -25,39 +27,98 @@ public class PlayerMovement : MonoBehaviour
         //transform.position = playerSpawn;
 
         rb = GetComponent<Rigidbody2D>();
+        sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         gameManager = FindFirstObjectByType<GameManager>();
 
         speed = moveSpeed;
         isSprinting = false;
         anim.SetBool("isIdle", true);
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isSprinting", false);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isSprinting == true && !gameManager.GameIsPaused)
+        if (!gameManager.GameIsPaused) //OR attacking || attack
         {
-            speed = moveSpeed * sprintSpeed;
+            MoveDog();
         }
         else
         {
-            speed = moveSpeed;
+            rb.linearVelocity = Vector2.zero;
         }
-        rb.linearVelocity = moveInput * speed;
         
+        
+    }
+
+    void MoveDog()
+    {
+        if (moveInput != Vector2.zero)
+        {
+            if (isSprinting)
+            {
+                speed = moveSpeed * sprintSpeed;
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isSprinting", true);
+                rb.linearVelocity = moveInput * speed;
+            }
+            else if (!isSprinting)
+            {
+                speed = moveSpeed;
+                anim.SetBool("isIdle", false);
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isSprinting", false);
+                rb.linearVelocity = moveInput * speed;
+            }
+        }
+        else
+        {
+            anim.SetBool("isIdle", true);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isSprinting", false);
+            rb.linearVelocity = Vector2.zero;
+        }
+
+        Flip();
+    }
+
+    void Flip()
+    {
+        if (moveInput.x > 0)
+        {
+            sRenderer.flipX = true;
+        }
+        else if (moveInput.x < 0)
+        {
+            sRenderer.flipX = false;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         if (gameManager.GameIsPaused) return;
+
         moveInput = context.ReadValue<Vector2>();
+
     }
 
-    public void Sprint()
+    public void Sprint(InputAction.CallbackContext context)
     {
         if (gameManager.GameIsPaused) return;
-        isSprinting = true;
+
+        if (context.started)
+        {
+            isSprinting = true;
+        }
+        else if (context.canceled)
+        {
+            isSprinting = false;
+        }
+
+       
     }
 
 }
