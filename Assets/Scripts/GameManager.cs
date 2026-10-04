@@ -94,15 +94,13 @@ public class GameManager : MonoBehaviour
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
-
         // spawns player in starting location healed(?)
         playerstats.currentHealth = playerstats.maxHealth;
         //playerstats.healthbar.SetHealth(playerstats.currentHealth);
         Player.transform.position = PlayerSpawn;
+        Debug.Log(Player.transform.position);
 
         // loads scenes if needed
-
-        questManager.mailbox.ResetMailBox();
 
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
         Debug.Log("NewDay");
@@ -114,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void EndDay() // called at the end of every ingame day or if player leaves dunegon
     {
+        questManager.mailbox.ResetMailBox();
         SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
         foreach (var enemy in SpawnerScript.enemies) //removes leftover enemies
         {
@@ -139,13 +138,15 @@ public class GameManager : MonoBehaviour
         }
         UpdatePauseStats();
 
-        //textbox.BackgroundOn();
+        GameIsPaused = true;
         EndOfDayVariations.MoraleSelectCorrectTextTree();
         if (currentDay != 5 || questManager.questLines[0].quests[4].questCompleted == false)
         {
             EndOfDayVariations.KnightHealthSelectCorrectTextTree();
 
             textboxsender.DialogueSequenceStarts();
+            textbox = FindFirstObjectByType<TextBox>(); // again, just in case
+            textbox.BackgroundOn();
             StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
         }
         else
@@ -159,21 +160,26 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !TextActive);
         Debug.Log("TEXTBOX IS OVER PARTY");
-        ///textbox.BackgroundOff();
+        textbox.BackgroundOff();
         textboxobject.SetActive(false);
+        GameIsPaused = false;
         
         if (GameOverTriggered == true)
         {
             // trigger game over screen
             Debug.Log("Game over screen load");
             SceneManager.LoadScene("GameOverQuestNotComplete");
+            yield break;
         }
 
         if (TrueEndingTriggered == true)
         {
             // trigger ending screen
             Debug.Log("End screen load");
+            yield break;
         }
+
+        NewDay();
     }
 
     void UpdatePauseStats()

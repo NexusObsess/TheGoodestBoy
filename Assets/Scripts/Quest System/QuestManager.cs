@@ -146,7 +146,7 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(randomSideQuest.questDifficulty + randomSideQuest.QuestLine + randomSideQuest.QuestOrder);
+                //Debug.Log(randomSideQuest.questDifficulty + randomSideQuest.QuestLine + randomSideQuest.QuestOrder);
             }
             SetSideQuests(); // starts function again
         }
@@ -161,11 +161,11 @@ public class QuestManager : MonoBehaviour
                 }
                 mailbox.QuestLetterSprite.Add(new QuestLetter(activeQuests[i].questLetter, false));
 
-                if (QuestName[i] == null)
-                {
-                    Debug.Log("No Active Quest");
-                    return;
-                }
+                // if (QuestName[i] == null)
+                // {
+                //     Debug.Log("No Active Quest");
+                //     return;
+                // }
 
                 TextMeshProUGUI childTMPText = mailbox.questLetters[i].GetComponentInChildren<TextMeshProUGUI>();
                 childTMPText.text = activeQuests[i].questName;
@@ -238,10 +238,14 @@ public class QuestManager : MonoBehaviour
        {  
             if (activeQuests[i].QuestType == Quest.questType.Talk)
             { 
-                if (npc.Name == activeQuests[i].questNPCID)
+                if (npc.Name == activeQuests[i].requiredNPC.Name)
                 { 
                     activeQuests[i].questCompleted = true;
                     QuestRequirement[i].text += "\nCOMPLETE";
+                }
+                else
+                {
+                    Debug.Log("NPC prefab name: " + npc.Name + " Quest NPC ID: " + activeQuests[i].questNPCID);
                 }
             } 
         } 

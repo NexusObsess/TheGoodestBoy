@@ -68,7 +68,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (gameManager.GameIsPaused) return;
         currentHealth += healAmount;
-        healthbar.SetHealth(currentHealth);
+        //healthbar.SetHealth(currentHealth);
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -78,7 +78,7 @@ public class PlayerStats : MonoBehaviour
     {
         if (gameManager.GameIsPaused) return;
         currentHealth -= damage;
-        healthbar.SetHealth(currentHealth);
+        //healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
 
 

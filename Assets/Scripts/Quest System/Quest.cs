@@ -47,6 +47,7 @@ public class Quest
 
     // for talk
     [QuestType(questType.Talk)] public string questNPCID;
+    [QuestType(questType.Talk)] public NPC requiredNPC;
     [QuestType(questType.Talk)] public GameObject questNPCIDPF;
     // maybe multiple in a list?
     // reference in NPC script

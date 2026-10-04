@@ -72,6 +72,7 @@ MonoBehaviour:
     requiredEnemyAmount: 1
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Find the Witch
@@ -101,6 +102,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: The WItch
+    requiredNPC: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
     questNPCIDPF: {fileID: 719333084683614569, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
     QuestOrder: 1
   - questName: The Out-of-Town Apothecary
@@ -128,6 +130,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: The Apothecary
+    requiredNPC: {fileID: 2266272501717668400, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
     questNPCIDPF: {fileID: 3051157041494673867, guid: 90da6119d6ae2034d83b0c4b7a58492f, type: 3}
     QuestOrder: 2
   - questName: Finally a cure?
@@ -155,6 +158,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 3
   - questName: Final Confrontation
@@ -181,6 +185,7 @@ MonoBehaviour:
     requiredEnemyAmount: 10
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 4
   - questName: Stolen groceries
@@ -209,6 +214,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Fancy Party Invite
@@ -236,6 +242,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: She doesn't have a problem! You do!
@@ -265,6 +272,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Saucer in the sky????
@@ -294,6 +302,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Here comes the bride!
@@ -322,6 +331,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Revenge >:D
@@ -350,6 +360,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: An artist's tools
@@ -378,6 +389,7 @@ MonoBehaviour:
     requiredEnemyAmount: 0
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: Vandals from the Wood
@@ -406,6 +418,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 0
   - questName: A Private Conversation
@@ -435,6 +448,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: The Baker
+    requiredNPC: {fileID: 3179903954906608466, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
     questNPCIDPF: {fileID: 4382026203799359397, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
     QuestOrder: 1
   - questName: The Way to the Heart
@@ -465,6 +479,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Baker
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 4382026203799359397, guid: 7c3720bde69f77045ad01bbd2351c262, type: 3}
     QuestOrder: 2
   - questName: The Call to Adventure
@@ -494,6 +509,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Wannabe Hero
+    requiredNPC: {fileID: 4932804068736571853, guid: c7c020152fd24704692bf0d212843913, type: 3}
     questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
     QuestOrder: 0
   - questName: Refusal of the Call
@@ -522,6 +538,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Wannabe Hero
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 2290587939521897860, guid: c7c020152fd24704692bf0d212843913, type: 3}
     QuestOrder: 1
   - questName: Ransom Letter
@@ -550,6 +567,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: The Unlucky
+    requiredNPC: {fileID: 1019812753075749127, guid: 320185903b1d0894f9ce0f90485b4b64, type: 3}
     questNPCIDPF: {fileID: 6172555133981086305, guid: 320185903b1d0894f9ce0f90485b4b64, type: 3}
     QuestOrder: 0
   - questName: ManBat Returns!
@@ -579,6 +597,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: ManBat
+    requiredNPC: {fileID: 588162025974711989, guid: 8e84c8f9b622f75428b1407e7be157d0, type: 3}
     questNPCIDPF: {fileID: 3069460206690902056, guid: 8e84c8f9b622f75428b1407e7be157d0, type: 3}
     QuestOrder: 0
   - questName: 'The Mystery of [null]'
@@ -608,6 +627,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: '[null]'
+    requiredNPC: {fileID: 160383047780745905, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
     questNPCIDPF: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
     QuestOrder: 0
   - questName: A Challenger Approaches!
@@ -636,6 +656,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Glitch
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
     QuestOrder: 0
   - questName: Beat the High Score!
@@ -666,6 +687,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Glitch
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 1735160272024946422, guid: 624b506fba5bdef45b68f18bbd0f4cee, type: 3}
     QuestOrder: 1
   - questName: A Misunderstanding?
@@ -695,6 +717,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: Rival Dog
+    requiredNPC: {fileID: 9099556265879683154, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
     questNPCIDPF: {fileID: 8210371082398829670, guid: 638c8994f7237ed46a775fae26a8736f, type: 3}
     QuestOrder: 2
   - questName: For Old Times Sake
@@ -724,6 +747,7 @@ MonoBehaviour:
     requiredEnemyAmount: 5
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 2
   - questName: Allergy Season
@@ -753,6 +777,7 @@ MonoBehaviour:
     requiredEnemyAmount: 8
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 2
   - questName: Workout Challenge
@@ -782,6 +807,7 @@ MonoBehaviour:
     requiredEnemyAmount: 12
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 2
   - questName: Bones! Bones! Bones!
@@ -808,6 +834,7 @@ MonoBehaviour:
     requiredEnemyAmount: 8
     currentEnemyAmount: 0
     questNPCID: 
+    requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
     QuestOrder: 2
   questLines: []

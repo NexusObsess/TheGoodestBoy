@@ -29,6 +29,11 @@ public class TextBoxSender : MonoBehaviour
         DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Function called");
+
+        if (DialogueTree.Count == 0)
+        {
+            Debug.Log("Message Nicole cause I know what has gone wrong.");
+        }
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
         Debug.Log("return check");
 
