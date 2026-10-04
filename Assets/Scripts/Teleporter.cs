@@ -9,11 +9,15 @@ public class Teleporter : MonoBehaviour
     public Transform Town;
     public bool IsStartDoor;
     public GameManager gameManager;
+    public Timer timer;
+    public GameObject bound;
 
     void Start()
     {
         player = GameObject.Find("Doggie");
+        bound = GameObject.Find("CameraBounds");
         gameManager = FindFirstObjectByType<GameManager>();
+        timer = FindFirstObjectByType<Timer>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -22,12 +26,16 @@ public class Teleporter : MonoBehaviour
         {
             Debug.Log("Teleporting To Dungeon");
             player.gameObject.transform.position = Dungeon.transform.position;
+            bound.gameObject.transform.position = Dungeon.transform.position;
+            timer.TimerStart();
         }
         else
         {
             Debug.Log("Teleporting To Town");
             player.gameObject.transform.position = Town.transform.position;
+            bound.gameObject.transform.position = Town.transform.position;
             gameManager.EndDay();
+            gameManager.NewDay();
         }
         
     }
