@@ -162,9 +162,6 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !TextActive);
         Debug.Log("TEXTBOX IS OVER PARTY");
-        textbox.BackgroundOff();
-        textboxobject.SetActive(false);
-        GameIsPaused = false;
         
         if (GameOverTriggered == true)
         {
@@ -181,6 +178,10 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("GameOverTheEnd");
             yield break;
         }
+
+        textbox.BackgroundOff();
+        textboxobject.SetActive(false);
+        GameIsPaused = false;
 
         NewDay();
     }
