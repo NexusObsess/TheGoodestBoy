@@ -28068,7 +28068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6255463051823306854, guid: 9c4a458c7a625744f8a238f95c17a333, type: 3}
       propertyPath: MaxEnemies
-      value: 1
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6255463051823306854, guid: 9c4a458c7a625744f8a238f95c17a333, type: 3}
       propertyPath: rangedSwarmerPrefab
