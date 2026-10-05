@@ -163,7 +163,7 @@ MonoBehaviour:
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 5, y: 5}
     obligatory: 0
-  offset: {x: 21, y: 21}
+  offset: {x: 9, y: 9}
   activeRooms: []
 --- !u!4 &206425977
 Transform:

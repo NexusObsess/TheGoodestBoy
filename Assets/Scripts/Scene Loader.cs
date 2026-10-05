@@ -32,12 +32,14 @@ public class SceneLoader : MonoBehaviour
 
     public void GoHome()
     {
+        Debug.Log("gohome");
         SceneManager.LoadScene("Title Screen");
     }
 
     public void Exit()
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 
 }
