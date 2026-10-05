@@ -76,6 +76,7 @@ public class QuestManager : MonoBehaviour
 
     public Quest LookForTrackingQuestLines(Quest.questLine line)
     {
+        Debug.Log(line.ToString());
         QuestLine questLine = questLines.Find(ql => ql.lineType == line); // find the questline that matches what was sent in brackets i.e., main
 
         if (questLine == null) return null; // if questline has not been failed or is empty, mostly for debug

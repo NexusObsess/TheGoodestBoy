@@ -111,7 +111,7 @@ MonoBehaviour:
   TextColour: {r: 0.6509198, g: 0, b: 0.7433963, a: 1}
   TextSound: {fileID: 8300000, guid: 73126974bc905de4fa7503b38dca9dbe, type: 3}
   TextFont: {fileID: 11400000, guid: 1ddd809eed924c64987149a3181445c6, type: 2}
-  TextSize: 50
+  TextSize: 70
   DialogueVariations: {fileID: 3901503840622434160}
 --- !u!60 &1250035767264638157
 PolygonCollider2D:
