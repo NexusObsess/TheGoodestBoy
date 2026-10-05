@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1395183417185708694}
   - component: {fileID: 985820951954826253}
   - component: {fileID: 139605101872726483}
+  - component: {fileID: 4319207499270092316}
   - component: {fileID: 458844070286809772}
   - component: {fileID: 3657591510175452889}
   m_Layer: 8
@@ -225,18 +226,19 @@ MonoBehaviour:
   enemyName: Guglin
   hp: 5
   speed: 0.5
-  cooldown: 5
+  cooldown: 2
   damage: 2
   iFramesDuration: 0.5
   numberOfFlashes: 1
   player: {fileID: 0}
-  eCollide: {fileID: 7559737426598314154}
+  attackCollider: {fileID: 7559737426598314154}
   waitTimeOnWayPoint: 1
   shootScript: {fileID: 0}
+  meleeScript: {fileID: 0}
   healthDrop: {fileID: 5524855593190738879, guid: c07ab8d27ab38aa41b097b6700f90106, type: 3}
   attackType: 1
   sightRange: 3
-  attackRange: 1.5
+  attackRange: 0.65
   playerInSightRange: 0
   playerInAttackRange: 0
   isPatroling: 0
@@ -245,6 +247,18 @@ MonoBehaviour:
   isDead: 1
   walkPointRange: 5
   dropChance: 1
+--- !u!114 &4319207499270092316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146527453023367423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71dd68b0c3010384785d6d234fe9e0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyKnockback
 --- !u!50 &458844070286809772
 Rigidbody2D:
   serializedVersion: 5
@@ -279,7 +293,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6146527453023367423}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -302,11 +316,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.12428212, y: 0.0339365}
+  m_Offset: {x: 0.12428212, y: -0.10030514}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -316,7 +330,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1244354, y: 1.302067}
+  m_Size: {x: 1.1244354, y: 1.0335838}
   m_EdgeRadius: 0
 --- !u!1 &7559737426598314154
 GameObject:
@@ -328,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7658460283286120321}
   - component: {fileID: 238733457509498112}
+  - component: {fileID: 6875394471852482625}
   m_Layer: 9
   m_Name: GugCollider
   m_TagString: Untagged
@@ -357,7 +372,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7559737426598314154}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -384,7 +399,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.11970341, y: -0.09679037}
+  m_Offset: {x: 0.067293644, y: -0.047555923}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -394,5 +409,20 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.1176746, y: 1.0255376}
+  m_Size: {x: 1.6374383, y: 1.4548583}
   m_EdgeRadius: 0
+--- !u!114 &6875394471852482625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559737426598314154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0152a9649d62724aa1bfa30896acb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMelee
+  damage: 3
+  knockbackForce: 10
+  stunTime: 0.3

@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth;
 
     public float swordDamage = 1f;
+    public float knockbackForce = 50f;
+    public float knockbackTime =0.2f;
+    public float stunTime = 0.3f;
 
     // Animation and Sword Reference
     [Header("Sword Reference")]
@@ -63,7 +66,7 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-
+    //Restore Player Health
     public void HealPlayer(float healAmount)
     {
         if (gameManager.GameIsPaused) return;
@@ -74,6 +77,8 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
+
+    //Damage Player Health
     public void PlayerTakeDamage(float damage)
     {
         if (gameManager.GameIsPaused) return;
@@ -81,9 +86,6 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
 
-
-
-        //PUT GAME OVER SCREEN HERE
         if (currentHealth <= 0f)
         {
             Debug.Log("You died");
@@ -108,19 +110,8 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-
-
-
     public void EndGame()
     {
         SceneManager.LoadScene("GameOverDied");
-
-        // For standalone built versions of the game
-        //Application.Quit();
-
-        // For testing inside the Unity Editor
-//#if UNITY_EDITOR
-//        UnityEditor.EditorApplication.isPlaying = false;
-//#endif
     }
 }

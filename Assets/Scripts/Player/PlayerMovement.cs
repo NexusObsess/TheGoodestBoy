@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
 
     bool isSprinting;
+    bool isKnockedBack;
 
     GameManager gameManager;
 
@@ -41,16 +43,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!gameManager.GameIsPaused) //OR attacking || attack
+        if (!isKnockedBack)
         {
-            MoveDog();
+            if (!gameManager.GameIsPaused) //OR attacking || attack
+            {
+                MoveDog();
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
-        else
-        {
-            rb.linearVelocity = Vector2.zero;
-        }
-        
-        
     }
 
     void MoveDog()
@@ -121,4 +124,20 @@ public class PlayerMovement : MonoBehaviour
        
     }
 
+    public void Knockback(Transform enemy, float knockbackForce, float stunTime)
+    {
+        isKnockedBack = true;
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        rb.linearVelocity = direction * knockbackForce;
+        StartCoroutine(StunTimer(stunTime));
+    }
+
+
+    IEnumerator StunTimer(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.linearVelocity = Vector2.zero;
+        isKnockedBack = false;
+        
+    }
 }

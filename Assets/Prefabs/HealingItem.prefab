@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee38fdfa3493a5469adc35b2feab890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealingItem
-  healAmount: 1
-  player: {fileID: 7149434199405454261, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+  healAmount: 2
+  player: {fileID: 0}
   degreesPerSecond: 15
   amplitude: 0.1
   frequency: 1

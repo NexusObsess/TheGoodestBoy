@@ -15,6 +15,8 @@ public class SwordAttack : MonoBehaviour
     private void OnEnable()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+
+
         if (rb == null)
         {
             rb = GetComponent<Rigidbody2D>();
@@ -37,7 +39,9 @@ public class SwordAttack : MonoBehaviour
             {
                 Debug.Log("We hit " + enemy.name);
                 enemy.TryGetComponent<Enemy>(out Enemy enemyStats);
+                enemy.TryGetComponent<EnemyKnockback>(out EnemyKnockback enemyKnockback);
                 enemyStats.EnemyTakeDamage(pStats.swordDamage);
+                enemyKnockback.Knockback(pStats.knockbackForce,pStats.knockbackTime, pStats.stunTime);
                 enemies.Add(enemy.gameObject);
             }
         }
