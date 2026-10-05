@@ -94,15 +94,13 @@ public class GameManager : MonoBehaviour
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
-
         // spawns player in starting location healed(?)
         playerstats.currentHealth = playerstats.maxHealth;
         //playerstats.healthbar.SetHealth(playerstats.currentHealth);
         Player.transform.position = PlayerSpawn;
+        Debug.Log(Player.transform.position);
 
         // loads scenes if needed
-
-        questManager.mailbox.ResetMailBox();
 
         questManager.GiveQuestLines(); // starts the process of giving the player the daily quests
         Debug.Log("NewDay");
@@ -114,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void EndDay() // called at the end of every ingame day or if player leaves dunegon
     {
+        questManager.mailbox.ResetMailBox();
         SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
         foreach (var enemy in SpawnerScript.enemies) //removes leftover enemies
         {
@@ -139,13 +138,17 @@ public class GameManager : MonoBehaviour
         }
         UpdatePauseStats();
 
-        //textbox.BackgroundOn();
+        GameIsPaused = true;
         EndOfDayVariations.MoraleSelectCorrectTextTree();
+
         if (currentDay != 5 || questManager.questLines[0].quests[4].questCompleted == false)
         {
             EndOfDayVariations.KnightHealthSelectCorrectTextTree();
 
             textboxsender.DialogueSequenceStarts();
+
+            textbox = FindFirstObjectByType<TextBox>(); // again, just in case
+            textbox.BackgroundOn();
             StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
         }
         else
@@ -159,21 +162,28 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitUntil(() => !TextActive);
         Debug.Log("TEXTBOX IS OVER PARTY");
-        ///textbox.BackgroundOff();
-        textboxobject.SetActive(false);
         
         if (GameOverTriggered == true)
         {
             // trigger game over screen
             Debug.Log("Game over screen load");
             SceneManager.LoadScene("GameOverQuestNotComplete");
+            yield break;
         }
 
         if (TrueEndingTriggered == true)
         {
             // trigger ending screen
             Debug.Log("End screen load");
+            SceneManager.LoadScene("GameOverTheEnd");
+            yield break;
         }
+
+        textbox.BackgroundOff();
+        textboxobject.SetActive(false);
+        GameIsPaused = false;
+
+        NewDay();
     }
 
     void UpdatePauseStats()
@@ -218,16 +228,19 @@ public class GameManager : MonoBehaviour
             textboxsender.DialogueTree.Add(new TextLine(null, 1, "You hope the knight is right..."));
         }
 
-        if (questManager.questLines[3].quests[1].questCompleted) // if all wannabe questline is complete
+        if (questManager.questLines[3].quests != null)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "On the way to the forest, you run into the wannabe hero and his mother. She thanks you again for all of your help while he hides behind her long skirt. Then she nudges her son forward with a patient smile."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The wannabe hero reluctantly steps forward with something hidden behind his back. The knight takes a knee to meet him at eye level. You lay down as well."));
-            textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 0.5f, "Here! I know it's ugly, but I drew you two beating up all the bad guys. Sorry again for causing wrouble..."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The knight stifles a laugh and takes the drawing, tucking it into her breast plate. You imagine that she will pin the drawing to the fridge when you get home."));
-            textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Tell you what kid, why don't you join us on an adventure sometime? That way we can show you the ropes while keeping you safe."));
-            textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 1.5f, "Wow! Really? T-thank you, Knight!"));
-            textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Of course! As long as you wait a couple years for your poor mother's sake."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The wannabe hero nods so eagerly that his little papier mache helmet nearly falls off. You part ways and continue to the forest."));
+            if (questManager.questLines[3].quests[1].questCompleted) // if all wannabe questline is complete
+            {
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "On the way to the forest, you run into the wannabe hero and his mother. She thanks you again for all of your help while he hides behind her long skirt. Then she nudges her son forward with a patient smile."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The wannabe hero reluctantly steps forward with something hidden behind his back. The knight takes a knee to meet him at eye level. You lay down as well."));
+                textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 0.5f, "Here! I know it's ugly, but I drew you two beating up all the bad guys. Sorry again for causing wrouble..."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The knight stifles a laugh and takes the drawing, tucking it into her breast plate. You imagine that she will pin the drawing to the fridge when you get home."));
+                textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Tell you what kid, why don't you join us on an adventure sometime? That way we can show you the ropes while keeping you safe."));
+                textboxsender.DialogueTree.Add(new TextLine(WannabeHero, 1.5f, "Wow! Really? T-thank you, Knight!"));
+                textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "Of course! As long as you wait a couple years for your poor mother's sake."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The wannabe hero nods so eagerly that his little papier mache helmet nearly falls off. You part ways and continue to the forest."));
+            }
         }
 
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "You and the knight eventually arrive at the forest."));
@@ -242,39 +255,52 @@ public class GameManager : MonoBehaviour
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch, very reluctantly, agrees. The three of you walk back into town in silence."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "You sneak off to the town's counselor's office. The counselor... eventually realizes that your tugging him by the leg across the waiting room means you want him to follow you."));
 
-        if (questManager.questLines[2].quests[2].questCompleted) // if all rival dog questline is complete
+        if (questManager.questLines[2].quests != null)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "On your way out of the office, your self-proclaimed rival waddles out of one of the adjacent rooms. The rival dog jumps into the air when he sees you."));
-            textboxsender.DialogueTree.Add(new TextLine(RivalDog, 2, "Woof, woof. (Uh, hey... I took your advice?)"));
-            textboxsender.DialogueTree.Add(new TextLine(RivalDog, 2, "Boof... boof, boof (It's actually been... really helpful. You were right, I was so scared of being a bad boy compared to you that I couldn't be a good boy in my own way!)"));
-            textboxsender.DialogueTree.Add(new TextLine(RivalDog, 1, "Hoooowwwlllll! (I'm sorry for being so mean to you this week...)"));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The rival dog's ears lay flat, and his tail tucks. You lick the rival dog's face, accepting the apology. You lower your front legs down while keeping your butt in the air. You invite the rival dog to play with you any time."));
-            textboxsender.DialogueTree.Add(new TextLine(RivalDog, 1, "Woof... woof woof! (R-really? I mean, of course! Figures you'd need my help after all!)"));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The rival dog tries to act proud, but his tail is wagging even more than yours is. You are glad to finally have another dog friend in town, but you have to focus back on your human friends."));
+            if (questManager.questLines[2].quests[2].questCompleted) // if all rival dog questline is complete
+            {
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "On your way out of the office, your self-proclaimed rival waddles out of one of the adjacent rooms. The rival dog jumps into the air when he sees you."));
+                textboxsender.DialogueTree.Add(new TextLine(RivalDog, 2, "Woof, woof. (Uh, hey... I took your advice?)"));
+                textboxsender.DialogueTree.Add(new TextLine(RivalDog, 2, "Boof... boof, boof (It's actually been... really helpful. You were right, I was so scared of being a bad boy compared to you that I couldn't be a good boy in my own way!)"));
+                textboxsender.DialogueTree.Add(new TextLine(RivalDog, 1, "Hoooowwwlllll! (I'm sorry for being so mean to you this week...)"));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The rival dog's ears lay flat, and his tail tucks. You lick the rival dog's face, accepting the apology. You lower your front legs down while keeping your butt in the air. You invite the rival dog to play with you any time."));
+                textboxsender.DialogueTree.Add(new TextLine(RivalDog, 1, "Woof... woof woof! (R-really? I mean, of course! Figures you'd need my help after all!)"));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The rival dog tries to act proud, but his tail is wagging even more than yours is. You are glad to finally have another dog friend in town, but you have to focus back on your human friends."));
+            }
         }
 
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "When you get home, the knight and the witch are sitting at the dinner table, not looking at each other. For the first time in what feels like forever, the knight and the witch are in the same room without trying to kill each other."));
 
-        if (questManager.questLines[1].quests[2].questCompleted) // if all baker questline is complete
+        if (questManager.questLines[1].quests != null)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The smiling baker serves the knight, the counselor and the witch some cheesecake and you a doggy biscuit. The knight bows overly formally, and the baker giggles like it was the funniest thing she had ever seen. Your tail wags."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "To the delight of both you and the knight, the baker seems to have taken it upon herself to take charge of your kitchen after the knight recovered. You hope she stays forever."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch looks back and forth between the knight and the baker for a moment before bursting into sudden uncontrollable laughter. He only stops when the knight gives him a hard kick in the shin under the table. The baker turns very red, and her next laugh is much more forced."));
-            textboxsender.DialogueTree.Add(new TextLine(Baker, 2, "Right... um, I have to get to work. I'll leave you guys to it. I'll be back for dinner!"));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "Your ears perk up."));
+            if (questManager.questLines[1].quests[2].questCompleted) // if all baker questline is complete
+            {
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The smiling baker serves the knight, the counselor and the witch some cheesecake and you a doggy biscuit. The knight bows overly formally, and the baker giggles like it was the funniest thing she had ever seen. Your tail wags."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "To the delight of both you and the knight, the baker seems to have taken it upon herself to take charge of your kitchen after the knight recovered. You hope she stays forever."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch looks back and forth between the knight and the baker for a moment before bursting into sudden uncontrollable laughter. He only stops when the knight gives him a hard kick in the shin under the table. The baker turns very red, and her next laugh is much more forced."));
+                textboxsender.DialogueTree.Add(new TextLine(Baker, 2, "Right... um, I have to get to work. I'll leave you guys to it. I'll be back for dinner!"));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "Your ears perk up."));
+            }
         }
 
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The first of many conversations with the counselor is long and difficult on all sides except yours. You're just happy that the knight and the witch are going to be nicer to each other and be better about sharing."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "Of course, the knight and the witch still have a lot of work left to do, and you doubt the witch will give up his evil plans again so easily. But the three of you have an uneasy truce for now."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The three of you even have dinner together for the first time since you were a puppy! The knight and the witch don't threaten to kill each other either, although they both look tempted a couple times..."));
-
-        if (questManager.questLines[1].quests[2].questCompleted) // if all baker questline is complete
+        
+        if (questManager.questLines[1].quests != null)
         {
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The baker joins you at the table as well. This time, the witch keeps his laughter to himself, mostly."));
-            textboxsender.DialogueTree.Add(new TextLine(Witch, 1, "So tell me, baker, what are your intentions with the tin can?"));
-            textboxsender.DialogueTree.Add(new TextLine(Baker, 2, "Um! Well..."));
-            textboxsender.DialogueTree.Add(new TextLine(Knight, 0.8f, "Butt out, hag. My personal life is none of your business anymore."));
-            textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch finally lets out his laugh. You don't have no idea what's so funny, but you're very happy. You fall asleep on the knight's lap as three of your favourite people argue about the witch being nosy."));
+            if (questManager.questLines[1].quests[2].questCompleted) // if all baker questline is complete
+            {
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The baker joins you at the table as well. This time, the witch keeps his laughter to himself, mostly."));
+                textboxsender.DialogueTree.Add(new TextLine(Witch, 1, "So tell me, baker, what are your intentions with the tin can?"));
+                textboxsender.DialogueTree.Add(new TextLine(Baker, 2, "Um! Well..."));
+                textboxsender.DialogueTree.Add(new TextLine(Knight, 0.8f, "Butt out, hag. My personal life is none of your business anymore."));
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "The witch finally lets out his laugh. You don't have no idea what's so funny, but you're very happy. You fall asleep on the knight's lap as three of your favourite people argue about the witch being nosy."));
+            }
+            else
+            {
+                textboxsender.DialogueTree.Add(new TextLine(null, 1, "You fall asleep on the knight's lap as two of your favourite people argue about something very stupid."));
+            }
         }
         else
         {
@@ -290,6 +316,8 @@ public class GameManager : MonoBehaviour
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "True ending: Happyish Coparenting"));
 
         textboxsender.DialogueSequenceStarts();
+        textbox = FindFirstObjectByType<TextBox>(); // again, just in case
+        textbox.BackgroundOn();
         StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
     }
 }

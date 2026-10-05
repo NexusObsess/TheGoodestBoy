@@ -18,6 +18,7 @@ public class MailBox : MonoBehaviour // still cooking
 
     public GameObject exitLetter;
     public GameObject exitPanel;
+    public GameObject pauseButton;
     GameObject DefaultCurrentSelectedGameObject;
     GameObject PauseMenu;
 
@@ -57,6 +58,7 @@ public class MailBox : MonoBehaviour // still cooking
         mailboxRenderer.sprite = NonRead;
         DungeonGate.SetActive(true);
         QuestLetterSprite.Clear();
+        Debug.Log(QuestLetterSprite.Count);
     }
 
     public void SetPopUp()
@@ -122,8 +124,9 @@ public class MailBox : MonoBehaviour // still cooking
         panel.SetActive(true);
         readQuestLetter.transform.position = PlayerGO.transform.position;
 
-        DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
-        //DefaultCurrentSelectedGameObject.SetActive(false);
+        // DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
+        // DefaultCurrentSelectedGameObject.SetActive(false);
+        pauseButton.SetActive(false);
         EventSystem.current.SetSelectedGameObject(questLetters[0]);
         PauseMenu = GameObject.Find("Pause");
         if (PauseMenu != null)
@@ -142,8 +145,9 @@ public class MailBox : MonoBehaviour // still cooking
         panel.SetActive(false);
         DungeonGate.SetActive(false);
 
-        DefaultCurrentSelectedGameObject.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(DefaultCurrentSelectedGameObject);
+        // DefaultCurrentSelectedGameObject.SetActive(true);
+        pauseButton.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(pauseButton);
         if (PauseMenu != null)
         {
             PauseMenu.SetActive(true);

@@ -101,5 +101,6 @@ public class Timer : MonoBehaviour
         timeRemaining = 180;
         timerRunning = false;
         thirtyDone = false;
+        timeText.text = " ";
     }
 }

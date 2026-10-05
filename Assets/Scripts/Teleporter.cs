@@ -35,7 +35,7 @@ public class Teleporter : MonoBehaviour
             player.gameObject.transform.position = Town.transform.position;
             bound.gameObject.transform.position = Town.transform.position;
             gameManager.EndDay();
-            gameManager.NewDay();
+            //gameManager.NewDay();
             timer.ResetTimer();
         }
         

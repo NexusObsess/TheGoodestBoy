@@ -1900,6 +1900,7 @@ MonoBehaviour:
   QuestLetterSprite: []
   exitLetter: {fileID: 397774328}
   exitPanel: {fileID: 585302518}
+  pauseButton: {fileID: 1388488254}
   SoundEffect: {fileID: 943375968}
   PaperSE: {fileID: 8300000, guid: bd77ef1cc3e1b9b46b69bf04d3b3dda7, type: 3}
   MailBoxSE: {fileID: 8300000, guid: e4be1504e06668048866a2f2e7a6bc12, type: 3}
@@ -3993,7 +3994,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -103.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.37, y: 0.37, z: 0.37}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 989640443}
