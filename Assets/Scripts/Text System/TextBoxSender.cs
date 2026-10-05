@@ -76,8 +76,8 @@ public class TextBoxSender : MonoBehaviour
                     currentOnscreenLine = 0;
                     previousOnscreenLine = 0;
 
-                    // PlayerRB.constraints = RigidbodyConstraints2D.None;
-                    // PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    textboxobject.SetActive(false);
+
                     gamemanager.GameIsPaused = false;
 
                     DialogueTree.Clear(); // empties the list for next text sequence
