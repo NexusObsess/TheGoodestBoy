@@ -84,7 +84,7 @@ public class QuestManager : MonoBehaviour
 
         if (questLine.quests[0].questCompleted == true) // check if player has started questline 
         {
-            Quest nextSideQuest = LookForTrackingQuestLines(Quest.questLine.Baker); // if they have, get next quest
+            Quest nextSideQuest = GetNextQuest(line); // if they have, get next quest
         }
 
         return null;
@@ -92,20 +92,12 @@ public class QuestManager : MonoBehaviour
 
     public void GiveQuestLines() // called from game manager
     {
-        // if (Quest.questLine.Main == null) // debug
-        // {
-        //     Debug.LogError("Quest.questLine.Main is null");
-        //     return;
-        // }
-
         Debug.Log("Give quest lines");
 
         Quest nextMainQuest = GetNextQuest(Quest.questLine.Main);
 
         if (nextMainQuest != null) // if you actually get main quest, mostly for preventing errors during prototypimg
         {
-            // Debug.Log(nextMainQuest.questName);
-            // Debug.Log(activeQuests);
             activeQuests.Add(nextMainQuest); // add to active quest
             possibleQuests.Remove(nextMainQuest); // remove from the random quest pool
         }
@@ -201,7 +193,7 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentEnemyAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
 
-                    if (activeQuests[i].requiredEnemyAmount == activeQuests[i].currentEnemyAmount)
+                    if (activeQuests[i].requiredEnemyAmount >= activeQuests[i].currentEnemyAmount)
                     {
                         activeQuests[i].questCompleted = true;
                         QuestRequirement[i].text += "\nCOMPLETE";
@@ -222,7 +214,7 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentItemAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;
 
-                    if (activeQuests[i].requiredItemAmount == activeQuests[i].currentItemAmount)
+                    if (activeQuests[i].requiredItemAmount >= activeQuests[i].currentItemAmount)
                     {
                         activeQuests[i].questCompleted = true;
                         QuestRequirement[i].text += "\nCOMPLETE";
