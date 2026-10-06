@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     {
         // spawns player in starting location healed(?)
         playerstats.currentHealth = playerstats.maxHealth;
-        //playerstats.healthbar.SetHealth(playerstats.currentHealth);
+        playerstats.healthbar.SetHealth(playerstats.currentHealth);
         Player.transform.position = PlayerSpawn;
         Debug.Log(Player.transform.position);
 
@@ -311,7 +311,8 @@ public class GameManager : MonoBehaviour
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "His minions aren't sure what to make of you, but you manage to convince them to throw a ball for you a couple of times. They eventually get used to the temporary truce."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "Then, the witch sneaks both of you back into town. You hide under long black cloaks and try to avoid being spotted; it's a lot of fun! Your wagging tail nearly exposes you both several times."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "You both join the knight for the now weekly counselling session at the knight's home. Then the witch, with a 'Papa loves you very much <3' and a quick kiss goodbye, the witch slinks back to the forest. You're already looking forward to seeing him again after your week with the knight."));
-        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Before the knight was cursed, you used to sleep in your own bed most nights. Now, the knight lifts you into the air and then drops you onto her bed. You wrestle until you wear each other out then fall asleep tangled in the sheets. The last thing you hear is..."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Before the knight was cursed, you used to sleep in your own bed most nights. Now, after a tiring evening of chasing each other around and playing fetch, the knight lets you sneak up onto her bed, even though she still complains about how much space you take up."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "As you fall sleep, the last thing you hear is..."));
         textboxsender.DialogueTree.Add(new TextLine(Knight, 1, "I love you so much, my goodest boy. I've missed you."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "True ending: Happyish Coparenting"));
 

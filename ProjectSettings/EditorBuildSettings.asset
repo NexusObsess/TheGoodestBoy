@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UIScene.unity
     guid: c468010e3089a404f84aca2bccd9deb5
   - enabled: 1
-    path: Assets/Scenes/QuestSystem and Game Manager.unity
+    path: Assets/Scenes/Nicole/QuestSystem and Game Manager 1.unity
     guid: f345d71839e1eb0419598bb3197f7a0e
   - enabled: 1
     path: Assets/Scenes/Dungeon.unity
