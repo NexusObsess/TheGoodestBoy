@@ -21,6 +21,29 @@ public class PlayerMovement : MonoBehaviour
 
     GameManager gameManager;
 
+    //SORRY I WAS TRYIONG TO GET CONTROLLER TO WORK
+
+    //InputSystem_Actions ISActions;
+  
+
+    //void Awake()
+    //{
+    //    ISActions = new InputSystem_Actions();
+    //    ISActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+    //    ISActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+    //}
+
+    //void MoveForward()
+    //{
+    //    transform.localPosition *= moveSpeed;
+    //}
+
+    //void Update()
+    //{
+    //    Vector2 m = new Vector2(moveInput.x, moveInput.y) * Time.deltaTime;
+    //    transform.Translate(m, Space.World);
+    //}
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -105,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.GameIsPaused) return;
 
         moveInput = context.ReadValue<Vector2>();
+        
+
 
     }
 

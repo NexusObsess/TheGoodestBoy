@@ -453,6 +453,17 @@
                     "action": "NextLine",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d273a4b9-77af-40d8-98a4-3bda6c4f5c83",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextLine",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
