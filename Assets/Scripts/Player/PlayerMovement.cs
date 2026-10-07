@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer sRenderer;
     private bool facingRight = true;
 
+    public bool isAttacking;
     bool isSprinting;
     bool isKnockedBack;
 
@@ -57,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
 
         speed = moveSpeed;
+        isAttacking = false;
         isSprinting = false;
         anim.SetBool("isIdle", true);
         anim.SetBool("isWalking", false);
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isKnockedBack)
         {
-            if (!gameManager.GameIsPaused) //OR attacking || attack
+            if (!gameManager.GameIsPaused && !isAttacking) //OR attacking || attack
             {
                 MoveDog();
             }
@@ -165,4 +167,10 @@ public class PlayerMovement : MonoBehaviour
         isKnockedBack = false;
         
     }
+    public void EnableMove()
+    {
+        isAttacking = false;
+    }
+
+
 }

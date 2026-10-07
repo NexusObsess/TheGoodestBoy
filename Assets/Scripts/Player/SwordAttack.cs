@@ -12,9 +12,12 @@ public class SwordAttack : MonoBehaviour
 
     GameManager gameManager;
 
+    PlayerMovement playerMovement;
+
     private void OnEnable()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
 
 
         if (rb == null)
@@ -47,6 +50,7 @@ public class SwordAttack : MonoBehaviour
         }
 
     }
+
 
     void OnDrawGizmosSelected()
     {

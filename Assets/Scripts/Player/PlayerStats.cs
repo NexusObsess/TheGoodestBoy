@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 public class PlayerStats : MonoBehaviour
@@ -22,9 +23,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
 
+
     public Healthbar healthbar;
 
     GameManager gameManager;
+    PlayerMovement playerMovement;
 
     public void Start()
     {
@@ -33,6 +36,7 @@ public class PlayerStats : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
+        playerMovement = GetComponent<PlayerMovement>();
         if (healthbar != null)
         {
             healthbar.SetMaxHealth(maxHealth);
@@ -44,26 +48,35 @@ public class PlayerStats : MonoBehaviour
 
     public void Update()
     {
-        if (gameManager.GameIsPaused) return;
-        // Attack Input
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Attack();
-        }
+        //if (gameManager.GameIsPaused) return;
+        //// Attack Input
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    Attack();
+        //}
 
 
     }
 
-
-
-    // Activate Sword Attack
-    void Attack()
+    public void Attack(InputAction.CallbackContext context)
     {
         if (gameManager.GameIsPaused) return;
+
         anim.SetTrigger("Attack");
         rb.linearVelocity = Vector2.zero;
         swordObj.SetActive(true);
+        playerMovement.isAttacking = true;
+
     }
+
+    // Activate Sword Attack
+    //void Attack()
+    //{
+    //    if (gameManager.GameIsPaused) return;
+    //    anim.SetTrigger("Attack");
+    //    rb.linearVelocity = Vector2.zero;
+    //    swordObj.SetActive(true);
+    //}
 
 
     //Restore Player Health
