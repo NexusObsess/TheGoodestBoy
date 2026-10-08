@@ -4,6 +4,7 @@ using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -71,6 +72,18 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    public void PauseBind(InputAction.CallbackContext context)
+    {
+        if (GameIsPaused)
+        {
+            UnPause();
+        }
+        else
+        {
+            Pause();
         }
     }
 
