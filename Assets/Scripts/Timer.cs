@@ -27,6 +27,7 @@ public class Timer : MonoBehaviour
     public void TimerStart()
     {
         timerStart = true;
+        timerRunning = true;
     }
 
     // Update is called once per frame
@@ -34,44 +35,52 @@ public class Timer : MonoBehaviour
     {
         if (timerStart)
         {
-            if (timeRemaining <= 30 && !thirtyDone)
+            if (!gameManager.GameIsPaused)
+                {
+                    timerRunning = true;
+                }
+            if (timerRunning)
             {
-                thirtyDone = true;
-                StartCoroutine(Thirty());
-                Debug.Log("Thirty Seconds Left");
-            }
-            if (timerRunning && gameManager.TextActive)
-            {
+                if (timeRemaining <= 30 && !thirtyDone)
+                {
+                    thirtyDone = true;
+                    StartCoroutine(Thirty());
+                    Debug.Log("Thirty Seconds Left");
+                }
 
-                if (timeRemaining > 0)
+                if (gameManager.TextActive && timeRemaining > 0)
+                {
+                    timerRunning = false;
+                    DisplayTime(timeRemaining);
+                }
+
+                
+                if (gameManager.GameIsPaused && timeRemaining > 0)
                 {
                     timerRunning = false;
                     DisplayTime(timeRemaining);
 
+                    
                 }
 
-            }
-
-            else
-            {
-                timerRunning = true;
-                Debug.Log(timerRunning);
-
-                if (timeRemaining > 0)
-                {
-
-                    timeRemaining -= Time.deltaTime;
-                    DisplayTime(timeRemaining);
-
-                }
                 else
                 {
-                    Debug.Log("Day Failed - Time Ran Out");
-                    timeRemaining = 0;
-                    timerRunning = false;
-                    TimeOut();
-                }
+                    Debug.Log(timerRunning);
 
+                    if (timeRemaining > 0)
+                    {
+                        timeRemaining -= Time.deltaTime;
+                        DisplayTime(timeRemaining);
+                    }
+                    else
+                    {
+                        Debug.Log("Day Failed - Time Ran Out");
+                        timeRemaining = 0;
+                        timerRunning = false;
+                        TimeOut();
+                    }
+
+                }
             }
         }
     }
@@ -104,12 +113,12 @@ public class Timer : MonoBehaviour
         timeText.text = " ";
     }
 
-    public void PauseTimer()
-    {
-        timerStart = false;
-    }
-    public void PlayTimer()
-    {
-        timerStart = true;
-    }
+    //public void PauseTimer()
+    //{
+    //    timerStart = false;
+    //}
+    //public void PlayTimer()
+    //{
+    //    timerStart = true;
+    //}
 }
