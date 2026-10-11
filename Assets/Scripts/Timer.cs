@@ -103,4 +103,13 @@ public class Timer : MonoBehaviour
         thirtyDone = false;
         timeText.text = " ";
     }
+
+    public void PauseTimer()
+    {
+        timerStart = false;
+    }
+    public void PlayTimer()
+    {
+        timerStart = true;
+    }
 }
