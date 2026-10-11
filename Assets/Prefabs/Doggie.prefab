@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SwordPosition
   rawPointerPos: {x: 0, y: 0}
+  moveSpeed: 700
 --- !u!1 &7149434199405454261
 GameObject:
   m_ObjectHideFlags: 0
