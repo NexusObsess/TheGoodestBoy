@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(PauseButton);
     }
 
+    [ContextMenu("New Day")]
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
         MusicPlayer.clip = Town;
@@ -123,6 +124,7 @@ public class GameManager : MonoBehaviour
         playerstats.currentHealth = playerstats.maxHealth;
         playerstats.healthbar.SetHealth(playerstats.currentHealth);
         Player.transform.position = PlayerSpawn;
+        Player.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         Debug.Log(Player.transform.position);
 
         // loads scenes if needed
