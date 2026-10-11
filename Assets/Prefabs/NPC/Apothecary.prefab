@@ -110,7 +110,7 @@ MonoBehaviour:
   Name: The Apothecary
   TextSpeed: 1
   TextColour: {r: 0, g: 0.3660378, b: 0.04090215, a: 1}
-  TextSound: {fileID: 8300000, guid: e7ad4214509b8ca4f9aaf6b9b1b4573d, type: 3}
+  TextSound: {fileID: 8300000, guid: e615ead04f207974e8ba5be2470a0598, type: 3}
   TextFont: {fileID: 11400000, guid: 85ebf16d6a075384f807d9674c0534c9, type: 2}
   TextSize: 100
   DialogueVariations: {fileID: 5657884476016406441}

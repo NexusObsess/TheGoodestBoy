@@ -29,6 +29,16 @@ public class GameManager : MonoBehaviour
     Vector2 PlayerSpawn;
     PlayerStats playerstats;
 
+    [Header ("Music")]
+    public AudioSource MusicPlayer;
+    public AudioClip Dungeon;
+    [SerializeField] AudioClip Town;
+    [SerializeField] AudioClip Text90;
+    [SerializeField] AudioClip Text60;
+    [SerializeField] AudioClip Text30;
+    [SerializeField] AudioClip Text00GameOver;
+    [SerializeField] AudioClip TrueEnding;
+
     [Header ("Text trees")]
     public GameObject textboxobject;
     TextBox textbox;
@@ -107,6 +117,8 @@ public class GameManager : MonoBehaviour
 
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
+        MusicPlayer.clip = Town;
+        MusicPlayer.Play();
         // spawns player in starting location healed(?)
         playerstats.currentHealth = playerstats.maxHealth;
         playerstats.healthbar.SetHealth(playerstats.currentHealth);
@@ -154,6 +166,35 @@ public class GameManager : MonoBehaviour
         GameIsPaused = true;
         EndOfDayVariations.MoraleSelectCorrectTextTree();
 
+        if (KnightHealth == 6)
+        {
+            if (TownMorale >= 90)
+            {
+                MusicPlayer.clip = Text90;
+                MusicPlayer.Play();
+            }
+            else if (TownMorale >= 60)
+            {
+                MusicPlayer.clip = Text60;
+                MusicPlayer.Play();
+            }
+            else if (TownMorale > 30)
+            {
+                MusicPlayer.clip = Text30;
+                MusicPlayer.Play();
+            }
+            else
+            {
+                MusicPlayer.clip = Text00GameOver;
+                MusicPlayer.Play();
+            }
+        }
+        else
+        {
+            MusicPlayer.clip = Text00GameOver;
+            MusicPlayer.Play(); 
+        }
+
         if (currentDay != 5 || questManager.questLines[0].quests[4].questCompleted == false)
         {
             EndOfDayVariations.KnightHealthSelectCorrectTextTree();
@@ -167,6 +208,8 @@ public class GameManager : MonoBehaviour
         else
         {
             TrueEndingDialogueSequence();
+            MusicPlayer.clip = TrueEnding;
+            MusicPlayer.Play(); 
         }
        
     }

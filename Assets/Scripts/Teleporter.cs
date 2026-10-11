@@ -28,6 +28,9 @@ public class Teleporter : MonoBehaviour
             player.gameObject.transform.position = Dungeon.transform.position;
             bound.gameObject.transform.position = Dungeon.transform.position;
             timer.TimerStart();
+
+            gameManager.MusicPlayer.clip = gameManager.Dungeon;
+            gameManager.MusicPlayer.Play();
         }
         else
         {
