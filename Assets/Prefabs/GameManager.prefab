@@ -397,16 +397,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccd90bb4fc441c4dad1eaae243e5500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  PauseMenu: {fileID: 0}
+  PauseButton: {fileID: 0}
+  UnPauseButton: {fileID: 0}
+  StatText: {fileID: 0}
   currentDay: 0
   TownMorale: 100
-  TownMoraleDailyDecrease: 20
+  TownMoraleDailyDecrease: 15
   KnightHealth: 6
   KnightHealthDailyDecrease: 1
-  StatText: {fileID: 0}
+  Player: {fileID: 0}
+  MusicPlayer: {fileID: 0}
+  Dungeon: {fileID: 8300000, guid: a05fa65a61b324348950ef3d1172974b, type: 3}
+  Town: {fileID: 8300000, guid: e96b4e4dc4119294ab0f53c3c12acd03, type: 3}
+  Text90: {fileID: 8300000, guid: 238c8a89f6d2f594e88497beabc639c6, type: 3}
+  Text60: {fileID: 8300000, guid: 75ed824d469bf7441bdab0ff034b00a4, type: 3}
+  Text30: {fileID: 8300000, guid: 872b3c1191e504846a4c3f70083df788, type: 3}
+  Text00GameOver: {fileID: 8300000, guid: 5e07d4efccec6d74e9847df55061bbef, type: 3}
+  TrueEnding: {fileID: 8300000, guid: f7be75792bd1ffc49863c62b5d429e6d, type: 3}
   textboxobject: {fileID: 0}
   EndOfDayVariations: {fileID: 1382063270853130187}
   TextActive: 0
   GameOverTriggered: 0
+  TrueEndingTriggered: 0
+  GameIsPaused: 0
   Knight: {fileID: 3775439028298555850, guid: 74f122a1ecb0b594c95de78a006d2559, type: 3}
   Witch: {fileID: 965250240303679006, guid: e30f6a1cffa541d448ec9b1537530ea9, type: 3}
   WannabeHero: {fileID: 4932804068736571853, guid: c7c020152fd24704692bf0d212843913, type: 3}

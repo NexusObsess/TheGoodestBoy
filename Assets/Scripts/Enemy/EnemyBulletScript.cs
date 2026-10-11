@@ -9,6 +9,8 @@ public class EnemyBulletScript : MonoBehaviour
     public float force;
     private float timer;
     public float damage;
+    public float knockbackForce;
+    public float stunTime;
 
     GameManager gameManager;
 
@@ -46,6 +48,8 @@ public class EnemyBulletScript : MonoBehaviour
             Debug.Log("Player Hit");
             collision.TryGetComponent<PlayerStats>(out PlayerStats pStats);
             pStats.PlayerTakeDamage(damage);
+            collision.TryGetComponent<PlayerMovement>(out PlayerMovement pMove);
+            pMove.Knockback(transform, knockbackForce, stunTime);
             Destroy(gameObject);
         }
     }

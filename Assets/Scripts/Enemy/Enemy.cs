@@ -1,7 +1,9 @@
-using UnityEngine;
 using System.Collections;
+using System.IO;
+using UnityEngine;
 public class Enemy : MonoBehaviour
 {
+    //Stats
     public string enemyName = "Enemy";
 
     public float hp = 5f;
@@ -10,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float damage = 1f;
     float timer;
 
+    //Animations
     private SpriteRenderer sRenderer;
     private Animator anim;
     [SerializeField] private float iFramesDuration;
@@ -18,11 +21,21 @@ public class Enemy : MonoBehaviour
 
     float currentTime;
 
+    //Player
     public GameObject player;
     UnityEngine.Transform playerPos;
+
+    //Collisions
     Rigidbody2D rb;
+    public GameObject attackCollider;
+    BoxCollider2D aCollider;
+    BoxCollider2D enemyCollider;
+
+    [SerializeField] float waitTimeOnWayPoint = 1.0f;
+    float waitTime;
 
     [SerializeField] private EnemyShooting shootScript;
+    [SerializeField] private EnemyMelee meleeScript;
 
     public GameObject healthDrop;
 
@@ -43,23 +56,35 @@ public class Enemy : MonoBehaviour
 
     [SerializeField][Range(0f, 1f)] private float dropChance= 0.3f;
 
+    //Managers
     QuestManager questManager;
     GameManager gameManager;
 
 
     public void Awake()
     {
+        //Find Player
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform;
+
+        //Components
         rb = GetComponent<Rigidbody2D>();
+        enemyCollider = GetComponent<BoxCollider2D>();
+        aCollider = attackCollider.GetComponent<BoxCollider2D>();
+        shootScript = GetComponent<EnemyShooting>();
+        meleeScript = attackCollider.GetComponent<EnemyMelee>();
+
+        aCollider.enabled = false;
+
+        //Managers
         questManager = FindFirstObjectByType<QuestManager>();
         gameManager = FindFirstObjectByType<GameManager>();
 
-        shootScript = GetComponent<EnemyShooting>();
-
+        //Animations
         sRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        anim.SetBool("isWalking", true);
+        anim.SetBool("isWalking", false);
+        anim.SetBool("isIdle", true);
         ChangeState(EnemyState.Patrol);
 
         isDead = false;
@@ -67,56 +92,61 @@ public class Enemy : MonoBehaviour
 
     public void Update()
     {
-        if (gameManager.GameIsPaused) return;
+        
         playerInSightRange = Physics2D.OverlapCircle(transform.position, sightRange, LayerMask.GetMask("Player"));
         playerInAttackRange = Physics2D.OverlapCircle(transform.position, attackRange, LayerMask.GetMask("Player"));
 
         timer += Time.deltaTime;
 
-    
-
-        if (!playerInSightRange && !playerInAttackRange)
+        if (!gameManager.GameIsPaused)
         {
-            // Patrol
-            isChasing = false;
-            isAttacking = false;
-            if (!walkPointSet)
+            if (currentState != EnemyState.Knockback)
             {
-                SearchWalkPoint();
+                if (!playerInSightRange && !playerInAttackRange)
+                {
+                    // Patrol
+                    isChasing = false;
+                    isAttacking = false;
+                    if (!walkPointSet)
+                    {
+                        SearchWalkPoint();
+                    }
+                    Patrolling();
+
+                }
+                if (playerInSightRange && !playerInAttackRange)
+                {
+                    // Chase
+                    isChasing = true;
+                    isAttacking = false;
+                }
+                if (playerInSightRange && playerInAttackRange)
+                {
+                    // Attack
+                    isChasing = false;
+                    isAttacking = true;
+                    AttackPlayer();
+                }
+
+
+                if (isChasing == true)
+                {
+                    ChasePlayer();
+                    if (playerPos.position.x > transform.position.x && facingDirection == -1)
+                    {
+                        Flip();
+                    }
+                    else if (playerPos.position.x < transform.position.x && facingDirection == 1)
+                    {
+                        Flip();
+                    }
+                }
+                else
+                {
+                    rb.linearVelocity = Vector2.zero;
+                }
             }
-            Patrolling();
-
         }
-        if (playerInSightRange && !playerInAttackRange)
-        {
-            // Chase
-            isChasing = true;
-            isAttacking = false;
-        }
-        if (playerInSightRange && playerInAttackRange)
-        {
-            // Attack
-            isChasing = false;
-            isAttacking = true;
-            AttackPlayer();
-        }
-
-
-        if (isChasing == true)
-        {
-            ChasePlayer();
-            if(playerPos.position.x > transform.position.x && facingDirection == -1)
-            {
-                Flip();
-            }
-            else if (playerPos.position.x < transform.position.x && facingDirection == 1)
-            {
-                Flip();
-            }
-        }
-
-
-        
 
 }
     public void ChangeState(EnemyState newState)
@@ -154,12 +184,22 @@ public class Enemy : MonoBehaviour
             Vector2 target = new Vector2(walkPoint.x, walkPoint.y);
             Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
             rb.MovePosition(newPos);
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isIdle", false);
         }
         float walkDistance = Vector2.Distance(transform.position, walkPoint);
 
         if (walkDistance < 1f)
         {
-            walkPointSet = false;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isIdle", true);
+            waitTime += Time.deltaTime;
+            if (waitTime >= waitTimeOnWayPoint)
+            {
+                waitTime = 0.0f;
+                walkPointSet = false;
+            }
+            
         }
     }
 
@@ -207,6 +247,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void AttackActive()
+    {
+        aCollider.enabled = true;
+    }
+
+    public void AttackEnded()
+    {
+        aCollider.enabled = false;
+    }
+
     public void HealthDrop()
     {
         if (gameManager.GameIsPaused) return;
@@ -225,18 +275,7 @@ public class Enemy : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (gameManager.GameIsPaused) return;
 
-        if (collision.CompareTag("Player"))
-        {
-
-            Debug.Log("Player Hit");
-            collision.TryGetComponent<PlayerStats>(out PlayerStats pStats);
-            pStats.PlayerTakeDamage(damage);
-        }
-    }
 
 
 
@@ -303,5 +342,6 @@ public enum EnemyState
 {
     Patrol,
     Chase,
-    Attack
+    Attack,
+    Knockback
 }

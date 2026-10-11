@@ -76,6 +76,7 @@ public class QuestManager : MonoBehaviour
 
     public Quest LookForTrackingQuestLines(Quest.questLine line)
     {
+        Debug.Log(line.ToString());
         QuestLine questLine = questLines.Find(ql => ql.lineType == line); // find the questline that matches what was sent in brackets i.e., main
 
         if (questLine == null) return null; // if questline has not been failed or is empty, mostly for debug
@@ -84,7 +85,7 @@ public class QuestManager : MonoBehaviour
 
         if (questLine.quests[0].questCompleted == true) // check if player has started questline 
         {
-            Quest nextSideQuest = LookForTrackingQuestLines(Quest.questLine.Baker); // if they have, get next quest
+            Quest nextSideQuest = GetNextQuest(line); // if they have, get next quest
         }
 
         return null;
@@ -92,20 +93,12 @@ public class QuestManager : MonoBehaviour
 
     public void GiveQuestLines() // called from game manager
     {
-        // if (Quest.questLine.Main == null) // debug
-        // {
-        //     Debug.LogError("Quest.questLine.Main is null");
-        //     return;
-        // }
-
         Debug.Log("Give quest lines");
 
         Quest nextMainQuest = GetNextQuest(Quest.questLine.Main);
 
         if (nextMainQuest != null) // if you actually get main quest, mostly for preventing errors during prototypimg
         {
-            // Debug.Log(nextMainQuest.questName);
-            // Debug.Log(activeQuests);
             activeQuests.Add(nextMainQuest); // add to active quest
             possibleQuests.Remove(nextMainQuest); // remove from the random quest pool
         }
@@ -146,7 +139,7 @@ public class QuestManager : MonoBehaviour
             }
             else
             {
-                Debug.Log(randomSideQuest.questDifficulty + randomSideQuest.QuestLine + randomSideQuest.QuestOrder);
+                //Debug.Log(randomSideQuest.questDifficulty + randomSideQuest.QuestLine + randomSideQuest.QuestOrder);
             }
             SetSideQuests(); // starts function again
         }
@@ -161,11 +154,11 @@ public class QuestManager : MonoBehaviour
                 }
                 mailbox.QuestLetterSprite.Add(new QuestLetter(activeQuests[i].questLetter, false));
 
-                if (QuestName[i] == null)
-                {
-                    Debug.Log("No Active Quest");
-                    return;
-                }
+                // if (QuestName[i] == null)
+                // {
+                //     Debug.Log("No Active Quest");
+                //     return;
+                // }
 
                 TextMeshProUGUI childTMPText = mailbox.questLetters[i].GetComponentInChildren<TextMeshProUGUI>();
                 childTMPText.text = activeQuests[i].questName;
@@ -201,9 +194,10 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentEnemyAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
 
-                    if (activeQuests[i].requiredEnemyAmount == activeQuests[i].currentEnemyAmount)
+                    if (activeQuests[i].requiredEnemyAmount >= activeQuests[i].currentEnemyAmount)
                     {
                         activeQuests[i].questCompleted = true;
+                        QuestRequirement[i].text += "\nCOMPLETE";
                     }
                 }
             } 
@@ -221,9 +215,10 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentItemAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;
 
-                    if (activeQuests[i].requiredItemAmount == activeQuests[i].currentItemAmount)
+                    if (activeQuests[i].requiredItemAmount >= activeQuests[i].currentItemAmount)
                     {
                         activeQuests[i].questCompleted = true;
+                        QuestRequirement[i].text += "\nCOMPLETE";
                     }
                 }
             } 
@@ -232,13 +227,18 @@ public class QuestManager : MonoBehaviour
 
     public void TalkCheck (NPC npc)
     {
-       foreach (Quest q in activeQuests)
+       for (int i = 0; i < activeQuests.Count; i++)
        {  
-            if (q.QuestType == Quest.questType.Talk)
+            if (activeQuests[i].QuestType == Quest.questType.Talk)
             { 
-                if (npc.Name == q.questNPCID)
+                if (npc.Name == activeQuests[i].requiredNPC.Name)
                 { 
-                    q.questCompleted = true;
+                    activeQuests[i].questCompleted = true;
+                    QuestRequirement[i].text += "\nCOMPLETE";
+                }
+                else
+                {
+                    Debug.Log("NPC prefab name: " + npc.Name + " Quest NPC ID: " + activeQuests[i].questNPCID);
                 }
             } 
         } 

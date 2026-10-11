@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 public class PlayerStats : MonoBehaviour
@@ -8,6 +9,9 @@ public class PlayerStats : MonoBehaviour
     public float currentHealth;
 
     public float swordDamage = 1f;
+    public float knockbackForce = 50f;
+    public float knockbackTime =0.2f;
+    public float stunTime = 0.3f;
 
     // Animation and Sword Reference
     [Header("Sword Reference")]
@@ -19,9 +23,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
 
+
     public Healthbar healthbar;
 
     GameManager gameManager;
+    PlayerMovement playerMovement;
 
     public void Start()
     {
@@ -30,6 +36,7 @@ public class PlayerStats : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         gameManager = FindFirstObjectByType<GameManager>();
+        playerMovement = GetComponent<PlayerMovement>();
         if (healthbar != null)
         {
             healthbar.SetMaxHealth(maxHealth);
@@ -41,29 +48,38 @@ public class PlayerStats : MonoBehaviour
 
     public void Update()
     {
-        if (gameManager.GameIsPaused) return;
-        // Attack Input
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Attack();
-        }
+        //if (gameManager.GameIsPaused) return;
+        //// Attack Input
+        //if (Input.GetButtonDown("Fire1"))
+        //{
+        //    Attack();
+        //}
 
 
     }
 
-
-
-    // Activate Sword Attack
-    void Attack()
+    public void Attack(InputAction.CallbackContext context)
     {
         if (gameManager.GameIsPaused) return;
+
         anim.SetTrigger("Attack");
         rb.linearVelocity = Vector2.zero;
         swordObj.SetActive(true);
+        playerMovement.isAttacking = true;
+
     }
 
+    // Activate Sword Attack
+    //void Attack()
+    //{
+    //    if (gameManager.GameIsPaused) return;
+    //    anim.SetTrigger("Attack");
+    //    rb.linearVelocity = Vector2.zero;
+    //    swordObj.SetActive(true);
+    //}
 
 
+    //Restore Player Health
     public void HealPlayer(float healAmount)
     {
         if (gameManager.GameIsPaused) return;
@@ -74,6 +90,8 @@ public class PlayerStats : MonoBehaviour
             currentHealth = maxHealth;
         }
     }
+
+    //Damage Player Health
     public void PlayerTakeDamage(float damage)
     {
         if (gameManager.GameIsPaused) return;
@@ -81,9 +99,6 @@ public class PlayerStats : MonoBehaviour
         healthbar.SetHealth(currentHealth);
         StartCoroutine(Invulnerability());
 
-
-
-        //PUT GAME OVER SCREEN HERE
         if (currentHealth <= 0f)
         {
             Debug.Log("You died");
@@ -108,19 +123,8 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-
-
-
     public void EndGame()
     {
         SceneManager.LoadScene("GameOverDied");
-
-        // For standalone built versions of the game
-        //Application.Quit();
-
-        // For testing inside the Unity Editor
-//#if UNITY_EDITOR
-//        UnityEditor.EditorApplication.isPlaying = false;
-//#endif
     }
 }

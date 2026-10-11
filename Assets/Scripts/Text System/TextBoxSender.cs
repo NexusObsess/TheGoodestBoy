@@ -29,6 +29,11 @@ public class TextBoxSender : MonoBehaviour
         DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Function called");
+
+        if (DialogueTree.Count == 0)
+        {
+            Debug.Log("Message Nicole cause I know what has gone wrong.");
+        }
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
         Debug.Log("return check");
 
@@ -71,8 +76,8 @@ public class TextBoxSender : MonoBehaviour
                     currentOnscreenLine = 0;
                     previousOnscreenLine = 0;
 
-                    // PlayerRB.constraints = RigidbodyConstraints2D.None;
-                    // PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    textboxobject.SetActive(false);
+
                     gamemanager.GameIsPaused = false;
 
                     DialogueTree.Clear(); // empties the list for next text sequence

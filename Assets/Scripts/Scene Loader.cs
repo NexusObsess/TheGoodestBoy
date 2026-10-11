@@ -7,12 +7,12 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] GameObject StartButton;
     [SerializeField] string StartScene;
     [SerializeField] string UIScene;
-    public GameManager gameManager;
+    //public GameManager gameManager;
     [SerializeField] string Town;
 
     void Start()
     {
-        EventSystem.current.SetSelectedGameObject(StartButton);
+       EventSystem.current.SetSelectedGameObject(StartButton);
         //
         //gameManager = Object.FindFirstObjectByType<GameManager>();
     }
@@ -28,6 +28,18 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(UIScene, LoadSceneMode.Additive);
         
         
+    }
+
+    public void GoHome()
+    {
+        Debug.Log("gohome");
+        SceneManager.LoadScene("Title Screen");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Quit");
     }
 
 }
