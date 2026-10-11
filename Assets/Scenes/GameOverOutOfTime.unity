@@ -363,7 +363,6 @@ MonoBehaviour:
   StartButton: {fileID: 225031261}
   StartScene: Title Screen
   UIScene: UIScene
-  gameManager: {fileID: 0}
   Town: Town
 --- !u!4 &491492279
 Transform:
