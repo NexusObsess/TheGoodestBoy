@@ -9,6 +9,8 @@ public class SwordPosition : MonoBehaviour
 
     GameManager gameManager;
 
+    public float moveSpeed = 700f;
+
     void Start()
     {
         gameManager = FindFirstObjectByType<GameManager>();
@@ -17,28 +19,33 @@ public class SwordPosition : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-            if (gameManager.GameIsPaused) return;
-            rawPointerPos = Input.mousePosition;
-            pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            Vector2 lookDir = pointerPosition - (Vector2)transform.position;
-            transform.right = lookDir;
 
         // Ensure a gamepad is connected
         if (Gamepad.current != null)
         {
             // Read the left stick as a Vector2 (X and Y values between -1 and 1)
-            Vector2 stickInput = Gamepad.current.leftStick.ReadValue();
+            Vector2 stickInput = Gamepad.current.rightStick.ReadValue();
+            Debug.DrawRay(transform.position, stickInput * 5f, Color.red);
 
-            // Log the direction vector
-            if (stickInput.sqrMagnitude > 0.01f)
-            {
-                Debug.Log("Stick Direction: " + stickInput);
-            }
+                if (stickInput.sqrMagnitude > 0.1f) // Deadzone check
+                {
+                    // Turn the stick direction into an angle directly
+                    float targetAngle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, targetAngle), moveSpeed * Time.deltaTime);
 
+                    return;
+                }
+        }
+        else
+        {
+            rawPointerPos = Input.mousePosition;
+            pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector2 lookDir = pointerPosition - (Vector2)transform.position;
+            transform.right = lookDir;
         }
 
 
-    }
 
+    }
 }
