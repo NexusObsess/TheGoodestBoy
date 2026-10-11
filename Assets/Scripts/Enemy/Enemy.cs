@@ -288,6 +288,7 @@ public class Enemy : MonoBehaviour
             HealthDrop();
 
             questManager.HuntCheck(this);
+            SpawnerScript.enemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }
