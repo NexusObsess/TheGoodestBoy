@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
         foreach (var enemy in SpawnerScript.enemies) //removes leftover enemies
         {
-            TownMorale -= 1;
+            //TownMorale -= 1;
             Destroy(enemy);
         }
         foreach (var questStuffs in QuestSpawner.QuestStuffs) //removes leftover quest things
