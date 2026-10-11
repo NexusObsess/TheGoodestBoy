@@ -1696,8 +1696,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
-    m_SelectedColor: {r: 0, g: 1, b: 0, a: 1}
+    m_PressedColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
+    m_SelectedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1820,7 +1820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 959.69543, y: -537.08014}
+  m_AnchoredPosition: {x: 959.69543, y: -538.9}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &415470174
@@ -2182,6 +2182,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 5030d3ec-0673-4479-a366-9083e682246c
     m_ActionName: 'UI/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 45c3911b-6c8b-47cc-90f4-601a8ad714a2
+    m_ActionName: 'Player/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -6010,7 +6014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1792042794
 SpriteRenderer:
   serializedVersion: 2
@@ -6060,7 +6064,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 150
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6999039573938662567, guid: 5cfd4fef81adf8e4990e3f4c690b7a65, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6068,7 +6072,7 @@ SpriteRenderer:
   m_Size: {x: 6.18, y: 6.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1792042795
 Transform:
@@ -6079,8 +6083,8 @@ Transform:
   m_GameObject: {fileID: 1792042793}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -104.69, y: -0.49, z: 0}
-  m_LocalScale: {x: 1.2333, y: 1.2333, z: 1.2333}
+  m_LocalPosition: {x: -81.1344, y: -0.992, z: 0}
+  m_LocalScale: {x: 0.17097794, y: 1.5456218, z: 1.2333}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
