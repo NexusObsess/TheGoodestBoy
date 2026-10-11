@@ -131,17 +131,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (gameManager.GameIsPaused) return;
-
         moveInput = context.ReadValue<Vector2>();
-        
-
-
     }
 
     public void Sprint(InputAction.CallbackContext context)
     {
-        if (gameManager.GameIsPaused) return;
 
         if (context.started)
         {

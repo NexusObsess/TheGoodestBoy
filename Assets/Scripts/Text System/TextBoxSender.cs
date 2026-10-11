@@ -1,9 +1,10 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TextBoxSender : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class TextBoxSender : MonoBehaviour
 
     GameObject DefaultCurrentSelectedGameObject;
 
-    // public Rigidbody2D PlayerRB;
+    public Rigidbody2D PlayerRB;
 
     public void DialogueSequenceStarts() // called from other scripts
     {
@@ -30,12 +31,14 @@ public class TextBoxSender : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Function called");
 
-        if (DialogueTree.Count == 0)
-        {
-            Debug.Log("Message Nicole cause I know what has gone wrong.");
-        }
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
         Debug.Log("return check");
+
+        PlayerRB.linearVelocity = Vector2.zero; // Use rb.velocity in older Unity versions (pre-2023.2)
+        // Stop spinning/rotation
+        PlayerRB.angularVelocity = 0f;
+        PlayerRB.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+
 
         gamemanager = FindFirstObjectByType<GameManager>();
         gamemanager.TextActive = true;
@@ -103,6 +106,12 @@ public class TextBoxSender : MonoBehaviour
     {
         yield return new WaitForSeconds(1); // Waits 5 seconds (scaled)
         EventSystem.current.SetSelectedGameObject(DefaultCurrentSelectedGameObject);
+        PlayerRB.constraints = RigidbodyConstraints2D.None;
+        PlayerRB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        PlayerRB.linearVelocity = Vector2.zero; // Use rb.velocity in older Unity versions (pre-2023.2)
+        Debug.Log(PlayerRB.linearVelocity);
+        // Stop spinning/rotation
+        PlayerRB.angularVelocity = 0f;
     }
 
     public void GoBackLine() // called from textbox script
