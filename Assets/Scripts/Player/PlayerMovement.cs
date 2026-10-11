@@ -76,7 +76,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                rb.linearVelocity = Vector2.zero;
+                    anim.SetBool("isIdle", true);
+                    anim.SetBool("isWalking", false);
+                    anim.SetBool("isSprinting", false);
+                    rb.linearVelocity = Vector2.zero;
+                    
             }
         }
     }
