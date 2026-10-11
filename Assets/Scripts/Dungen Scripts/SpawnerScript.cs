@@ -96,6 +96,7 @@ public class SpawnerScript : MonoBehaviour
     {
         foreach (var objects in enemies)
         {
+            enemies.Remove(objects);
             Destroy(objects);
         }
     }

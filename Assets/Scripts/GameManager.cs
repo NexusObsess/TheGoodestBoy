@@ -10,26 +10,26 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager current;
 
-    [Header ("UI")]
+    [Header("UI")]
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject UnPauseButton;
     [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
 
-    [Header ("Basics")]
+    [Header("Basics")]
     public int currentDay = 0; // what ingame day is it - used for determining the difficulty of the quests the player can get and for ui
     public float TownMorale = 100; // determines game ending and some flavour text
     public float TownMoraleDailyDecrease; // how much the morale of the town decreases every ingame day
     public float KnightHealth = 6;
     public float KnightHealthDailyDecrease;
 
-    [Header ("Manager Scripts")]
+    [Header("Manager Scripts")]
     QuestManager questManager; // manages quest system
     public GameObject Player;
     Vector2 PlayerSpawn;
     PlayerStats playerstats;
 
-    [Header ("Music")]
+    [Header("Music")]
     public AudioSource MusicPlayer;
     public AudioClip Dungeon;
     [SerializeField] AudioClip Town;
@@ -39,19 +39,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip Text00GameOver;
     [SerializeField] AudioClip TrueEnding;
 
-    [Header ("Text trees")]
+    [Header("Text trees")]
     public GameObject textboxobject;
     TextBox textbox;
     TextBoxSender textboxsender;
     [SerializeField] TextTreeChooser EndOfDayVariations;
 
-    [Header ("Bools")]
+    [Header("Bools")]
     public bool TextActive = false;
     public bool GameOverTriggered = false;
     public bool TrueEndingTriggered = false;
     public bool GameIsPaused = false;
 
-    [Header ("NPCs")]
+    [Header("NPCs")]
     public NPC Knight;
     public NPC Witch;
     public NPC WannabeHero;
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        if(current == null)
+        if (current == null)
         {
             current = this;
             DontDestroyOnLoad(gameObject);
@@ -87,13 +87,26 @@ public class GameManager : MonoBehaviour
 
     public void PauseBind(InputAction.CallbackContext context)
     {
-        if (GameIsPaused)
+        if (context.performed)
         {
-            UnPause();
+            Debug.Log("Escape button is pressed");
+            if (GameIsPaused)
+            {
+                UnPause();
+            }
+            else
+            {
+                Pause();
+            }
         }
-        else
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
+            // Your logic here (e.g., PauseGame(); or OpenMenu();)
+            Debug.Log("Escape key pressed!");
         }
     }
 
@@ -143,8 +156,9 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(dungeonScene);// stop 'dungeon' stuff
         foreach (var enemy in SpawnerScript.enemies) //removes leftover enemies
         {
-            //TownMorale -= 1;
+            TownMorale -= 1;
             Destroy(enemy);
+            Debug.Log("TownMorale down by one");
         }
         foreach (var questStuffs in QuestSpawner.QuestStuffs) //removes leftover quest things
         {
