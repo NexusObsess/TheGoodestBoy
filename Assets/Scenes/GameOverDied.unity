@@ -331,9 +331,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea6d24ba8a776d4abe3a428e581abb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
-  StartButton: {fileID: 1271296560}
+  StartButton: {fileID: 0}
   StartScene: Title Screen
   UIScene: UIScene
+  gameManager: {fileID: 0}
   Town: Town
 --- !u!4 &885983517
 Transform:
