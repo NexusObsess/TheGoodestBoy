@@ -35,7 +35,7 @@ public class Teleporter : MonoBehaviour
 
             gameManager.MusicPlayer.clip = gameManager.Dungeon;
             gameManager.MusicPlayer.Play();
-            ShowTutorial();
+            //ShowTutorial();
             
         }
         if (!IsStartDoor && other.gameObject.CompareTag("Player"))
@@ -49,26 +49,26 @@ public class Teleporter : MonoBehaviour
 
     }
 
-    void ShowTutorial()
-    {
-        tutorial.SetActive(true);
-        tutorialShowing = true;
-        gameManager.Pause();
-    }
+    //void ShowTutorial()
+    //{
+    //    tutorial.SetActive(true);
+    //    tutorialShowing = true;
+    //    gameManager.Pause();
+    //}
 
-    void UnShowTutorial()
-    {
-        tutorial.SetActive(false);
-        tutorialShowing = false;
-        gameManager.UnPause();
-    }
+    //void UnShowTutorial()
+    //{
+    //    tutorial.SetActive(false);
+    //    tutorialShowing = false;
+    //    gameManager.UnPause();
+    //}
 
-    public void TutorialBind(InputAction.CallbackContext context)
-    {
-        if (context.performed && tutorialShowing)
-        {
-            UnShowTutorial();
-        }
-    }
+    //public void TutorialBind(InputAction.CallbackContext context)
+    //{
+    //    if (context.performed && tutorialShowing)
+    //    {
+    //        UnShowTutorial();
+    //    }
+    //}
 
 }
