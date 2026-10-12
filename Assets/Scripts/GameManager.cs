@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject UnPauseButton;
+    [SerializeField] GameObject DayText;
     [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
 
     [Header("Basics")]
@@ -132,6 +133,7 @@ public class GameManager : MonoBehaviour
     [ContextMenu("New Day")]
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
+        
         MusicPlayer.clip = Town;
         MusicPlayer.Play();
         // spawns player in starting location healed(?)
@@ -233,11 +235,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FadeToBlack()
     {
-        ExitAnimation.SetBool("Fade In", true);
-        ExitAnimation.SetBool("Fade Out", false);
+        Debug.Log("fading");
+        DayText.SetActive(true);
         yield return new WaitForSeconds(0.5f);
+        DayText.SetActive(false);
         ExitAnimation.SetBool("Fade In", false);
         ExitAnimation.SetBool("Fade Out", true);
+        textbox.BackgroundOff();
     }
 
     IEnumerator TextBoxCheck()
@@ -260,13 +264,13 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("GameOverTheEnd");
             yield break;
         }
-
-        textbox.BackgroundOff();
+        
+        
         textboxobject.SetActive(false);
         GameIsPaused = false;
-
+        StartCoroutine(FadeToBlack());
         NewDay();
-        FadeToBlack();
+        
     }
 
     void UpdatePauseStats()
