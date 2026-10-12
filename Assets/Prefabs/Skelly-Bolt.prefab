@@ -180,6 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   force: 5
-  damage: 2
+  damage: 1
   knockbackForce: 2
   stunTime: 0.1
