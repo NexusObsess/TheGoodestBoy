@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     public static GameManager current;
+    Animator ExitAnimation;
 
     [Header("UI")]
     [SerializeField] GameObject PauseMenu;
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
 
 
             // get any necessary manager scripts to call functions
-
+            ExitAnimation = GameObject.Find("BlackOut").GetComponent<Animator>();
             textboxsender = FindFirstObjectByType<TextBoxSender>(); // again, just in case
             textbox = FindFirstObjectByType<TextBox>(); // again, just in case
             questManager = FindFirstObjectByType<QuestManager>();
@@ -227,7 +228,16 @@ public class GameManager : MonoBehaviour
             MusicPlayer.clip = TrueEnding;
             MusicPlayer.Play(); 
         }
-       
+        
+    }
+
+    IEnumerator FadeToBlack()
+    {
+        ExitAnimation.SetBool("Fade In", true);
+        ExitAnimation.SetBool("Fade Out", false);
+        yield return new WaitForSeconds(0.5f);
+        ExitAnimation.SetBool("Fade In", false);
+        ExitAnimation.SetBool("Fade Out", true);
     }
 
     IEnumerator TextBoxCheck()
@@ -256,6 +266,7 @@ public class GameManager : MonoBehaviour
         GameIsPaused = false;
 
         NewDay();
+        FadeToBlack();
     }
 
     void UpdatePauseStats()

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,8 @@ public class Teleporter : MonoBehaviour
     public GameObject bound;
     public GameObject tutorial;
     private bool tutorialShowing = false;
+    Animator ExitAnimation;
+    
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class Teleporter : MonoBehaviour
         bound = GameObject.Find("CameraBounds");
         gameManager = FindFirstObjectByType<GameManager>();
         timer = FindFirstObjectByType<Timer>();
-        //tutorial.SetActive(false);
+        ExitAnimation = GameObject.Find("BlackOut").GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,8 +38,9 @@ public class Teleporter : MonoBehaviour
 
             gameManager.MusicPlayer.clip = gameManager.Dungeon;
             gameManager.MusicPlayer.Play();
+            StartCoroutine(FadeToBlack());
             //ShowTutorial();
-            
+
         }
         if (!IsStartDoor && other.gameObject.CompareTag("Player"))
         {
@@ -45,9 +49,29 @@ public class Teleporter : MonoBehaviour
             bound.gameObject.transform.position = Town.transform.position;
             gameManager.EndDay();
             timer.ResetTimer();
+            //StartCoroutine(FadeOutBlack());
         }
 
     }
+
+    IEnumerator FadeToBlack()
+    {
+        ExitAnimation.SetBool("Fade In", true);
+        ExitAnimation.SetBool("Fade Out", false);
+        yield return new WaitForSeconds(0.5f);
+        ExitAnimation.SetBool("Fade In", false);
+        ExitAnimation.SetBool("Fade Out", true);
+    }
+
+    IEnumerator FadeOutBlack()
+    {
+        ExitAnimation.SetBool("Fade In", true);
+        ExitAnimation.SetBool("Fade Out", false);
+        yield return new WaitForSeconds(0.5f);
+        ExitAnimation.SetBool("Fade In", false);
+        ExitAnimation.SetBool("Fade Out", true);
+    }
+
 
     //void ShowTutorial()
     //{
