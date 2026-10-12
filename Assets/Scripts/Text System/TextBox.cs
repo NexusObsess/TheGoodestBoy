@@ -128,6 +128,7 @@ public class TextBox : MonoBehaviour
 
     public void BackgroundOff()
     {
+        Debug.Log("bg off");
         dialogueBG.SetActive(false);
     }
 

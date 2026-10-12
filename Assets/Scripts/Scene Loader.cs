@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
     //public GameManager gameManager;
     [SerializeField] string Town;
 
-    void Start()
+    void Awake()
     {
        EventSystem.current.SetSelectedGameObject(StartButton);
         //

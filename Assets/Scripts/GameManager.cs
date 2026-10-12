@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject PauseMenu;
     [SerializeField] GameObject PauseButton;
     [SerializeField] GameObject UnPauseButton;
-    [SerializeField] GameObject DayText;
+    [SerializeField] TextMeshProUGUI DayText;
     [SerializeField] TextMeshProUGUI StatText; // text on pause menu displaying the current day, town morale etc
 
     [Header("Basics")]
@@ -236,12 +236,17 @@ public class GameManager : MonoBehaviour
     IEnumerator FadeToBlack()
     {
         Debug.Log("fading");
-        DayText.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
-        DayText.SetActive(false);
-        ExitAnimation.SetBool("Fade In", false);
+        DayText.text = "Day " + (currentDay + 1);
+        ExitAnimation.SetBool("Fade In", true);
+        ExitAnimation.SetBool("Fade Out", false);
+        yield return new WaitForSeconds(2f); 
+       
+        //ExitAnimation.SetBool("Fade In", false); 
+        
         ExitAnimation.SetBool("Fade Out", true);
         textbox.BackgroundOff();
+        DayText.text = "";
+       //yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator TextBoxCheck()
