@@ -14,6 +14,9 @@ public class SceneLoader : MonoBehaviour
     //public GameManager gameManager;
     [SerializeField] string Town;
 
+    public AudioSource SoundEffectPlayer;
+    [SerializeField] AudioClip Button;
+
     void Awake()
     {
        EventSystem.current.SetSelectedGameObject(StartButton);
@@ -28,6 +31,10 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
+        SoundEffectPlayer.clip = Button;
+        SoundEffectPlayer.Play();
+
+
         SceneManager.LoadScene(Town);
         SceneManager.LoadScene(UIScene, LoadSceneMode.Additive);
         
@@ -37,11 +44,13 @@ public class SceneLoader : MonoBehaviour
     public void GoHome()
     {
         Debug.Log("gohome");
+        PlayButtonSE();
         SceneManager.LoadScene("Title Screen");
     }
 
     public void Exit()
     {
+        PlayButtonSE();
         Application.Quit();
         Debug.Log("Quit");
     }
@@ -53,6 +62,8 @@ public class SceneLoader : MonoBehaviour
         Controls.SetActive(true);
         Bg.SetActive(true);
         EventSystem.current.SetSelectedGameObject(TutOff);
+
+        PlayButtonSE();
     }
 
     public void ControlsOff()
@@ -62,5 +73,13 @@ public class SceneLoader : MonoBehaviour
         Controls.SetActive(false);
         Bg.SetActive(false);
         EventSystem.current.SetSelectedGameObject(TutOn);
+
+        PlayButtonSE();
+    }
+
+    public void PlayButtonSE()
+    {
+        SoundEffectPlayer.clip = Button;
+        SoundEffectPlayer.Play();
     }
 }

@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioClip Text30;
     [SerializeField] AudioClip Text00GameOver;
     [SerializeField] AudioClip TrueEnding;
+    public AudioSource SoundEffectPlayer;
+    [SerializeField] AudioClip Button;
 
     [Header("Text trees")]
     public GameObject textboxobject;
@@ -100,15 +102,6 @@ public class GameManager : MonoBehaviour
             {
                 Pause();
             }
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // Your logic here (e.g., PauseGame(); or OpenMenu();)
-            Debug.Log("Escape key pressed!");
         }
     }
 
@@ -412,5 +405,11 @@ public class GameManager : MonoBehaviour
         textbox = FindFirstObjectByType<TextBox>(); // again, just in case
         textbox.BackgroundOn();
         StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
+    }
+
+    public void PlayButtonSE()
+    {
+        SoundEffectPlayer.clip = Button;
+        SoundEffectPlayer.Play();
     }
 }
