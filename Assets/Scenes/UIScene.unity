@@ -6223,6 +6223,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doggie
       objectReference: {fileID: 0}
+    - target: {fileID: 7515228667767474136, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635755864676492325, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635755864676492325, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2341839648570825380, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
