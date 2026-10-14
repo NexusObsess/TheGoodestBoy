@@ -155,6 +155,10 @@ MonoBehaviour:
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 5, y: 5}
     obligatory: 0
+  - room: {fileID: 8630911395702533841, guid: a7ec614caa75d914b9e457359d7d2f51, type: 3}
+    minPosition: {x: 0, y: 0}
+    maxPosition: {x: 1, y: 1}
+    obligatory: 1
   offset: {x: 13, y: 6.5}
   activeRooms: []
 --- !u!4 &206425977
@@ -318,7 +322,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.18406734, g: 0.27672952, b: 0.17665437, a: 1}
+  m_Color: {r: 0.004354134, g: 0.05660379, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
