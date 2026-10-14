@@ -6386,6 +6386,18 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 1597207134}
+    - target: {fileID: 3339632836690765166, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1112077
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339632836690765166, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1112077
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339632836690765166, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1112077
+      objectReference: {fileID: 0}
     - target: {fileID: 3414287728024288445, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
       propertyPath: m_Camera
       value: 
@@ -6522,6 +6534,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9063712814935902706, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1944600585, guid: d72d5c32924d4e241a56270b632ab3dd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2341839648570825380, guid: 5a1b83ad90dcc304eaf485df88270acf, type: 3}
