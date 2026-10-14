@@ -3256,7 +3256,7 @@ MonoBehaviour:
   IsStartDoor: 0
   gameManager: {fileID: 0}
   timer: {fileID: 0}
-  bound: {fileID: 0}
+  bound: {fileID: 7768357320281292058, guid: adfbd7f1a25f0ea4eb7b182fdef7d56d, type: 3}
   tutorial: {fileID: 0}
 --- !u!61 &2710495665160134478
 BoxCollider2D:
