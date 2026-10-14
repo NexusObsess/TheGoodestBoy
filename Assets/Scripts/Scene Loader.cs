@@ -5,6 +5,10 @@ public class SceneLoader : MonoBehaviour
 {
 
     [SerializeField] GameObject StartButton;
+    [SerializeField] GameObject TutOn;
+    [SerializeField] GameObject TutOff;
+    [SerializeField] GameObject Controls;
+    [SerializeField] GameObject Bg;
     [SerializeField] string StartScene;
     [SerializeField] string UIScene;
     //public GameManager gameManager;
@@ -42,4 +46,21 @@ public class SceneLoader : MonoBehaviour
         Debug.Log("Quit");
     }
 
+    public void ControlsOn()
+    {
+        TutOff.SetActive(true);
+        TutOn.SetActive(false);
+        Controls.SetActive(true);
+        Bg.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(TutOff);
+    }
+
+    public void ControlsOff()
+    {
+        TutOff.SetActive(false);
+        TutOn.SetActive(true);
+        Controls.SetActive(false);
+        Bg.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(TutOn);
+    }
 }
