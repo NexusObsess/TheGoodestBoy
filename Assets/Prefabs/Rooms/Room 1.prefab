@@ -4946,7 +4946,7 @@ GameObject:
   - component: {fileID: 8770971790473581529}
   - component: {fileID: 5405449467626213349}
   m_Layer: 0
-  m_Name: Room Prefab to Copy
+  m_Name: Room 1
   m_TagString: SpawnFloor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
