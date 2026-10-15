@@ -108,9 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
   Name: Rival Dog
-  TextSpeed: 0.5
+  TextSpeed: 2
   TextColour: {r: 0.3584906, g: 0.0047347625, b: 0.0047347625, a: 1}
-  TextSound: {fileID: 8300000, guid: 8f4cf9fc92d8d474a832248a18048d6d, type: 3}
+  TextSound: {fileID: 8300000, guid: 5c7a942c63cf34646abe50e2cdc1751e, type: 3}
   TextFont: {fileID: 11400000, guid: 334439677b340c34dbd68963086e75f7, type: 2}
   TextSize: 70
   DialogueVariations: {fileID: 6029366264072640790}
