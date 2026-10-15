@@ -71,43 +71,42 @@ public class DungeonGenerator : MonoBehaviour
             for (int j = 0; j < size.y; j++)
             {
                 int randomRoom = -1; 
-                List<int>availableRooms = new List<int>();
+                List<int>availableRooms = new List<int>(); 
 
                 for (int k = 0; k < rooms.Length; k++)
                 {
                     int p = rooms[k].probabiltyOfSpawning(i, j);
-                    if (p == 2)
+                    if (p == 2) //spawns this certain room in the cell
                     {
                         randomRoom = k;
                         break;
                     }
-                    else if (p == 1)
+                    else if (p == 1) //adds to the list of possible rooms to spawn
                     {
                         availableRooms.Add(k);
                     }
                 }
 
-                if (randomRoom == -1)
+                if (randomRoom == -1) //if no room spawned yet
                 {
-                    if (availableRooms.Count > 0)
-                    {
+                    if (availableRooms.Count > 0) 
+                    { //choose a random room from those available to spawn in the cell
                         randomRoom = availableRooms[Random.Range(0, availableRooms.Count)];
                     }
                     else
                     {
-                        randomRoom = 0;
+                        randomRoom = 0; //doesnt spawn a room
                     }
                 }
 
-
+                //Spawns the rooms
                 Cell currentCell = board[(i + j * size.x)];
                 if (currentCell.Visited)
                 {
                     var newRoom = Instantiate(rooms[randomRoom].room,new Vector2(i * offset.x,-j * offset.y), Quaternion.identity, transform).GetComponent<RoomBehavior>();
-                    newRoom.UpdateRoom(currentCell.status);
-                    newRoom.name += " " + i + "-" + j;
+                    newRoom.UpdateRoom(currentCell.status);//opens the correct doors
+                    newRoom.name += " " + i + "-" + j; //gives the rooms a name to show their location on the board
                     
-
                 }
                 
             }
@@ -123,6 +122,7 @@ public class DungeonGenerator : MonoBehaviour
         Debug.Log("Maze Generator Active");
         board = new List<Cell>();
 
+        //creates the grid that the rooms will generate in
         for (int i = 0; i < size.x; i++)
         {
             for (int j = 0; j < size.y; j++)
@@ -137,14 +137,11 @@ public class DungeonGenerator : MonoBehaviour
 
         int k = 0;
 
-        while (k < 1000)
+        //algorithm that walks around the board to establish the path
+        while (k < 1000)//makes sure the dungeon doesn't generate forever
         {
             k++;
-
-            board[currentCell].Visited = true;
-
-           
-
+            board[currentCell].Visited = true; //a room will spawn here
             if (currentCell == board.Count - 1)
             {
                 break;
@@ -153,19 +150,18 @@ public class DungeonGenerator : MonoBehaviour
             //Check the cell's neighbors
             List<int> neighbors = CheckNeighbours(currentCell);
 
-            if (neighbors.Count == 0)
-            {
+            if (neighbors.Count == 0) //if no neighbours
+            { //Wont activate any doors
                 if (path.Count == 0)
                 {
-                    break;
+                    break; 
                 }
                 else
                 {
-                    currentCell = path.Pop();
-                    
+                    currentCell = path.Pop();  
                 }
             }
-            else
+            else //if the cell has neighbours
             {
                 path.Push(currentCell);
               
@@ -173,7 +169,7 @@ public class DungeonGenerator : MonoBehaviour
 
                 if (newCell > currentCell)
                 {
-                    //down or right
+                    //tells room to open the down or right doors
                     if (newCell - 1 == currentCell)
                     {
                         board[currentCell].status[2] = true;
@@ -189,7 +185,7 @@ public class DungeonGenerator : MonoBehaviour
                 }
                 else
                 {
-                    //up or left
+                    //tells room to open the up or left doors
                     if (newCell + 1 == currentCell)
                     {
                         board[currentCell].status[3] = true;

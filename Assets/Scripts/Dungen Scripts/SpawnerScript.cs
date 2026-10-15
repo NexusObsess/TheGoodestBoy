@@ -29,7 +29,6 @@ public class SpawnerScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-    
         Debug.Log("spawner working");
         gameManager = FindFirstObjectByType<GameManager>();
 
@@ -55,7 +54,7 @@ public class SpawnerScript : MonoBehaviour
 
    public void SpawnEnemies()
     {
-        while (EnemiesSpawning > EnemiesSpawned)
+        while (EnemiesSpawning > EnemiesSpawned)//spawns the enemies
         {
             Vector3 pos = this.transform.position;//Checks position of the room to spawn enemies within
             float posX = pos.x;
@@ -68,7 +67,7 @@ public class SpawnerScript : MonoBehaviour
             int RangedSpawned = 0;
             int BigSpawned = 0;
 
-            if (RangedSpawning > RangedSpawned)
+            if (RangedSpawning > RangedSpawned) //spawns the ranged enemies
             {
                 GameObject newRanged = Instantiate(rangedPrefab, new Vector3(Random.Range(posX += 1, posX -= 1), Random.Range(posY += 0.4f, posY -= 0.4f), 0), Quaternion.identity);
                 newRanged.SetActive(true);
@@ -76,7 +75,7 @@ public class SpawnerScript : MonoBehaviour
                 RangedSpawned++;
             }
 
-            if (BigSpawning > BigSpawned)
+            if (BigSpawning > BigSpawned) //spawns the big enemies
             {
                 GameObject newBig = Instantiate(bigSwarmerPrefab, new Vector3(Random.Range(posX += 1, posX -= 1), Random.Range(posY += 0.4f, posY -= 0.4f), 0), Quaternion.identity);
                 newBig.SetActive(true);
@@ -86,14 +85,11 @@ public class SpawnerScript : MonoBehaviour
 
             SpawnEnemies();
         }
-
-
-
-
     }
 
     public void RemoveEnemies()
-    {
+    {//takes the enmies in the list and removes them at the end of the day
+        //the leftover enemies in the list -1 from morale
         foreach (var objects in enemies)
         {
             enemies.Remove(objects);
