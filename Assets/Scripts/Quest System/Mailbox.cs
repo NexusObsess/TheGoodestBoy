@@ -37,6 +37,8 @@ public class MailBox : MonoBehaviour // still cooking
     Rigidbody2D PlayerRB;
     GameObject PlayerGO;
 
+    [SerializeField] GameObject ExclaimationMark;
+
     void Awake()
     {
         if (current == null)
@@ -57,6 +59,7 @@ public class MailBox : MonoBehaviour // still cooking
         activated = false;
         mailboxRenderer.sprite = NonRead;
         DungeonGate.SetActive(true);
+        ExclaimationMark.SetActive(true);
         QuestLetterSprite.Clear();
         Debug.Log(QuestLetterSprite.Count);
     }
@@ -82,6 +85,7 @@ public class MailBox : MonoBehaviour // still cooking
         {
            exitPanel.SetActive(true);
            mailboxRenderer.sprite = Read;
+           ExclaimationMark.SetActive(false);
         }
     }
 

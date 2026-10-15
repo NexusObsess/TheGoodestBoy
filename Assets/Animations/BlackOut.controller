@@ -34,7 +34,13 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: Fade In
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: Fade Out
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 97636144052816338}
   m_Solo: 0

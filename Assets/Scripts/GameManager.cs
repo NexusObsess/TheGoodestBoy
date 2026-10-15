@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -80,8 +81,13 @@ public class GameManager : MonoBehaviour
             questManager = FindFirstObjectByType<QuestManager>();
             playerstats = FindFirstObjectByType<PlayerStats>();
             PlayerSpawn = Player.transform.position;
+
+            GameIsPaused = true;
+            IntroDialogueSequence();
+            MusicPlayer.clip = Text60;
+            MusicPlayer.Play(); 
             // opening sequence
-            NewDay();
+            //NewDay();
         }
         else
         {
@@ -107,6 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
+        if (TextActive) return;
         GameIsPaused = true;
         PauseMenu.SetActive(true);
         PauseButton.SetActive(false);
@@ -116,6 +123,7 @@ public class GameManager : MonoBehaviour
 
     public void UnPause()
     {
+        if (TextActive) return;
         GameIsPaused = false;
         PauseMenu.SetActive(false);
         PauseButton.SetActive(true);
@@ -126,7 +134,6 @@ public class GameManager : MonoBehaviour
     [ContextMenu("New Day")]
     public void NewDay() // called every ingame day after the end of day sequence finishes and the opening sequence
     {
-        
         MusicPlayer.clip = Town;
         MusicPlayer.Play();
         // spawns player in starting location healed(?)
@@ -142,9 +149,30 @@ public class GameManager : MonoBehaviour
         Debug.Log("NewDay");
         currentDay ++; // keep at bottom, for quest system
         SceneManager.LoadScene("Dungeon", LoadSceneMode.Additive); // create new version of 'dungeon' ?
-
+        
         UpdatePauseStats(); // call everytime one of the stats changes
     }
+
+    // private IEnumerator SelectButtonNextFrame()
+    // {
+    //     EventSystem.current.SetSelectedGameObject(null);
+    //     yield return null;
+
+    //     UnPause();
+    //     EventSystem.current.SetSelectedGameObject(PauseButton);
+
+    //     Debug.Log("Selected: " + EventSystem.current.currentSelectedGameObject);
+    //     Debug.Log(EventSystem.current.currentSelectedGameObject?.name);
+        
+    // }
+
+    // private void Awake()
+    // {
+    //     PauseButton.GetComponent<Button>().onClick.AddListener(() =>
+    //     {
+    //         Debug.Log("PAUSE BUTTON CLICKED!");
+    //     });
+    // }
 
     public void EndDay() // called at the end of every ingame day or if player leaves dunegon
     {
@@ -233,12 +261,15 @@ public class GameManager : MonoBehaviour
         ExitAnimation.SetBool("Fade In", true);
         ExitAnimation.SetBool("Fade Out", false);
         yield return new WaitForSeconds(2f); 
+
+        textbox.BackgroundOff();
        
-        //ExitAnimation.SetBool("Fade In", false); 
+        ExitAnimation.SetBool("Fade In", false); 
         
         ExitAnimation.SetBool("Fade Out", true);
-        textbox.BackgroundOff();
         DayText.text = "";
+
+        UnPause();
        //yield return new WaitForSeconds(0.1f);
     }
 
@@ -265,6 +296,7 @@ public class GameManager : MonoBehaviour
         
         
         textboxobject.SetActive(false);
+        UnPause();
         GameIsPaused = false;
         StartCoroutine(FadeToBlack());
         NewDay();
@@ -407,8 +439,27 @@ public class GameManager : MonoBehaviour
         StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
     }
 
+
+    void IntroDialogueSequence()
+    {
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Once upon a time, there was a small village, surrounded by a magical forest that shifted each day like the weather."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "The forest was controlled by an evil witch who used his terrifying army of monsters to terrorize the people of the village."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Only one person kept the evil at bay: The village's guardian... the knight."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "And, of course, the knight's good boy!"));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Every day, the townspeople left small notes in the knight's mailbox, and they would brave the dangerous woods to complete each of the town's requests."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Together, they kept everyone in town safe and happy. All they asked was thanks and some loves for the goodest boy in town!"));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Until, one day, the knight fell gravely ill and... wasn't getting better."));
+        textboxsender.DialogueTree.Add(new TextLine(null, 1, "Even though the knight is sick, the letters keep piling in the mailbox. The townspeople are becoming scared without their hero. It was all up to the knight’s pet dog to keep the town safe and get to the bottom of the knight’s mysterious sickness."));
+
+        textboxsender.DialogueSequenceStarts();
+        textbox = FindFirstObjectByType<TextBox>(); // again, just in case
+        textbox.BackgroundOn();
+        StartCoroutine(TextBoxCheck()); // add a corountine that waits until the textbox is inactive again before starting a new day with yield return new WaitUntil(() => bool true); but idk
+    }
+
     public void PlayButtonSE()
     {
+        if (GameIsPaused) return;
         SoundEffectPlayer.clip = Button;
         SoundEffectPlayer.Play();
     }
