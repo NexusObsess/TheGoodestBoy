@@ -5728,7 +5728,7 @@ PrefabInstance:
       objectReference: {fileID: 1296683988}
     - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
       propertyPath: currentDay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6049576229786542918, guid: da94d563e598dba4b9653a40d49f56da, type: 3}
       propertyPath: MusicPlayer
