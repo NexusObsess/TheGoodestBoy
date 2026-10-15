@@ -148,26 +148,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c10958708ffc84e9a9f25dfd3233d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DungeonGenerator
-  size: {x: 4, y: 4}
+  size: {x: 5, y: 5}
   startPosition: 0
   rooms:
-  - room: {fileID: 5602982078868670904, guid: c13a3b160f469354bbcf8aed9dc1a645, type: 3}
+  - room: {fileID: 1258659080535803346, guid: 2483ca3f3a7dbfe44aa99caaccadbcba, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 5, y: 5}
     obligatory: 0
-  - room: {fileID: 8630911395702533841, guid: a7ec614caa75d914b9e457359d7d2f51, type: 3}
+  - room: {fileID: 7891167847678987045, guid: f4406b6fa2ab869418636dd26d04d09b, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 1, y: 1}
     obligatory: 1
-  - room: {fileID: 7149734798296276122, guid: 2824de61016034e428716e7db5a50e1d, type: 3}
+  - room: {fileID: 3703150627398991278, guid: d8e03233d29a0e349afe635684774d5a, type: 3}
     minPosition: {x: 0, y: 0}
     maxPosition: {x: 5, y: 5}
     obligatory: 0
-  - room: {fileID: 6564499085067931902, guid: 17df0c636ade79b458605965babe9d0d, type: 3}
-    minPosition: {x: 0, y: 0}
-    maxPosition: {x: 5, y: 5}
-    obligatory: 0
-  offset: {x: 13, y: 6.5}
+  offset: {x: 9, y: 9}
   activeRooms: []
 --- !u!4 &206425977
 Transform:
