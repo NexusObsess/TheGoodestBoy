@@ -7,6 +7,8 @@ public class SwordPosition : MonoBehaviour
     public Vector2 rawPointerPos;
     public Vector2 pointerPosition { get; set; }
 
+    public GameObject gPadCursor;
+
     GameManager gameManager;
 
     public float moveSpeed = 700f;
@@ -23,6 +25,11 @@ public class SwordPosition : MonoBehaviour
         // Ensure a gamepad is connected
         if (Gamepad.current != null)
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            gPadCursor.SetActive(true);
+
             // Read the left stick as a Vector2 (X and Y values between -1 and 1)
             Vector2 stickInput = Gamepad.current.rightStick.ReadValue();
             Debug.DrawRay(transform.position, stickInput * 5f, Color.red);
@@ -38,6 +45,11 @@ public class SwordPosition : MonoBehaviour
         }
         else
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            gPadCursor.SetActive(false);
+
             rawPointerPos = Input.mousePosition;
             pointerPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 

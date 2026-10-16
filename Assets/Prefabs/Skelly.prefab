@@ -107,7 +107,7 @@ MonoBehaviour:
   isAttacking: 0
   isDead: 0
   walkPointRange: 5
-  dropChance: 0.3
+  dropChance: 0.5
 --- !u!114 &5009204799152267191
 MonoBehaviour:
   m_ObjectHideFlags: 0
