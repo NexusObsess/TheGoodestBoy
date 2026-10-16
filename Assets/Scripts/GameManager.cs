@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
     Vector2 PlayerSpawn;
     PlayerStats playerstats;
 
+    [Header("TextBox Visuals")]
+    public GameObject BadEndingDog;
+    public GameObject Default;
+    public GameObject GoodEnding;
+
     [Header("Music")]
     public AudioSource MusicPlayer;
     public AudioClip Dungeon;
@@ -310,6 +315,9 @@ public class GameManager : MonoBehaviour
 
     void TrueEndingDialogueSequence()
     {
+        BadEndingDog.SetActive(false);
+        Default.SetActive(false);
+        GoodEnding.SetActive(true);
         TrueEndingTriggered = true;
 
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The next day, the knight is finally able to get out of bed. You nearly knock the knight over in your excitement!"));
@@ -442,6 +450,9 @@ public class GameManager : MonoBehaviour
 
     void IntroDialogueSequence()
     {
+        BadEndingDog.SetActive(false);
+        Default.SetActive(true);
+        GoodEnding.SetActive(false);
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "Once upon a time, there was a small village, surrounded by a magical forest that shifted each day like the weather."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "The forest was controlled by an evil witch who used his terrifying army of monsters to terrorize the people of the village."));
         textboxsender.DialogueTree.Add(new TextLine(null, 1, "Only one person kept the evil at bay: The village's guardian... the knight."));

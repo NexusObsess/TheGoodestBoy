@@ -116,8 +116,8 @@ TextureImporter:
         y: 0
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,8 +138,8 @@ TextureImporter:
         y: 4
         width: 256
         height: 252
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -160,8 +160,8 @@ TextureImporter:
         y: 4
         width: 256
         height: 252
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 1
+      pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -178,13 +178,13 @@ TextureImporter:
       name: KnightSick_3
       rect:
         serializedVersion: 2
-        x: 770
+        x: 766
         y: 4
-        width: 250
+        width: 258
         height: 252
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 3, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []

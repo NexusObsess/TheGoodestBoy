@@ -43,6 +43,9 @@ public class TextTreeChooser : MonoBehaviour
                 if (i != 0)
                 {
                     Debug.Log("Day specific game over");
+                    gameManager.BadEndingDog.SetActive(true);
+                    gameManager.Default.SetActive(false);
+                    gameManager.GoodEnding.SetActive(false);
                     gameManager.GameOverTriggered = true;
                     //gameManager.NewDay();
                 }
