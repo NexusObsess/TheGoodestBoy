@@ -33,27 +33,22 @@ public class Teleporter : MonoBehaviour
         {
             Debug.Log("Teleporting To Dungeon");
             player.gameObject.transform.position = Dungeon.transform.position;
-           // bound.gameObject.transform.position = Dungeon.transform.position;
             timer.TimerStart();
-
             gameManager.MusicPlayer.clip = gameManager.Dungeon;
             gameManager.MusicPlayer.Play();
             StartCoroutine(FadeToBlack());
-            //ShowTutorial();
-
+            
         }
         if (!IsStartDoor && other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Teleporting To Town");
             player.gameObject.transform.position = Town.transform.position;
-            //bound.gameObject.transform.position = Town.transform.position;
             gameManager.EndDay();
             timer.ResetTimer();
-            //StartCoroutine(FadeOutBlack());
         }
 
     }
-
+ // bound.gameObject.transform.position = Dungeon.transform.position;
     IEnumerator FadeToBlack()
     {
         ExitAnimation.SetBool("Fade In", true);
