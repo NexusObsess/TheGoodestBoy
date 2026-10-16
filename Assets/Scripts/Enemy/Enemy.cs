@@ -60,6 +60,12 @@ public class Enemy : MonoBehaviour
     QuestManager questManager;
     GameManager gameManager;
 
+    [Header("Sound Effects")]
+    [SerializeField] private AudioSource soundSource;
+    public AudioClip attackSound;
+    public AudioClip hurtSound;
+
+    public float pitchVariation = 0.15f;
 
     public void Awake()
     {
@@ -79,6 +85,7 @@ public class Enemy : MonoBehaviour
         //Managers
         questManager = FindFirstObjectByType<QuestManager>();
         gameManager = FindFirstObjectByType<GameManager>();
+        soundSource = FindFirstObjectByType<AudioSource>();
 
         //Animations
         sRenderer = GetComponent<SpriteRenderer>();
@@ -86,6 +93,8 @@ public class Enemy : MonoBehaviour
         anim.SetBool("isWalking", false);
         anim.SetBool("isIdle", true);
         ChangeState(EnemyState.Patrol);
+
+
 
         isDead = false;
     }
@@ -222,7 +231,7 @@ public class Enemy : MonoBehaviour
             {
                 Debug.Log(enemyName + "Attacking");
                 anim.SetTrigger("Attack");
-
+                PlayAudio(attackSound);
                 rb.linearVelocity = Vector2.zero;
 
                 timer = 0;
@@ -230,6 +239,7 @@ public class Enemy : MonoBehaviour
             else if (attackType == EnemyType.Ranged)
             {
                 Debug.Log(enemyName + "Shooting");
+                PlayAudio(attackSound);
                 anim.SetTrigger("Attack");
                 shootScript.Shoot();
 
@@ -281,6 +291,7 @@ public class Enemy : MonoBehaviour
 
     public void EnemyTakeDamage(float damage)
     {
+        PlayAudio(hurtSound);
         hp -= damage;
         StartCoroutine(Invulnerability());
         if (hp <= 0)
@@ -292,6 +303,20 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+
+    public void PlayAudio(AudioClip toPlay)
+    {
+        soundSource.clip = toPlay;
+        if (soundSource != null && soundSource.clip != null)
+        {
+            float randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
+            soundSource.pitch = randomPitch;
+            soundSource.PlayOneShot(soundSource.clip);
+        }
+    }
+
+
 
     // Temporary invulnerability after taking damage
     private IEnumerator Invulnerability()

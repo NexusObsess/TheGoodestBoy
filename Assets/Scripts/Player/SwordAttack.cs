@@ -10,6 +10,13 @@ public class SwordAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
+    [Header ("Sound Effects")]
+    public AudioSource soundSource;
+    public AudioClip swordSwingSound;
+    public AudioClip dogBarkSound;
+
+    public float pitchVariation = 0.15f;
+
     GameManager gameManager;
 
     PlayerMovement playerMovement;
@@ -32,6 +39,9 @@ public class SwordAttack : MonoBehaviour
     {
         if (gameManager.GameIsPaused) return;
         Debug.Log("Attacked");
+        PlayAudio(dogBarkSound);
+        PlayAudio(swordSwingSound);
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         List<GameObject> enemies = new List<GameObject>();
@@ -50,6 +60,20 @@ public class SwordAttack : MonoBehaviour
         }
 
     }
+
+
+    public void PlayAudio(AudioClip toPlay)
+    {
+        soundSource.clip = toPlay;
+        if(soundSource != null && soundSource.clip != null)
+        {
+            float randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
+            soundSource.pitch = randomPitch;
+            soundSource.PlayOneShot(soundSource.clip);
+        }   
+    }
+
+
 
 
     void OnDrawGizmosSelected()

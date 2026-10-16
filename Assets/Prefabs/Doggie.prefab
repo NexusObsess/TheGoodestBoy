@@ -338,6 +338,10 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 768
+  soundSource: {fileID: 0}
+  swordSwingSound: {fileID: 8300000, guid: 0b43f57545d04924eabe6402aebfe4fb, type: 3}
+  dogBarkSound: {fileID: 8300000, guid: 9fe31ad282ce3764d835140843909d32, type: 3}
+  pitchVariation: 0.15
 --- !u!1 &4021783626690696382
 GameObject:
   m_ObjectHideFlags: 0

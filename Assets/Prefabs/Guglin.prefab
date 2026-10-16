@@ -247,6 +247,10 @@ MonoBehaviour:
   isDead: 1
   walkPointRange: 5
   dropChance: 1
+  soundSource: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 80b1ec5c83ecf274f8d6f444e9b71de6, type: 3}
+  hurtSound: {fileID: 8300000, guid: cea80f2360c233940a2ff85c69bd129d, type: 3}
+  pitchVariation: 0.15
 --- !u!114 &4319207499270092316
 MonoBehaviour:
   m_ObjectHideFlags: 0
