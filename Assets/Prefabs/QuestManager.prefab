@@ -722,7 +722,7 @@ MonoBehaviour:
     QuestOrder: 2
   - questName: For Old Times Sake
     questDescription: Help grandma relive her glory days of beating up guglins
-    questDifficulty: 1
+    questDifficulty: 0
     questLetter: {fileID: 2445334238418745788, guid: 5021f66446fecfd45be2e04d7df77fc1, type: 3}
     questCompleted: 0
     conditionsMet: 0
@@ -749,10 +749,10 @@ MonoBehaviour:
     questNPCID: 
     requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
-    QuestOrder: 2
+    QuestOrder: 0
   - questName: Allergy Season
     questDescription: Accommodate the unluckiest guy in the town's greglin allergy
-    questDifficulty: 2
+    questDifficulty: 1
     questLetter: {fileID: 5590647502558531152, guid: 0a2d2a0da28a75148a3ab874d62e1464, type: 3}
     questCompleted: 0
     conditionsMet: 0
@@ -767,7 +767,7 @@ MonoBehaviour:
     townMoraleIncrease: 5
     knightHealthIncrease: 0
     QuestType: 1
-    QuestLine: 0
+    QuestLine: 1
     requiredItem: {fileID: 3685330357435017766, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
     requiredItemPF: {fileID: 1628071829107190243, guid: d16ba023a9d23f1499d59b146a8cd284, type: 3}
     requiredItemAmount: 10
@@ -779,7 +779,7 @@ MonoBehaviour:
     questNPCID: 
     requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
-    QuestOrder: 2
+    QuestOrder: 0
   - questName: Workout Challenge
     questDescription: Make the forest safer so no one at the body builders event
       gets hurt
@@ -809,7 +809,7 @@ MonoBehaviour:
     questNPCID: 
     requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
-    QuestOrder: 2
+    QuestOrder: 0
   - questName: Bones! Bones! Bones!
     questDescription: Satisfy your craving for bones by beating up skellys.
     questDifficulty: 0
@@ -836,7 +836,7 @@ MonoBehaviour:
     questNPCID: 
     requiredNPC: {fileID: 0}
     questNPCIDPF: {fileID: 0}
-    QuestOrder: 2
+    QuestOrder: 0
   questLines: []
   CompletedQuests: 0
   mailbox: {fileID: 0}
