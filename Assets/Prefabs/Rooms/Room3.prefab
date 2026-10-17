@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7085318416792412243
 RectTransform:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.0078125, y: 0.015625, z: 0}
@@ -739,7 +739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6595010131633556693
 Transform:
   m_ObjectHideFlags: 0
@@ -771,8 +771,8 @@ Tilemap:
   - first: {x: -22, y: -98, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 5
+      m_TileIndex: 4
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1008,12 +1008,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 21
+  - m_RefCount: 22
     m_Data: {fileID: 11400000, guid: 39c4c5a7428ac564689df45247765249, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: a0c90f09667338c44bf6a27836100620, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: aab4393b5a6b47e43a83e702d959a081, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -1025,9 +1025,9 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -4863294048749186983, guid: 8583dc5007208384e8e83467625b0bb5, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1922542081884694013, guid: d126a490d8e8fb344b09aa712ef6917d, type: 3}
-  - m_RefCount: 21
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 22
     m_Data: {fileID: 7932798033344189819, guid: aee4964d5f915b44b9fd8eee666f4c2c, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
@@ -1178,7 +1178,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.0078125, y: 0.015625, z: 0}
@@ -2066,9 +2066,9 @@ PolygonCollider2D:
       - {x: 2.772769, y: 0.6686319}
       - {x: 1.8674212, y: 0.6642643}
       - {x: 1.4011436, y: 0.70007277}
-      - {x: 1.0698235, y: 0.8873108}
-      - {x: 0.98117286, y: 1.116829}
-      - {x: 0.55709606, y: 1.1316487}
+      - {x: 1.0267903, y: 0.9036604}
+      - {x: 0.99747723, y: 1.1707573}
+      - {x: 0.63281, y: 1.1745671}
       - {x: 0.76102793, y: 0.6418811}
       - {x: 0.9772001, y: 0.2091662}
       - {x: 2.7751145, y: -0.29772177}
@@ -2406,8 +2406,8 @@ PolygonCollider2D:
       - {x: 1.4011436, y: 0.70007277}
       - {x: 0.9109192, y: 0.510643}
       - {x: 0.7521443, y: 0.07337107}
-      - {x: 0.5545038, y: -0.4535452}
-      - {x: 0.9793293, y: -0.4536759}
+      - {x: 0.54905635, y: -0.47511724}
+      - {x: 0.9792529, y: -0.47527075}
       - {x: 1.0630815, y: -0.25561804}
       - {x: 1.3625458, y: -0.08726466}
       - {x: 1.2304362, y: 0.13638145}
@@ -5003,7 +5003,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.0078125, y: 0.015625, z: 0}
@@ -6193,7 +6193,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -6672,7 +6672,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.0078125, y: 0, z: 0}

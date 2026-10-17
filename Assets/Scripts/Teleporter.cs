@@ -14,14 +14,14 @@ public class Teleporter : MonoBehaviour
     public Timer timer;
     public GameObject bound;
     public GameObject tutorial;
-    private bool tutorialShowing = false;
+    //private bool tutorialShowing = false;
     Animator ExitAnimation;
     
 
     void Start()
     {
         player = GameObject.Find("Doggie");
-        bound = GameObject.Find("CameraBounds");
+        //bound = GameObject.Find("CameraBounds");
         gameManager = FindFirstObjectByType<GameManager>();
         timer = FindFirstObjectByType<Timer>();
         ExitAnimation = GameObject.Find("BlackOut").GetComponent<Animator>();
@@ -51,11 +51,14 @@ public class Teleporter : MonoBehaviour
  // bound.gameObject.transform.position = Dungeon.transform.position;
     IEnumerator FadeToBlack()
     {
+        gameManager.GameIsPaused = true;
         ExitAnimation.SetBool("Fade In", true);
         ExitAnimation.SetBool("Fade Out", false);
         yield return new WaitForSeconds(0.5f);
         ExitAnimation.SetBool("Fade In", false);
         ExitAnimation.SetBool("Fade Out", true);
+        gameManager.GameIsPaused = false;
+
     }
 
     IEnumerator FadeOutBlack()

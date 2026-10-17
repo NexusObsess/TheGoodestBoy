@@ -11,7 +11,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] GameObject Bg;
     [SerializeField] string StartScene;
     [SerializeField] string UIScene;
-    //public GameManager gameManager;
+    public GameManager gameManager;
     [SerializeField] string Town;
 
     public AudioSource SoundEffectPlayer;
@@ -20,8 +20,7 @@ public class SceneLoader : MonoBehaviour
     void Awake()
     {
        EventSystem.current.SetSelectedGameObject(StartButton);
-        //
-        //gameManager = Object.FindFirstObjectByType<GameManager>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     private void Update()
@@ -45,6 +44,7 @@ public class SceneLoader : MonoBehaviour
     {
         Debug.Log("gohome");
         PlayButtonSE();
+        Destroy (gameManager);
         SceneManager.LoadScene("Title Screen");
     }
 
