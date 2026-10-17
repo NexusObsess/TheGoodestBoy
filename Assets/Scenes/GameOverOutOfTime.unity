@@ -337,6 +337,7 @@ MonoBehaviour:
   Bg: {fileID: 0}
   StartScene: Title Screen
   UIScene: UIScene
+  gameManager: {fileID: 0}
   Town: Town
   SoundEffectPlayer: {fileID: 491492280}
   Button: {fileID: 8300000, guid: 5378fd306be2f3c44b12936b2b7e77cf, type: 3}
@@ -800,7 +801,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 663580578}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 491492278}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: GoHome
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &663580578
 MonoBehaviour:
   m_ObjectHideFlags: 0
