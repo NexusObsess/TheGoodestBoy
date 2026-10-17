@@ -10,13 +10,6 @@ public class SwordAttack : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    [Header ("Sound Effects")]
-    public AudioSource soundSource;
-    public AudioClip swordSwingSound;
-    public AudioClip dogBarkSound;
-
-    public float pitchVariation = 0.15f;
-
     GameManager gameManager;
 
     PlayerMovement playerMovement;
@@ -38,10 +31,7 @@ public class SwordAttack : MonoBehaviour
     void Attack()
     {
         if (gameManager.GameIsPaused) return;
-        Debug.Log("Attacked");
-        PlayAudio(dogBarkSound);
-        PlayAudio(swordSwingSound);
-
+//        Debug.Log("Attacked");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         List<GameObject> enemies = new List<GameObject>();
@@ -53,27 +43,19 @@ public class SwordAttack : MonoBehaviour
                 Debug.Log("We hit " + enemy.name);
                 enemy.TryGetComponent<Enemy>(out Enemy enemyStats);
                 enemy.TryGetComponent<EnemyKnockback>(out EnemyKnockback enemyKnockback);
-                enemyStats.EnemyTakeDamage(pStats.swordDamage);
-                enemyKnockback.Knockback(pStats.knockbackForce,pStats.knockbackTime, pStats.stunTime);
+                if (enemyStats != null)
+                {
+                    enemyStats.EnemyTakeDamage(pStats.swordDamage);
+                }
+                if (enemyKnockback != null)
+                {
+                    enemyKnockback.Knockback(pStats.knockbackForce,pStats.knockbackTime, pStats.stunTime);
+                }
                 enemies.Add(enemy.gameObject);
             }
         }
 
     }
-
-
-    public void PlayAudio(AudioClip toPlay)
-    {
-        soundSource.clip = toPlay;
-        if(soundSource != null && soundSource.clip != null)
-        {
-            float randomPitch = Random.Range(1f - pitchVariation, 1f + pitchVariation);
-            soundSource.pitch = randomPitch;
-            soundSource.PlayOneShot(soundSource.clip);
-        }   
-    }
-
-
 
 
     void OnDrawGizmosSelected()

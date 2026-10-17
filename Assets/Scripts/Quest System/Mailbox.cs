@@ -61,7 +61,7 @@ public class MailBox : MonoBehaviour // still cooking
         DungeonGate.SetActive(true);
         ExclaimationMark.SetActive(true);
         QuestLetterSprite.Clear();
-        Debug.Log(QuestLetterSprite.Count);
+//        Debug.Log(QuestLetterSprite.Count);
     }
 
     public void SetPopUp()
@@ -93,7 +93,7 @@ public class MailBox : MonoBehaviour // still cooking
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Enter");
+//            Debug.Log("Enter");
             PlayerRB = other.gameObject.GetComponent<Rigidbody2D>();
             PlayerGO = other.gameObject;
 
@@ -101,7 +101,7 @@ public class MailBox : MonoBehaviour // still cooking
             {
                 PlayerRB.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
             }
-            Debug.Log("Rigidbody position frozen due to collision.");
+//            Debug.Log("Rigidbody position frozen due to collision.");
             Activate();
 
             if (!activated)

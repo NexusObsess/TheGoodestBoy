@@ -85,7 +85,9 @@ public class Enemy : MonoBehaviour
         //Managers
         questManager = FindFirstObjectByType<QuestManager>();
         gameManager = FindFirstObjectByType<GameManager>();
-        soundSource = FindFirstObjectByType<AudioSource>();
+        //soundSource = FindFirstObjectByType<AudioSource>();
+        GameObject soundeffect = GameObject.Find("TextBoxSender");
+        soundSource = soundeffect.GetComponent<AudioSource>();
 
         //Animations
         sRenderer = GetComponent<SpriteRenderer>();

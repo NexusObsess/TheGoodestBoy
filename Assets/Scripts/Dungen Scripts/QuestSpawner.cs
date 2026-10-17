@@ -33,7 +33,7 @@ public class QuestSpawner : MonoBehaviour
     {
         if (gameManager.currentDay == 5)
         { //spawns the witch on day five in the start room for dialogue
-            GameObject witch = Instantiate(Witch, new Vector3(2f, -2f , 0), Quaternion.identity);
+            GameObject witch = Instantiate(Witch, new Vector3(2f, -1f , 0), Quaternion.identity);
             QuestStuffs.Add(witch);
         }
         foreach (Quest quest in questManager.activeQuests)

@@ -26,13 +26,13 @@ public class TextBoxSender : MonoBehaviour
 
     public void DialogueSequenceStarts() // called from other scripts
     {
-        Debug.Log("Sequence starts");
+//        Debug.Log("Sequence starts");
         DefaultCurrentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
         EventSystem.current.SetSelectedGameObject(null);
         //Debug.Log("Function called");
 
         if (currentOnscreenLine == DialogueTree.Count) return; // if the dialogue tree is completed, don't continue
-        Debug.Log("return check");
+//        Debug.Log("return check");
 
         PlayerRB.linearVelocity = Vector2.zero; // Use rb.velocity in older Unity versions (pre-2023.2)
         // Stop spinning/rotation

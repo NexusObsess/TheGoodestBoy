@@ -42,7 +42,7 @@ public class TextTreeChooser : MonoBehaviour
                 textboxsender.DialogueTree.AddRange(PossibleSequencesKnightHealth[i].DialogueTree); // adds correct text tree to what is currently in the textbox sender
                 if (i != 0)
                 {
-                    Debug.Log("Day specific game over");
+//                    Debug.Log("Day specific game over");
                     gameManager.BadEndingDog.SetActive(true);
                     gameManager.Default.SetActive(false);
                     gameManager.GoodEnding.SetActive(false);

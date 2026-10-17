@@ -76,19 +76,17 @@ public class QuestManager : MonoBehaviour
 
     public Quest LookForTrackingQuestLines(Quest.questLine line)
     {
-        Debug.Log(line.ToString());
-        QuestLine questLine = questLines.Find(ql => ql.lineType == line); // find the questline that matches what was sent in brackets i.e., main
+        QuestLine questLine = questLines.Find(ql => ql.lineType == line);
 
-        if (questLine == null) return null; // if questline has not been failed or is empty, mostly for debug
-
-        if (questLine.quests == null) return null; // if questline has not been failed or is empty, mostly for debug
-
-        if (questLine.quests[0].questCompleted == true) // check if player has started questline 
+        if (questLine == null || questLine.quests == null || questLine.quests.Count == 0)
         {
-            Quest nextSideQuest = GetNextQuest(line); // if they have, get next quest
+            return null;
         }
 
-        return null;
+        // Only track this questline after its first quest is completed.
+        if (!questLine.quests[0].questCompleted) return null;
+
+        return GetNextQuest(line);
     }
 
     public void GiveQuestLines() // called from game manager
@@ -103,16 +101,36 @@ public class QuestManager : MonoBehaviour
             possibleQuests.Remove(nextMainQuest); // remove from the random quest pool
         }
 
-        foreach (Quest quest in possibleQuests) // look for tracking quest lines
+        // Get a snapshot so removing quests doesn't modify the list being iterated.
+        Quest[] possibleQuestsCopy = possibleQuests.ToArray();
+
+        // Prevent checking the same questline multiple times.
+        List<Quest.questLine> checkedLines = new List<Quest.questLine>();
+
+        foreach (Quest quest in possibleQuestsCopy)
         {
-            if (quest.QuestLine == Quest.questLine.Main || quest.QuestLine == Quest.questLine.None) continue; // if quest is not in main questline OR has no questline
+            if (quest == null) continue;
+
+            if (quest.QuestLine == Quest.questLine.Main || quest.QuestLine == Quest.questLine.None)
+            {
+                continue;
+            }
+
+            if (checkedLines.Contains(quest.QuestLine)) continue;
+
+            checkedLines.Add(quest.QuestLine);
+
+            // Stop if we've reached the active quest limit.
+            if (activeQuests.Count >= 3) break;
 
             Quest nextSideQuest = LookForTrackingQuestLines(quest.QuestLine);
 
-            if (nextSideQuest != null && activeQuests.Count < 3) // quest is not null and there are less than three active quests
+            if (nextSideQuest != null && possibleQuests.Contains(nextSideQuest) && !activeQuests.Contains(nextSideQuest))
             {
                 activeQuests.Add(nextSideQuest);
                 possibleQuests.Remove(nextSideQuest);
+
+                Debug.Log("Added side quest: " + nextSideQuest.QuestLine);
             }
         }
 
@@ -194,7 +212,7 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentEnemyAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredEnemy.enemyName + "\n" + activeQuests[i].currentEnemyAmount + "/" + activeQuests[i].requiredEnemyAmount;
 
-                    if (activeQuests[i].requiredEnemyAmount >= activeQuests[i].currentEnemyAmount)
+                    if (activeQuests[i].requiredEnemyAmount <= activeQuests[i].currentEnemyAmount)
                     {
                         activeQuests[i].questCompleted = true;
                         QuestRequirement[i].text += "\nCOMPLETE";
@@ -215,7 +233,7 @@ public class QuestManager : MonoBehaviour
                     activeQuests[i].currentItemAmount ++;
                     QuestRequirement[i].text = activeQuests[i].QuestType.ToString() + "\n" + activeQuests[i].requiredItem.itemName + "\n" + activeQuests[i].currentItemAmount + "/" + activeQuests[i].requiredItemAmount;
 
-                    if (activeQuests[i].requiredItemAmount >= activeQuests[i].currentItemAmount)
+                    if (activeQuests[i].requiredItemAmount <= activeQuests[i].currentItemAmount)
                     {
                         activeQuests[i].questCompleted = true;
                         QuestRequirement[i].text += "\nCOMPLETE";
@@ -294,36 +312,14 @@ public class QuestManager : MonoBehaviour
             if (checkQuest.questCompleted == true) // if the quest sent was complete, mark the corrosponding quest in the questline as complete too for the check next ingame day
             {
                 quest.questCompleted = true;
+                Debug.Log("quest line to continue");
             }
             else // quest incomplete
             {
                 if (checkQuest.QuestLine == Quest.questLine.Main) return; // player cannot fail the main quest line, they just get the same quest again next ingame day
+                Debug.Log("quest line failed");
                 RemoveQuestLine(questLine); // player fails questline and will no longer get subsequent quests in the quest line
             }
-        }
-    }
-
-    public void ToggleComplete1()
-    {
-        if (activeQuests.Count != 0)
-        {
-            activeQuests[0].questCompleted = !activeQuests[0].questCompleted;
-        }
-    }
-
-    public void ToggleComplete2()
-    {
-        if (activeQuests.Count != 0)
-        {
-            activeQuests[1].questCompleted = !activeQuests[1].questCompleted;
-        }
-    }
-
-    public void ToggleComplete3()
-    {
-        if (activeQuests.Count != 0)
-        {
-            activeQuests[2].questCompleted = !activeQuests[2].questCompleted;
         }
     }
 

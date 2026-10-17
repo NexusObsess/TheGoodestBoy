@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
 
                 else
                 {
-                    Debug.Log(timerRunning);
+//                    Debug.Log(timerRunning);
 
                     if (timeRemaining > 0)
                     {
