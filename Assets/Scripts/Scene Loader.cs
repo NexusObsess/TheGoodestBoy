@@ -32,12 +32,8 @@ public class SceneLoader : MonoBehaviour
     {
         SoundEffectPlayer.clip = Button;
         SoundEffectPlayer.Play();
-
-
         SceneManager.LoadScene(Town);
         SceneManager.LoadScene(UIScene, LoadSceneMode.Additive);
-        
-        
     }
 
     public void GoHome()

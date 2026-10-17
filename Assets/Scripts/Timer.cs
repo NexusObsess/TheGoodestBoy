@@ -53,20 +53,15 @@ public class Timer : MonoBehaviour
                     timerRunning = false;
                     DisplayTime(timeRemaining);
                 }
-
-                
+ 
                 if (gameManager.GameIsPaused && timeRemaining > 0)
                 {
                     timerRunning = false;
-                    DisplayTime(timeRemaining);
-
-                    
+                    DisplayTime(timeRemaining);  
                 }
 
                 else
                 {
-//                    Debug.Log(timerRunning);
-
                     if (timeRemaining > 0)
                     {
                         timeRemaining -= Time.deltaTime;
